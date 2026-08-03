@@ -1,4 +1,4 @@
-.navbar{
+.bottom-navbar{
 
 position:fixed;
 
@@ -18,45 +18,91 @@ display:flex;
 
 justify-content:space-around;
 
+align-items:center;
+
 
 padding:15px;
 
 
-border-radius:30px;
+background:
+
+rgba(20,20,20,.75);
 
 
-background:rgba(255,255,255,.1);
+border:
+
+1px solid rgba(212,175,55,.3);
+
+
+border-radius:35px;
+
 
 backdrop-filter:blur(20px);
 
 
-border:1px solid rgba(255,255,255,.15);
+box-shadow:
+
+0 10px 40px rgba(0,0,0,.5);
 
 
-z-index:1000;
-
-}
-
-
-
-.navbar div{
-
-color:white;
-
-text-align:center;
-
-font-size:13px;
+z-index:100;
 
 }
 
 
 
-.navbar span{
+.nav-item{
 
-display:block;
+display:flex;
 
-margin-top:5px;
+flex-direction:column;
 
-color:var(--gold);
+align-items:center;
+
+gap:6px;
+
+
+color:#aaa;
+
+
+font-size:12px;
+
+
+transition:.3s;
+
+}
+
+
+
+.nav-item img{
+
+width:28px;
+
+height:28px;
+
+
+filter:
+
+brightness(.7);
+
+}
+
+
+
+.nav-item.active{
+
+color:#d4af37;
+
+transform:translateY(-8px);
+
+}
+
+
+
+.nav-item.active img{
+
+filter:
+
+drop-shadow(0 0 10px #d4af37);
 
 }
