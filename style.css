@@ -1,29 +1,55 @@
-@import "./src/styles/theme.css";
+@import "./src/styles/design.css";
 
 * {
+
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Tahoma, sans-serif;
+
 }
+
+
+html {
+
+  scroll-behavior: smooth;
+
+}
+
 
 body {
 
-  background: var(--black);
+  background: var(--bg-main);
 
-  color: var(--white);
+  color: var(--text-main);
 
-  min-height:100vh;
+  font-family: Tahoma, sans-serif;
 
-  direction:rtl;
+  direction: rtl;
+
+  min-height: 100vh;
+
+}
+
+
+#root {
+
+  min-height: 100vh;
+
+}
+
+
+button,
+input {
+
+  font-family: inherit;
 
 }
 
 
 main {
 
-  width:100%;
+  width: 100%;
 
-  overflow:hidden;
+  overflow-x: hidden;
 
 }
