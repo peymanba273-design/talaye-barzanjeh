@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./styles/navbar.css";
 
 
@@ -7,28 +8,28 @@ function Navbar(){
 
     <nav className="navbar">
 
-      <div>
+      <Link to="/">
         🏠
         <span>خانه</span>
-      </div>
+      </Link>
 
 
-      <div>
+      <Link to="/market">
         📈
         <span>بازار</span>
-      </div>
+      </Link>
 
 
-      <div>
+      <Link to="/wallet">
         🪙
         <span>کیف طلا</span>
-      </div>
+      </Link>
 
 
-      <div>
+      <Link to="/settings">
         ⚙️
         <span>تنظیمات</span>
-      </div>
+      </Link>
 
     </nav>
 
