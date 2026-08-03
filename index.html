@@ -1,257 +1,14 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>طلای برزنجه</title>
+<title>Talaye Barzanjeh</title>
 
-<style>
-
-*{
-box-sizing:border-box;
-font-family:tahoma,Arial;
-}
-
-body{
-margin:0;
-background:#f7f7f7;
-color:#111;
-}
-
-
-/* Header */
-
-.header{
-background:#050505;
-padding:35px;
-text-align:center;
-border-bottom:3px solid #d4af37;
-}
-
-.logo{
-font-size:35px;
-color:#d4af37;
-font-weight:bold;
-}
-
-.subtitle{
-color:white;
-margin-top:10px;
-}
-
-
-
-/* Cards */
-
-.container{
-margin:20px;
-}
-
-
-.card{
-
-background:white;
-border-radius:30px;
-padding:25px;
-margin-bottom:20px;
-
-box-shadow:
-0 15px 35px rgba(0,0,0,.15);
-
-}
-
-
-
-/* Prices */
-
-.prices{
-
-display:flex;
-gap:12px;
-
-}
-
-
-.price{
-
-flex:1;
-
-text-align:center;
-
-background:#fff;
-
-border-radius:25px;
-
-padding:15px;
-
-box-shadow:
-inset 0 0 10px white,
-8px 8px 20px #ddd;
-
-}
-
-
-.icon{
-font-size:35px;
-}
-
-
-.value{
-
-color:#c9a227;
-
-font-size:18px;
-
-font-weight:bold;
-
-}
-
-
-.green{
-color:green;
-}
-
-
-.red{
-color:red;
-}
-
-
-
-/* Chart */
-
-.chart{
-
-background:#050505;
-color:white;
-text-align:center;
-
-}
-
-
-button{
-
-background:#d4af37;
-
-border:none;
-
-padding:12px;
-
-border-radius:15px;
-
-margin:5px;
-
-}
-
-
-
-/* Calculator */
-
-input{
-
-width:100%;
-
-padding:15px;
-
-border-radius:15px;
-
-border:1px solid #ddd;
-
-margin-top:10px;
-
-}
-
-
-.result{
-
-margin-top:15px;
-
-color:#c9a227;
-
-font-size:20px;
-
-font-weight:bold;
-
-}
-
-
-
-/* Buy Sell */
-
-
-.buySell{
-
-display:flex;
-gap:15px;
-
-}
-
-
-.buy{
-
-background:#050505;
-
-color:white;
-
-flex:1;
-
-padding:25px;
-
-border-radius:25px;
-
-text-align:center;
-
-}
-
-
-/* Customer */
-
-
-.customer{
-
-border:2px solid #d4af37;
-
-}
-
-
-
-/* Mobile */
-
-@media(max-width:600px){
-
-.prices,
-.buySell{
-
-flex-direction:row;
-
-}
-
-
-.price{
-
-padding:10px 5px;
-
-}
-
-
-.icon{
-
-font-size:25px;
-
-}
-
-
-.value{
-
-font-size:13px;
-
-}
-
-}
-
-</style>
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -259,102 +16,118 @@ font-size:13px;
 <body>
 
 
-<div class="header">
+<header class="hero">
 
-<div class="logo">
-✦ طلای برزنجه ✦
-</div>
-
-<div class="subtitle">
-خرید و فروش امن آبشده طلا
-</div>
-
-</div>
+<img src="assets/logo-b.png" class="logo" alt="B Logo">
 
 
+<p>
+پلتفرم هوشمند خرید و فروش طلا
+</p>
 
-<div class="container">
+
+</header>
 
 
 
-<div class="card">
+
+<main>
+
+
+
+<section class="glass">
 
 <h2>
-📊 قیمت لحظه‌ای بازار
+قیمت لحظه‌ای بازار
 </h2>
 
 
 <div class="prices">
 
 
-<div class="price">
+<div class="price-card">
 
-<div class="icon">🪙</div>
+<img src="assets/gold.png">
 
+<h3>
 آبشده
+</h3>
 
-<div class="value">
+<strong>
 18,500,000
-</div>
+</strong>
 
-<div class="green">
+<span class="green">
 ▲ +1.2%
+</span>
+
+
 </div>
 
-</div>
 
 
 
-<div class="price">
+<div class="price-card">
 
-<div class="icon">🌐</div>
+<img src="assets/ounce.png">
 
-اونس
+<h3>
+اونس جهانی
+</h3>
 
-<div class="value">
-4050$
-</div>
+<strong>
+4050 $
+</strong>
 
-<div class="red">
+<span class="red">
 ▼ -0.3%
+</span>
+
+
 </div>
 
-</div>
 
 
 
-<div class="price">
+<div class="price-card">
 
-<div class="icon">💵</div>
+<img src="assets/usdt.png">
 
+<h3>
 تتر
+</h3>
 
-<div class="value">
+<strong>
 98,500
-</div>
+</strong>
 
-<div class="green">
+<span class="green">
 ▲ +0.8%
-</div>
-
-</div>
+</span>
 
 
 </div>
 
+
+
 </div>
 
 
+</section>
 
 
 
-<div class="card chart">
+
+
+<section class="glass chart">
 
 
 <h2>
-📈 نمودار بازار
+نمودار بازار
 </h2>
 
+
+<div class="buttons">
 
 <button>
 آبشده
@@ -369,28 +142,36 @@ font-size:13px;
 </button>
 
 
-<p>
-کندل چارت اضافه می‌شود
-</p>
+</div>
 
+
+<div class="chart-box">
+
+کندل چارت در این قسمت قرار می‌گیرد
 
 </div>
 
 
+</section>
 
 
 
-<div class="card">
+
+
+
+
+<section class="glass calculator">
+
 
 <h2>
-🧮 ماشین حساب طلا
+ماشین حساب طلا
 </h2>
 
 
-<input placeholder="چند گرم می‌خواهید؟">
+<input placeholder="چند گرم طلا؟">
 
 
-<input placeholder="چقدر پول دارید؟">
+<input placeholder="چقدر سرمایه دارید؟">
 
 
 <button>
@@ -399,20 +180,25 @@ font-size:13px;
 
 
 <div class="result">
-نتیجه اینجا نمایش داده می‌شود
+
+نتیجه
+
 </div>
 
 
-</div>
+</section>
 
 
 
 
 
-<div class="card customer">
+
+
+<section class="glass customer">
+
 
 <h2>
-👤 موجودی مشتری
+موجودی مشتری
 </h2>
 
 
@@ -423,25 +209,27 @@ font-size:13px;
 
 
 <p>
-ارزش فعلی:
+ارزش دارایی:
 --- تومان
 </p>
 
 
-</div>
+
+</section>
 
 
 
 
 
-<div class="buySell">
+
+<section class="trade">
 
 
-<div class="buy">
+<div>
 
-<h3>
-خرید آبشده
-</h3>
+<h2>
+خرید
+</h2>
 
 <p>
 قیمت خرید:
@@ -453,16 +241,15 @@ font-size:13px;
 ثبت سفارش
 </button>
 
-
 </div>
 
 
 
-<div class="buy">
+<div>
 
-<h3>
-فروش آبشده
-</h3>
+<h2>
+فروش
+</h2>
 
 <p>
 قیمت فروش:
@@ -478,12 +265,18 @@ font-size:13px;
 </div>
 
 
-</div>
+
+</section>
 
 
 
-</div>
 
+
+</main>
+
+
+<script src="script.js"></script>
 
 </body>
+
 </html>
