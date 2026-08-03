@@ -1,42 +1,66 @@
-import Background from "../components/Background";
-import Header from "../components/Header";
-import PriceCards from "../components/PriceCards";
-import Chart from "../components/Chart";
-import Converter from "../components/Converter";
-import Wallet from "../components/Wallet";
+import Background from "./Background";
+
+import Header from "./Header";
+import PriceCards from "./PriceCards";
+import Chart from "./Chart";
+import Converter from "./Converter";
+import Wallet from "./Wallet";
+
+
+import "./styles/home.css";
 
 
 function Home(){
 
   return (
 
-    <>
+    <div className="home-page">
+
 
       <Background />
 
 
-      <main>
+      <main className="home-content">
 
 
         <Header />
 
 
-        <PriceCards />
+        <section className="home-section">
+
+          <PriceCards />
+
+        </section>
 
 
-        <Chart />
+
+        <section className="home-section">
+
+          <Chart />
+
+        </section>
 
 
-        <Converter />
+
+        <section className="home-section">
+
+          <Converter />
+
+        </section>
 
 
-        <Wallet />
+
+        <section className="home-section">
+
+          <Wallet />
+
+        </section>
 
 
       </main>
 
 
-    </>
+    </div>
 
   );
 
