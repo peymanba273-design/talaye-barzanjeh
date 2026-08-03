@@ -1,4 +1,4 @@
-.background{
+.gold-background{
 
 position:fixed;
 
@@ -8,53 +8,59 @@ overflow:hidden;
 
 z-index:-1;
 
-background:#121212;
+background:
+
+radial-gradient(
+circle at top,
+#2a2208,
+#080808 60%
+);
 
 }
 
 
 
-.gold-light{
+.light{
 
 position:absolute;
 
 border-radius:50%;
 
-filter:blur(80px);
+filter:blur(90px);
 
-background:#d4af37;
+background:var(--gold-main);
 
-opacity:.25;
+opacity:.18;
 
-animation:moveLight 10s infinite alternate;
+animation:moveGold 12s infinite alternate;
 
 }
 
 
 
-.light-one{
+.light-1{
+
+width:350px;
+
+height:350px;
+
+top:-100px;
+
+right:-80px;
+
+}
+
+
+
+.light-2{
 
 width:300px;
 
 height:300px;
 
-top:10%;
+bottom:-80px;
 
-right:10%;
-
-}
-
-
-
-.light-two{
-
-width:250px;
-
-height:250px;
-
-bottom:10%;
-
-left:10%;
+left:-80px;
 
 animation-delay:3s;
 
@@ -62,23 +68,88 @@ animation-delay:3s;
 
 
 
-.light-three{
+.light-3{
 
-width:180px;
+width:220px;
 
-height:180px;
+height:220px;
 
 top:50%;
 
 left:50%;
 
-animation-delay:5s;
+animation-delay:6s;
 
 }
 
 
 
-@keyframes moveLight{
+.particles span{
+
+position:absolute;
+
+width:5px;
+
+height:5px;
+
+background:var(--gold-main);
+
+border-radius:50%;
+
+opacity:.5;
+
+animation:particleMove 8s infinite;
+
+}
+
+
+
+.particles span:nth-child(1){
+
+top:20%;
+left:20%;
+
+}
+
+
+
+.particles span:nth-child(2){
+
+top:60%;
+left:80%;
+
+}
+
+
+
+.particles span:nth-child(3){
+
+top:40%;
+left:40%;
+
+}
+
+
+
+.particles span:nth-child(4){
+
+top:80%;
+left:30%;
+
+}
+
+
+
+.particles span:nth-child(5){
+
+top:30%;
+left:70%;
+
+}
+
+
+
+@keyframes moveGold{
 
 from{
 
@@ -86,10 +157,27 @@ transform:translate(0,0);
 
 }
 
+to{
+
+transform:translate(80px,50px);
+
+}
+
+}
+
+
+
+@keyframes particleMove{
+
+from{
+
+transform:translateY(0);
+
+}
 
 to{
 
-transform:translate(80px,-50px);
+transform:translateY(-40px);
 
 }
 
