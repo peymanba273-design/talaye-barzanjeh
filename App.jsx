@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./src/pages/Home";
 import Market from "./src/pages/Market";
 import WalletPage from "./src/pages/WalletPage";
+import Settings from "./src/pages/Settings";
 
 
 function App(){
@@ -14,21 +15,28 @@ function App(){
 
       <Routes>
 
-        <Route 
-          path="/" 
-          element={<Home />} 
+
+        <Route
+          path="/"
+          element={<Home />}
         />
 
 
-        <Route 
-          path="/market" 
-          element={<Market />} 
+        <Route
+          path="/market"
+          element={<Market />}
         />
 
 
-        <Route 
-          path="/wallet" 
-          element={<WalletPage />} 
+        <Route
+          path="/wallet"
+          element={<WalletPage />}
+        />
+
+
+        <Route
+          path="/settings"
+          element={<Settings />}
         />
 
 
