@@ -1,27 +1,42 @@
-import Header from "../Header";
-import PriceCards from "../PriceCards";
-import Chart from "../Chart";
-import Converter from "../Converter";
-import Wallet from "../Wallet";
+import Background from "../components/Background";
+import Header from "../components/Header";
+import PriceCards from "../components/PriceCards";
+import Chart from "../components/Chart";
+import Converter from "../components/Converter";
+import Wallet from "../components/Wallet";
 
 
 function Home(){
 
   return (
 
-    <main>
+    <>
 
-      <Header />
+      <Background />
 
-      <PriceCards />
 
-      <Chart />
+      <main>
 
-      <Converter />
 
-      <Wallet />
+        <Header />
 
-    </main>
+
+        <PriceCards />
+
+
+        <Chart />
+
+
+        <Converter />
+
+
+        <Wallet />
+
+
+      </main>
+
+
+    </>
 
   );
 
