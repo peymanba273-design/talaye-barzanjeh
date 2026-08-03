@@ -1,0 +1,43 @@
+:root {
+
+  /* رنگ برند */
+  --gold-main:#D4AF37;
+  --gold-light:#F7E7A9;
+  --gold-dark:#8A6B16;
+
+
+  /* پس زمینه */
+  --bg-main:#080808;
+  --bg-card:#151515;
+
+
+  /* متن */
+  --text-main:#FFFFFF;
+  --text-soft:#B8B8B8;
+
+
+  /* وضعیت */
+  --success:#00C853;
+  --danger:#FF1744;
+
+
+  /* شیشه ای */
+  --glass-bg:
+  rgba(255,255,255,0.08);
+
+
+  --glass-border:
+  rgba(255,255,255,0.15);
+
+
+  /* سایه */
+  --gold-shadow:
+  0 20px 60px rgba(212,175,55,.25);
+
+
+  /* شکل */
+  --radius-xl:35px;
+  --radius-lg:25px;
+  --radius-md:15px;
+
+}
