@@ -3,7 +3,6 @@ import PriceCards from "../PriceCards";
 import Chart from "../Chart";
 import Converter from "../Converter";
 import Wallet from "../Wallet";
-import Navbar from "../Navbar";
 
 
 function Home(){
@@ -21,8 +20,6 @@ function Home(){
       <Converter />
 
       <Wallet />
-
-      <Navbar />
 
     </main>
 
