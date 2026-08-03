@@ -4,101 +4,196 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>طلای برزنجه | خرید و فروش آبشده</title>
+<title>طلای برزنجه</title>
 
 <style>
 
-@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;900&display=swap');
-
 *{
 box-sizing:border-box;
+font-family:tahoma,Arial;
 }
 
 body{
 margin:0;
-font-family:Vazirmatn, Tahoma;
-background:#080808;
-color:white;
+background:#f5f5f5;
+color:#111;
 }
 
+
+/* header */
+
 .header{
+background:#050505;
+color:white;
 padding:35px 20px;
 text-align:center;
-background:linear-gradient(135deg,#000,#222);
-border-bottom:2px solid #d4af37;
+border-bottom:3px solid #d4af37;
 }
 
 .logo{
-font-size:38px;
-font-weight:900;
+font-size:35px;
+font-weight:bold;
 color:#d4af37;
 }
 
 .subtitle{
-color:#ddd;
-font-size:16px;
+margin-top:10px;
+color:white;
 }
 
 
-.container{
-padding:20px;
-}
+/* market */
 
-
-.card{
-background:#151515;
-border:1px solid #d4af37;
-border-radius:18px;
-padding:20px;
-margin-bottom:20px;
-box-shadow:0 0 15px #000;
+.market{
+margin:20px;
+background:white;
+border-radius:25px;
+padding:25px;
+box-shadow:0 10px 30px #ccc;
 }
 
 
 .title{
-color:#d4af37;
+text-align:center;
 font-size:22px;
 font-weight:bold;
+margin-bottom:20px;
+}
+
+
+/* price cards */
+
+.prices{
+display:flex;
+gap:15px;
+justify-content:center;
 }
 
 
 .price{
-display:flex;
-justify-content:space-between;
-padding:15px 0;
-border-bottom:1px solid #333;
-font-size:18px;
+flex:1;
+background:#fff;
+border-radius:20px;
+padding:20px;
+text-align:center;
+box-shadow:0 8px 20px #ddd;
+border:1px solid #eee;
+}
+
+
+.icon{
+font-size:40px;
+}
+
+
+.name{
+font-weight:bold;
+margin:10px;
 }
 
 
 .number{
-color:#d4af37;
+font-size:20px;
 font-weight:bold;
+color:#d4af37;
 }
 
 
-.buttons{
+.up{
+color:green;
+}
+
+.down{
+color:red;
+}
+
+
+/* chart */
+
+.chart{
+margin:20px;
+background:#050505;
+color:white;
+border-radius:25px;
+padding:25px;
+text-align:center;
+}
+
+
+.tabs button{
+background:#d4af37;
+border:0;
+padding:10px 20px;
+border-radius:15px;
+margin:5px;
+}
+
+
+/* calculator */
+
+.card{
+margin:20px;
+background:white;
+border-radius:25px;
+padding:25px;
+box-shadow:0 10px 30px #ccc;
+}
+
+
+input{
+width:100%;
+padding:15px;
+border-radius:15px;
+border:1px solid #ddd;
+margin-top:10px;
+}
+
+
+button.main{
+background:#d4af37;
+border:0;
+padding:15px;
+border-radius:15px;
+width:100%;
+font-size:18px;
+margin-top:15px;
+}
+
+
+/* buy sell */
+
+.buySell{
 display:flex;
 gap:15px;
+margin:20px;
 }
 
 
-button{
+.box{
 flex:1;
-padding:15px;
-border:0;
-border-radius:12px;
-background:#d4af37;
-font-size:18px;
-font-weight:bold;
-cursor:pointer;
+background:#050505;
+color:white;
+padding:25px;
+border-radius:25px;
+text-align:center;
 }
 
 
 .footer{
-text-align:center;
+background:#050505;
+color:white;
 padding:20px;
-color:#aaa;
+text-align:center;
+}
+
+
+@media(max-width:700px){
+
+.prices,
+.buySell{
+flex-direction:column;
+}
+
 }
 
 </style>
@@ -123,86 +218,174 @@ color:#aaa;
 
 
 
-<div class="container">
+<div class="market">
+
+<div class="title">
+📊 قیمت لحظه‌ای بازار
+</div>
+
+
+<div class="prices">
+
+
+<div class="price">
+
+<div class="icon">🪙</div>
+
+<div class="name">
+آبشده
+</div>
+
+<div class="number">
+18,500,000
+</div>
+
+<div class="up">
+▲ +1.2%
+</div>
+
+</div>
+
+
+
+<div class="price">
+
+<div class="icon">🌐</div>
+
+<div class="name">
+اونس جهانی
+</div>
+
+<div class="number">
+4050 $
+</div>
+
+<div class="down">
+▼ -0.3%
+</div>
+
+</div>
+
+
+
+<div class="price">
+
+<div class="icon">💵</div>
+
+<div class="name">
+تتر
+</div>
+
+<div class="number">
+98,500
+</div>
+
+<div class="up">
+▲ +0.8%
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+<div class="chart">
+
+<h2>
+📈 نمودار بازار
+</h2>
+
+
+<div class="tabs">
+
+<button>آبشده</button>
+<button>اونس</button>
+<button>تتر</button>
+
+</div>
+
+
+<p>
+کندل چارت اینجا قرار می‌گیرد
+</p>
+
+
+</div>
+
+
 
 
 <div class="card">
 
-<div class="title">
-قیمت لحظه‌ای بازار
-</div>
+<h2>
+🧮 ماشین حساب طلا
+</h2>
 
 
-<div class="price">
-<span>آبشده</span>
-<span class="number">در حال بروزرسانی</span>
-</div>
+<input placeholder="چند گرم می‌خواهید؟">
 
 
-<div class="price">
-<span>اونس جهانی</span>
-<span class="number">در حال بروزرسانی</span>
-</div>
-
-
-<div class="price">
-<span>تتر</span>
-<span class="number">در حال بروزرسانی</span>
-</div>
+<button class="main">
+محاسبه قیمت
+</button>
 
 
 </div>
 
 
 
-<div class="card">
 
-<div class="title">
-ثبت سفارش
-</div>
+<div class="buySell">
 
-<br>
 
-<div class="buttons">
+<div class="box">
 
-<button>
+<h2>
 خرید آبشده
+</h2>
+
+<p>
+قیمت خرید:
+---</p>
+
+<button class="main">
+ثبت سفارش
 </button>
 
-<button>
+</div>
+
+
+
+<div class="box">
+
+<h2>
 فروش آبشده
+</h2>
+
+<p>
+قیمت فروش:
+---</p>
+
+<button class="main">
+ثبت سفارش
 </button>
 
 </div>
 
-</div>
-
-
-
-
-<div class="card">
-
-<div class="title">
-ساعات فعالیت
-</div>
-
-<p>
-هر روز ۱۰ صبح تا ۹ شب
-</p>
-
-<p>
-برای ارسال رسید از واتساپ استفاده کنید.
-</p>
 
 </div>
 
-
-</div>
 
 
 
 <div class="footer">
+
 طلای برزنجه © 2026
+
 </div>
 
 
