@@ -1,45 +1,78 @@
-.logo-container{
+.brand-logo{
 
-text-align:center;
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
 
 }
 
 
-.logo-b{
 
-font-size:120px;
+.gold-b{
+
+
+font-size:150px;
 
 font-weight:900;
 
-color:#d4af37;
+
+font-family:serif;
+
+
+color:var(--gold-main);
+
+
+background:
+
+linear-gradient(
+180deg,
+#fff1a8,
+#d4af37,
+#8a6b16
+);
+
+
+-webkit-background-clip:text;
+
+-webkit-text-fill-color:transparent;
+
 
 
 text-shadow:
 
-0 3px 0 #8a6b16,
+0 5px 0 rgba(138,107,22,.8),
 
-0 8px 20px rgba(212,175,55,.6),
-
-0 20px 40px rgba(0,0,0,.8);
+0 15px 35px rgba(212,175,55,.45);
 
 
-animation:logoFloat 3s infinite ease-in-out;
+
+animation:
+
+goldFloat 4s ease-in-out infinite;
+
 
 }
 
 
 
-.logo-container h2{
+.logo-stars{
 
-color:#d4af37;
+margin-top:-25px;
 
-font-size:30px;
+color:var(--gold-main);
+
+font-size:22px;
+
+letter-spacing:12px;
 
 }
 
 
 
-@keyframes logoFloat{
+@keyframes goldFloat{
+
 
 0%,100%{
 
@@ -50,8 +83,9 @@ transform:translateY(0);
 
 50%{
 
-transform:translateY(-15px);
+transform:translateY(-12px);
 
 }
+
 
 }
