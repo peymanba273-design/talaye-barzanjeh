@@ -5,15 +5,22 @@ function Logo(){
 
   return(
 
-    <div className="logo-container">
+    <div className="brand-logo">
 
-      <div className="logo-b">
+
+      <div className="gold-b">
+
         B
+
       </div>
 
-      <h2>
-        Barzanjeh Gold
-      </h2>
+
+      <div className="logo-stars">
+
+        ✦ ✦ ✦
+
+      </div>
+
 
     </div>
 
