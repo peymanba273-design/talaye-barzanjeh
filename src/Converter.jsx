@@ -1,19 +1,20 @@
 import { useState } from "react";
-import "./styles/converter.css";
+import "./converter.css";
 
 
 function Converter(){
 
-  const [gram,setGram] = useState("");
-  const [money,setMoney] = useState("");
+  const [gold,setGold] = useState(1);
+
+  const goldPrice = 7850000;
 
 
-  const goldPrice = 7500000;
+  const total = gold * goldPrice;
 
 
-  return(
+  return (
 
-    <section className="converter">
+    <section className="converter-box">
 
 
       <h2>
@@ -21,47 +22,45 @@ function Converter(){
       </h2>
 
 
-      <div className="convert-box">
+
+      <div className="converter-input">
+
+
+        <label>
+          مقدار طلا (گرم)
+        </label>
 
 
         <input
 
-          type="number"
+        type="number"
 
-          placeholder="گرم طلا"
+        value={gold}
 
-          value={gram}
-
-          onChange={(e)=>{
-
-            setGram(e.target.value);
-
-            setMoney(
-              e.target.value * goldPrice
-            );
-
-          }}
+        onChange={
+          (e)=>setGold(e.target.value)
+        }
 
         />
-
-
-        <span>
-          تومان
-        </span>
-
 
       </div>
 
 
 
-      <div className="result">
+      <div className="converter-result">
 
-        ارزش تقریبی:
+
+        <span>
+          ارزش تقریبی
+        </span>
+
 
         <strong>
-          {money || 0}
+          {Number(total).toLocaleString()}
+          {" "}
           تومان
         </strong>
+
 
       </div>
 
