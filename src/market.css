@@ -1,0 +1,20 @@
+.market{
+
+  min-height:100vh;
+
+  background:var(--black);
+
+  padding:30px;
+
+}
+
+
+.market h1{
+
+  text-align:center;
+
+  color:var(--gold);
+
+  margin-bottom:30px;
+
+}
