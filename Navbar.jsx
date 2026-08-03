@@ -1,35 +1,68 @@
-import { Link } from "react-router-dom";
-import "./styles/navbar.css";
+import "./navbar.css";
 
 
 function Navbar(){
 
+  const items = [
+
+    {
+      title:"خانه",
+      icon:"/assets/home.svg"
+    },
+
+    {
+      title:"بازار",
+      icon:"/assets/market.svg"
+    },
+
+    {
+      title:"کیف پول",
+      icon:"/assets/wallet.svg"
+    },
+
+    {
+      title:"تنظیمات",
+      icon:"/assets/settings.svg"
+    }
+
+  ];
+
+
   return (
 
-    <nav className="navbar">
-
-      <Link to="/">
-        🏠
-        <span>خانه</span>
-      </Link>
+    <nav className="bottom-navbar">
 
 
-      <Link to="/market">
-        📈
-        <span>بازار</span>
-      </Link>
+      {
+        items.map((item,index)=>(
+
+          <div 
+          className={
+            index===0 
+            ? "nav-item active"
+            : "nav-item"
+          }
+
+          key={index}
+          >
 
 
-      <Link to="/wallet">
-        🪙
-        <span>کیف طلا</span>
-      </Link>
+            <img 
+            src={item.icon}
+            alt={item.title}
+            />
 
 
-      <Link to="/settings">
-        ⚙️
-        <span>تنظیمات</span>
-      </Link>
+            <span>
+              {item.title}
+            </span>
+
+
+          </div>
+
+        ))
+      }
+
 
     </nav>
 
