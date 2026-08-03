@@ -1,54 +1,80 @@
-import "./styles/wallet.css";
+import "./wallet.css";
 
 
 function Wallet(){
 
   return (
 
-    <section className="wallet">
-
-      <h2>
-        کیف طلای من
-      </h2>
+    <section className="wallet-box">
 
 
-      <div className="wallet-card">
+      <div className="wallet-title">
+
+        <h2>
+          کیف طلای من
+        </h2>
+
+        <span>
+          موجودی امن
+        </span>
+
+      </div>
 
 
-        <div>
-          <span>
+
+      <div className="wallet-content">
+
+
+        <div className="wallet-item">
+
+          <p>
             موجودی طلا
-          </span>
+          </p>
 
           <strong>
-            25 گرم
+            ۱۲.۵ گرم
           </strong>
+
         </div>
 
 
-        <div>
-          <span>
-            ارزش لحظه‌ای
-          </span>
+
+        <div className="wallet-item">
+
+          <p>
+            ارزش دارایی
+          </p>
 
           <strong>
-            187,500,000 تومان
+            ۹۸,۱۲۵,۰۰۰ تومان
           </strong>
+
         </div>
 
 
-        <div>
-          <span>
+
+        <div className="wallet-item profit">
+
+          <p>
             سود امروز
-          </span>
+          </p>
 
-          <strong className="profit">
-            +2.4%
+          <strong>
+            +۲.۸٪
           </strong>
+
         </div>
 
 
       </div>
+
+
+
+      <button className="wallet-button">
+
+        مشاهده کیف پول
+
+      </button>
 
 
     </section>
