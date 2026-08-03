@@ -2,6 +2,7 @@ import Header from "../Header";
 import PriceCards from "../PriceCards";
 import Chart from "../Chart";
 import Converter from "../Converter";
+import Wallet from "../Wallet";
 
 
 function Home(){
@@ -17,6 +18,8 @@ function Home(){
       <Chart />
 
       <Converter />
+
+      <Wallet />
 
     </main>
 
