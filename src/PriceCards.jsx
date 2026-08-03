@@ -1,64 +1,72 @@
-import "./styles/price.css";
+import "./price.css";
+
 
 function PriceCards(){
 
   const prices = [
+
     {
-      name:"طلای آبشده",
-      icon:"🟨",
-      price:"75,000,000",
-      change:"+1.2%",
-      up:true
+      title:"طلای ۱۸ عیار",
+      price:"۷,۸۵۰,۰۰۰",
+      change:"+۲.۴٪"
     },
+
     {
-      name:"اونس جهانی",
-      icon:"🌍",
-      price:"3,350$",
-      change:"-0.4%",
-      up:false
+      title:"سکه بهار آزادی",
+      price:"۸۶,۰۰۰,۰۰۰",
+      change:"+۱.۱٪"
     },
+
     {
-      name:"تتر",
-      icon:"💵",
-      price:"95,000",
-      change:"+0.8%",
-      up:true
+      title:"اونس جهانی",
+      price:"۳,۳۵۰ دلار",
+      change:"+۰.۶٪"
     }
+
   ];
 
 
-  return(
+  return (
 
-    <section className="prices">
+    <section className="price-container">
 
-      {prices.map((item,index)=>(
 
-        <div className="price-card" key={index}>
+      {
+        prices.map((item,index)=>(
 
-          <div className="icon">
-            {item.icon}
+          <div 
+          className="price-card"
+          key={index}
+          >
+
+
+            <h3>
+              {item.title}
+            </h3>
+
+
+            <strong>
+              {item.price}
+            </strong>
+
+
+            <span>
+              {item.change}
+            </span>
+
+
           </div>
 
-          <h3>
-            {item.name}
-          </h3>
 
-          <strong>
-            {item.price}
-          </strong>
+        ))
+      }
 
-          <span className={item.up ? "green":"red"}>
-            {item.change}
-          </span>
-
-        </div>
-
-      ))}
 
     </section>
 
   );
 
 }
+
 
 export default PriceCards;
