@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
+
 import Home from "./src/pages/Home";
 import Market from "./src/pages/Market";
+import WalletPage from "./src/pages/WalletPage";
 
 
 function App(){
@@ -24,8 +26,13 @@ function App(){
         />
 
 
-      </Routes>
+        <Route 
+          path="/wallet" 
+          element={<WalletPage />} 
+        />
 
+
+      </Routes>
 
     </BrowserRouter>
 
