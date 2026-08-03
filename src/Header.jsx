@@ -4,19 +4,30 @@ import "./styles/header.css";
 
 function Header(){
 
-  return(
+  return (
 
-    <header className="header">
+    <header className="hero-header">
 
 
-      <div className="logo-box">
+      <div className="hero-content">
+
 
         <Logo />
+
+
+        <h1>
+          Barzanjeh Gold
+        </h1>
 
 
         <p>
           سرمایه‌گذاری هوشمند روی طلا
         </p>
+
+
+        <button className="gold-button">
+          شروع سرمایه‌گذاری
+        </button>
 
 
       </div>
