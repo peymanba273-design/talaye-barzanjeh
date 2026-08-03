@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,7 +11,7 @@
 
 *{
 box-sizing:border-box;
-font-family:tahoma,Arial,sans-serif;
+font-family:tahoma,Arial;
 }
 
 body{
@@ -20,20 +21,19 @@ color:#111;
 }
 
 
-/* هدر */
+/* Header */
 
 .header{
 background:#050505;
-padding:35px 15px;
+padding:35px;
 text-align:center;
-border-bottom:2px solid #d4af37;
+border-bottom:3px solid #d4af37;
 }
 
 .logo{
-font-size:34px;
-font-weight:bold;
+font-size:35px;
 color:#d4af37;
-text-shadow:0 0 15px #d4af37;
+font-weight:bold;
 }
 
 .subtitle{
@@ -42,62 +42,54 @@ margin-top:10px;
 }
 
 
-/* کادر قیمت */
 
-.market{
-margin:20px auto;
-max-width:1000px;
-background:rgba(255,255,255,0.7);
-backdrop-filter:blur(15px);
+/* Cards */
+
+.container{
+margin:20px;
+}
+
+
+.card{
+
+background:white;
 border-radius:30px;
 padding:25px;
+margin-bottom:20px;
+
 box-shadow:
-0 20px 40px rgba(0,0,0,.15);
+0 15px 35px rgba(0,0,0,.15);
+
 }
 
 
-.market h2{
-text-align:center;
-margin-bottom:25px;
-}
 
-
-/* سه کارت قیمت */
+/* Prices */
 
 .prices{
+
 display:flex;
 gap:12px;
+
 }
 
 
-.price-card{
+.price{
 
 flex:1;
 
-background:
-linear-gradient(
-145deg,
-#ffffff,
-#eeeeee
-);
+text-align:center;
+
+background:#fff;
 
 border-radius:25px;
 
-padding:15px 8px;
-
-text-align:center;
+padding:15px;
 
 box-shadow:
-8px 8px 20px #d0d0d0,
--5px -5px 15px white;
+inset 0 0 10px white,
+8px 8px 20px #ddd;
 
-transition:.3s;
-
-}
-
-
-.price-card:hover{
-transform:translateY(-5px);
 }
 
 
@@ -106,27 +98,14 @@ font-size:35px;
 }
 
 
-.name{
-font-size:15px;
-font-weight:bold;
-margin:10px 0;
-}
-
-
 .value{
+
+color:#c9a227;
 
 font-size:18px;
 
 font-weight:bold;
 
-color:#c9a227;
-
-}
-
-
-.change{
-margin-top:8px;
-font-weight:bold;
 }
 
 
@@ -140,32 +119,25 @@ color:red;
 }
 
 
-/* نمودار */
+
+/* Chart */
 
 .chart{
 
-margin:20px;
-
 background:#050505;
-
 color:white;
-
-border-radius:30px;
-
-padding:25px;
-
 text-align:center;
 
 }
 
 
-.chart button{
+button{
 
 background:#d4af37;
 
-border:0;
+border:none;
 
-padding:10px 15px;
+padding:12px;
 
 border-radius:15px;
 
@@ -174,26 +146,56 @@ margin:5px;
 }
 
 
-/* خرید فروش */
 
-.buy{
+/* Calculator */
 
-display:flex;
+input{
 
-gap:15px;
+width:100%;
 
-margin:20px;
+padding:15px;
+
+border-radius:15px;
+
+border:1px solid #ddd;
+
+margin-top:10px;
 
 }
 
 
-.box{
+.result{
 
-flex:1;
+margin-top:15px;
+
+color:#c9a227;
+
+font-size:20px;
+
+font-weight:bold;
+
+}
+
+
+
+/* Buy Sell */
+
+
+.buySell{
+
+display:flex;
+gap:15px;
+
+}
+
+
+.buy{
 
 background:#050505;
 
 color:white;
+
+flex:1;
 
 padding:25px;
 
@@ -204,36 +206,35 @@ text-align:center;
 }
 
 
-.box button{
+/* Customer */
 
-background:#d4af37;
 
-border:0;
+.customer{
 
-padding:12px;
-
-border-radius:15px;
-
-width:100%;
+border:2px solid #d4af37;
 
 }
 
 
-/* موبایل */
+
+/* Mobile */
 
 @media(max-width:600px){
 
-.prices{
+.prices,
+.buySell{
 
 flex-direction:row;
 
 }
 
-.price-card{
 
-padding:12px 5px;
+.price{
+
+padding:10px 5px;
 
 }
+
 
 .icon{
 
@@ -241,15 +242,10 @@ font-size:25px;
 
 }
 
+
 .value{
 
-font-size:14px;
-
-}
-
-.name{
-
-font-size:12px;
+font-size:13px;
 
 }
 
@@ -277,7 +273,11 @@ font-size:12px;
 
 
 
-<div class="market">
+<div class="container">
+
+
+
+<div class="card">
 
 <h2>
 📊 قیمت لحظه‌ای بازار
@@ -287,19 +287,17 @@ font-size:12px;
 <div class="prices">
 
 
-<div class="price-card">
+<div class="price">
 
 <div class="icon">🪙</div>
 
-<div class="name">
 آبشده
-</div>
 
 <div class="value">
 18,500,000
 </div>
 
-<div class="change green">
+<div class="green">
 ▲ +1.2%
 </div>
 
@@ -307,19 +305,17 @@ font-size:12px;
 
 
 
-<div class="price-card">
+<div class="price">
 
 <div class="icon">🌐</div>
 
-<div class="name">
-اونس جهانی
-</div>
+اونس
 
 <div class="value">
-4050 $
+4050$
 </div>
 
-<div class="change red">
+<div class="red">
 ▼ -0.3%
 </div>
 
@@ -327,19 +323,17 @@ font-size:12px;
 
 
 
-<div class="price-card">
+<div class="price">
 
 <div class="icon">💵</div>
 
-<div class="name">
 تتر
-</div>
 
 <div class="value">
 98,500
 </div>
 
-<div class="change green">
+<div class="green">
 ▲ +0.8%
 </div>
 
@@ -352,19 +346,113 @@ font-size:12px;
 
 
 
-<div class="chart">
+
+
+<div class="card chart">
+
 
 <h2>
 📈 نمودار بازار
 </h2>
 
-<button>آبشده</button>
-<button>اونس</button>
-<button>تتر</button>
+
+<button>
+آبشده
+</button>
+
+<button>
+اونس
+</button>
+
+<button>
+تتر
+</button>
+
 
 <p>
-کندل چارت اینجا اضافه می‌شود
+کندل چارت اضافه می‌شود
 </p>
+
+
+</div>
+
+
+
+
+
+<div class="card">
+
+<h2>
+🧮 ماشین حساب طلا
+</h2>
+
+
+<input placeholder="چند گرم می‌خواهید؟">
+
+
+<input placeholder="چقدر پول دارید؟">
+
+
+<button>
+محاسبه
+</button>
+
+
+<div class="result">
+نتیجه اینجا نمایش داده می‌شود
+</div>
+
+
+</div>
+
+
+
+
+
+<div class="card customer">
+
+<h2>
+👤 موجودی مشتری
+</h2>
+
+
+<p>
+موجودی طلا:
+0.000 گرم
+</p>
+
+
+<p>
+ارزش فعلی:
+--- تومان
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="buySell">
+
+
+<div class="buy">
+
+<h3>
+خرید آبشده
+</h3>
+
+<p>
+قیمت خرید:
+---
+</p>
+
+
+<button>
+ثبت سفارش
+</button>
+
 
 </div>
 
@@ -372,40 +460,27 @@ font-size:12px;
 
 <div class="buy">
 
-<div class="box">
-
-<h3>
-خرید آبشده
-</h3>
-
-<p>
-قیمت خرید
----
-</p>
-
-<button>
-ثبت سفارش
-</button>
-
-</div>
-
-
-<div class="box">
-
 <h3>
 فروش آبشده
 </h3>
 
 <p>
-قیمت فروش
+قیمت فروش:
 ---
 </p>
+
 
 <button>
 ثبت سفارش
 </button>
 
+
 </div>
+
+
+</div>
+
+
 
 </div>
 
