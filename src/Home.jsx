@@ -1,9 +1,11 @@
 import Header from "../Header";
 import PriceCards from "../PriceCards";
 
+
 function Home(){
 
   return(
+
     <main>
 
       <Header />
@@ -11,6 +13,7 @@ function Home(){
       <PriceCards />
 
     </main>
+
   );
 
 }
