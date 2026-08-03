@@ -1,18 +1,29 @@
-*{
+@import "./src/styles/theme.css";
 
- margin:0;
- padding:0;
- box-sizing:border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Tahoma, sans-serif;
+}
 
- font-family:tahoma, sans-serif;
+body {
+
+  background: var(--black);
+
+  color: var(--white);
+
+  min-height:100vh;
+
+  direction:rtl;
 
 }
 
 
-body{
+main {
 
- background:#121212;
+  width:100%;
 
- color:white;
+  overflow:hidden;
 
 }
