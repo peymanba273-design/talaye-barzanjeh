@@ -1,1 +1,51 @@
+.header {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #121212;
+  direction: rtl;
+}
 
+.logo-box {
+  text-align: center;
+  padding: 40px;
+  border-radius: 30px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.4);
+}
+
+.logo-3d {
+  font-size: 70px;
+  font-weight: 900;
+  color: #d4af37;
+  text-shadow:
+    0 5px 0 #8a6b16,
+    0 10px 25px rgba(212,175,55,.5);
+
+  animation: floatLogo 3s infinite ease-in-out;
+}
+
+.logo-box h1 {
+  color: #ffffff;
+  margin-top: 20px;
+  font-size: 32px;
+}
+
+.logo-box p {
+  color: #d4af37;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+
+@keyframes floatLogo {
+  0%,100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
