@@ -1,0 +1,65 @@
+.settings{
+
+min-height:100vh;
+
+padding:40px;
+
+background:var(--black);
+
+}
+
+
+
+.settings h1{
+
+text-align:center;
+
+color:var(--gold);
+
+margin-bottom:30px;
+
+}
+
+
+
+.setting-card{
+
+margin:20px auto;
+
+max-width:400px;
+
+padding:25px;
+
+border-radius:25px;
+
+background:var(--glass);
+
+backdrop-filter:blur(20px);
+
+text-align:center;
+
+}
+
+
+
+.setting-card p{
+
+color:white;
+
+margin-bottom:15px;
+
+}
+
+
+
+.setting-card button{
+
+padding:12px 25px;
+
+border:none;
+
+border-radius:20px;
+
+background:var(--gold);
+
+}
