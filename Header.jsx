@@ -47,25 +47,20 @@ function Header(){
 
         <BarzanjehLogo />
 
+<div
+  style={{
+    width:"55px",
+    height:"55px",
+    overflow:"hidden",
+    display:"flex",
+    alignItems:"center",
+    justifyContent:"center"
+  }}
+>
 
-        <div>
+  <BarzanjehLogo />
 
-
-          <h1
-
-            style={{
-
-              margin:0,
-
-              color:"#b8860b",
-
-              fontSize:"20px",
-
-              fontWeight:"900"
-
-            }}
-
-          >
+</div>
 
             Barzanjeh Gold
 
