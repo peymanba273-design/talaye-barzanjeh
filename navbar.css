@@ -8,9 +8,9 @@
 
   transform:translateX(-50%);
 
-
   width:92%;
 
+  height:70px;
 
   display:flex;
 
@@ -18,74 +18,37 @@
 
   align-items:center;
 
-
-  padding:10px 12px;
-
-
-  border-radius:30px;
-
-
   background:
 
-  rgba(255,255,255,.45);
+  rgba(20,15,8,.92);
 
-
-  backdrop-filter:blur(25px);
-
-  -webkit-backdrop-filter:blur(25px);
-
+  border-radius:35px;
 
   border:
 
-  1px solid rgba(184,134,11,.25);
-
+  1px solid rgba(212,175,55,.35);
 
   box-shadow:
 
-  0 15px 40px rgba(0,0,0,.15);
+  0 15px 40px rgba(0,0,0,.35);
 
-
-  z-index:100;
+  z-index:1000;
 
 }
-
 
 
 
 .nav-item{
 
-  border:none;
+  color:#888;
 
-  background:none;
-
-
-  display:flex;
-
-  flex-direction:column;
-
-  align-items:center;
-
-
-  justify-content:center;
-
-
-  gap:4px;
-
-
-  color:#63452d;
-
-
-  font-size:12px;
-
+  text-align:center;
 
   cursor:pointer;
-
 
   transition:.3s;
 
 }
-
-
 
 
 
@@ -99,95 +62,81 @@
 
 
 
+.nav-item small{
 
-
-.nav-item span{
-
-  font-size:12px;
+  font-size:11px;
 
 }
-
-
 
 
 
 .nav-item.active{
 
-  color:#b8860b;
+  color:#D4AF37;
 
 }
 
 
 
+.home-item{
 
-
-.nav-item.active .nav-icon{
-
-  transform:translateY(-4px);
+  transform:translateY(-18px);
 
 }
 
 
 
+.home-item .nav-icon{
 
+  width:62px;
 
-/* خانه وسط و بزرگ‌تر */
-
-.nav-item.home-active{
-
-  transform:translateY(-12px);
-
-}
-
-
-
-
-
-.nav-item.home-active .nav-icon{
-
-  width:58px;
-
-  height:58px;
-
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
+  height:62px;
 
   border-radius:50%;
 
+  display:flex;
 
-  background:#b8860b;
+  justify-content:center;
+
+  align-items:center;
+
+  background:
+
+  linear-gradient(
+    145deg,
+    #f5d77a,
+    #b8860b
+  );
 
 
-  color:white;
+  color:#111;
 
+  font-size:34px;
 
-  font-size:30px;
+  border:
+
+  5px solid #111;
 
 
   box-shadow:
 
-  0 10px 25px rgba(184,134,11,.45);
+  0 10px 30px rgba(212,175,55,.5);
 
 }
 
 
 
+.home-item small{
 
+  display:block;
 
-.nav-item.home-active span{
+  margin-top:5px;
 
-  color:#b8860b;
+  color:#D4AF37;
 
   font-weight:bold;
 
 }
-
-
 
 
 
@@ -198,29 +147,19 @@
 
     width:94%;
 
-    bottom:10px;
+    height:65px;
 
   }
 
 
+  .home-item .nav-icon{
 
-  .nav-icon{
+    width:55px;
 
-    font-size:20px;
+    height:55px;
 
-  }
-
-
-
-  .nav-item.home-active .nav-icon{
-
-    width:52px;
-
-    height:52px;
-
-    font-size:26px;
+    font-size:30px;
 
   }
-
 
 }
