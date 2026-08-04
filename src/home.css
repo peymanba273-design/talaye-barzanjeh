@@ -504,3 +504,124 @@
   font-size:18px;
 
 }
+.convert-container{
+
+  display:grid;
+
+  grid-template-columns:repeat(2,1fr);
+
+  gap:15px;
+
+  margin-top:20px;
+
+}
+
+
+
+.convert-card{
+
+  padding:20px;
+
+  border-radius:28px;
+
+  background:
+
+  rgba(255,255,255,.4);
+
+  backdrop-filter:blur(20px);
+
+  -webkit-backdrop-filter:blur(20px);
+
+  border:
+
+  1px solid rgba(184,134,11,.25);
+
+  box-shadow:
+
+  0 10px 30px rgba(0,0,0,.08);
+
+}
+
+
+
+.convert-card h3{
+
+  margin-top:0;
+
+  color:#63452d;
+
+  font-size:17px;
+
+}
+
+
+
+.convert-card input{
+
+  width:100%;
+
+  box-sizing:border-box;
+
+  padding:14px;
+
+  border:none;
+
+  outline:none;
+
+  border-radius:18px;
+
+  background:
+
+  rgba(255,255,255,.7);
+
+  font-size:15px;
+
+}
+
+
+
+.convert-result{
+
+  margin-top:15px;
+
+  color:#63452d;
+
+}
+
+
+
+.convert-result strong{
+
+  display:block;
+
+  margin-top:8px;
+
+  color:#b8860b;
+
+  font-size:22px;
+
+}
+
+
+
+.convert-card.reverse{
+
+  border-color:
+
+  rgba(100,70,40,.25);
+
+}
+
+
+
+@media(max-width:600px){
+
+
+  .convert-container{
+
+    grid-template-columns:1fr;
+
+  }
+
+
+}
