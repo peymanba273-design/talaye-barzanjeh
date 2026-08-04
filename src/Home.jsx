@@ -1,7 +1,6 @@
 import "./home.css";
 
-
-function Home(){
+function Home() {
 
   return (
 
@@ -21,7 +20,6 @@ function Home(){
 
         <div className="home-actions">
 
-
           <button className="buy-btn">
             خرید طلا
           </button>
@@ -31,12 +29,9 @@ function Home(){
             فروش طلا
           </button>
 
-
         </div>
 
-
       </section>
-
 
 
 
@@ -44,29 +39,20 @@ function Home(){
 
 
         <PriceCard
-
-        title="طلای ۱۸ عیار"
-
-        value="7,950,000 تومان"
-
+          title="طلای ۱۸ عیار"
+          value="7,950,000 تومان"
         />
 
 
         <PriceCard
-
-        title="اونس جهانی"
-
-        value="3,350 دلار"
-
+          title="اونس جهانی"
+          value="3,350 دلار"
         />
 
 
         <PriceCard
-
-        title="موجودی طلا"
-
-        value="12.50 گرم"
-
+          title="موجودی طلا"
+          value="12.50 گرم"
         />
 
 
@@ -76,7 +62,6 @@ function Home(){
 
 
       <section className="activity-box">
-
 
         <h2>
           آخرین فعالیت‌ها
@@ -109,13 +94,11 @@ function Home(){
 
 
 
+function PriceCard({title,value}) {
 
-function PriceCard({title,value}){
-
-  return(
+  return (
 
     <div className="price-card">
-
 
       <p>
         {title}
