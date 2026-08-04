@@ -4,7 +4,8 @@ import {
   XAxis,
   YAxis,
   Tooltip,
-  ResponsiveContainer
+  ResponsiveContainer,
+  CartesianGrid
 } from "recharts";
 
 
@@ -20,7 +21,7 @@ function PriceChart({title}){
 
     {
       time:"12:00",
-      price:7980000
+      price:7985000
     },
 
     {
@@ -30,7 +31,7 @@ function PriceChart({title}){
 
     {
       time:"16:00",
-      price:8030000
+      price:8035000
     },
 
     {
@@ -42,36 +43,122 @@ function PriceChart({title}){
 
 
 
+  const currentPrice =
+    data[data.length - 1].price;
+
+
+
+  const change =
+    (
+      (
+        currentPrice - data[0].price
+      )
+      /
+      data[0].price
+      *
+      100
+    ).toFixed(2);
+
+
+
   return (
 
-    <div className="price-chart">
+    <div className="professional-chart">
 
 
-      <h2>
-        نمودار {title}
-      </h2>
+      <div className="chart-header">
+
+
+        <div>
+
+          <h2>
+            {title}
+          </h2>
+
+
+          <strong>
+
+            {currentPrice.toLocaleString()}
+
+            تومان
+
+          </strong>
+
+
+        </div>
+
+
+
+        <span className="chart-up">
+
+          ▲ {change}%
+
+        </span>
+
+
+      </div>
+
+
+
 
 
       <ResponsiveContainer
+
         width="100%"
-        height={300}
+
+        height={280}
+
       >
 
 
         <LineChart data={data}>
 
 
-          <XAxis
-            dataKey="time"
+          <CartesianGrid
+
+            strokeDasharray="4 4"
+
+            opacity={0.2}
+
           />
+
+
+
+          <XAxis
+
+            dataKey="time"
+
+            tick={{fontSize:12}}
+
+          />
+
 
 
           <YAxis
+
             hide
+
           />
 
 
-          <Tooltip />
+
+          <Tooltip
+
+            formatter={(value)=>
+
+              [
+
+              value.toLocaleString()+" تومان",
+
+              "قیمت"
+
+              ]
+
+            }
+
+          />
+
+
 
 
           <Line
@@ -82,17 +169,61 @@ function PriceChart({title}){
 
             stroke="#b8860b"
 
-            strokeWidth={3}
+            strokeWidth={4}
 
             dot={false}
 
+            activeDot={{
+
+              r:6
+
+            }}
+
           />
+
 
 
         </LineChart>
 
 
       </ResponsiveContainer>
+
+
+
+
+
+
+      <div className="chart-range">
+
+
+        <button>
+          ۱ ساعت
+        </button>
+
+
+        <button>
+          ۱ روز
+        </button>
+
+
+        <button>
+          ۱ هفته
+        </button>
+
+
+        <button>
+          ۱ ماه
+        </button>
+
+
+        <button>
+          ۱ سال
+        </button>
+
+
+      </div>
+
+
 
 
     </div>
