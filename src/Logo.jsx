@@ -1,25 +1,24 @@
-import "./styles/logo.css";
+import "./logo.css";
 
+function Logo() {
 
-function Logo(){
-
-  return(
+  return (
 
     <div className="brand-logo">
 
 
-      <div className="gold-b">
+      <div className="logo-circle">
 
-        B
-
-      </div>
-
-
-      <div className="logo-stars">
-
-        ✦ ✦ ✦
+        <span>
+          B
+        </span>
 
       </div>
+
+
+      <h1>
+        Barzanjeh Gold
+      </h1>
 
 
     </div>
