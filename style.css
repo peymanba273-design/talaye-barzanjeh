@@ -1,55 +1,122 @@
-@import "./src/styles/design.css";
+:root {
+
+  --bg: #f4e4cc;
+
+  --card: rgba(167, 118, 75, 0.22);
+
+  --card-light: rgba(255,255,255,0.35);
+
+  --gold: #b8860b;
+
+  --gold-light: #e5c15a;
+
+  --black: #15100a;
+
+  --brown: #63452d;
+
+  --border: rgba(184,134,11,0.35);
+
+}
+
+
 
 * {
 
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin:0;
+
+  padding:0;
+
+  box-sizing:border-box;
 
 }
 
-
-html {
-
-  scroll-behavior: smooth;
-
-}
 
 
 body {
 
-  background: var(--bg-main);
+  background:
 
-  color: var(--text-main);
+  linear-gradient(
+    135deg,
+    #f8eddc,
+    #ecd2ac
+  );
 
-  font-family: Tahoma, sans-serif;
 
-  direction: rtl;
+  color:var(--black);
 
-  min-height: 100vh;
+
+  font-family:
+
+  Tahoma,
+  Arial,
+  sans-serif;
+
+
+  min-height:100vh;
 
 }
+
 
 
 #root {
 
-  min-height: 100vh;
+  min-height:100vh;
 
 }
 
 
-button,
-input {
 
-  font-family: inherit;
+button {
+
+  border:none;
+
+  cursor:pointer;
 
 }
 
 
-main {
 
-  width: 100%;
+.glass {
 
-  overflow-x: hidden;
+  background:
+
+  rgba(170,120,75,0.18);
+
+
+  border:
+
+  1px solid var(--border);
+
+
+  backdrop-filter:
+
+  blur(25px);
+
+
+  -webkit-backdrop-filter:
+
+  blur(25px);
+
+
+  box-shadow:
+
+  0 15px 40px rgba(90,55,20,0.18);
+
+}
+
+
+
+.gold-color {
+
+  color:var(--gold);
+
+}
+
+
+
+.black-color {
+
+  color:var(--black);
 
 }
