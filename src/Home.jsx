@@ -3,69 +3,168 @@ import "./home.css";
 
 function Home() {
 
+
   return (
 
     <div className="home-page">
 
 
+      <div className="update-time">
+
+        آخرین بروزرسانی قیمت:
+        <span>
+          14:32:05
+        </span>
+
+      </div>
+
+
+
+      <section className="price-grid">
+
+
+        <PriceCard
+
+          title="آبشده"
+
+          value="7,950,000 تومان"
+
+        />
+
+
+        <PriceCard
+
+          title="اونس جهانی"
+
+          value="3,350 دلار"
+
+        />
+
+
+        <PriceCard
+
+          title="تتر"
+
+          value="91,200 تومان"
+
+        />
+
+
+      </section>
+
+
+
+
+
       <section className="gold-dashboard">
+
 
         <p>
           ارزش کل دارایی
         </p>
+
 
         <h1>
           98,125,000 تومان
         </h1>
 
 
-        <div className="home-actions">
 
-          <button className="buy-btn">
-            خرید طلا
-          </button>
+      </section>
 
 
-          <button className="sell-btn">
-            فروش طلا
-          </button>
+
+
+
+      <section className="home-actions">
+
+
+        <button className="buy-btn">
+
+          خرید طلا
+
+        </button>
+
+
+
+        <button className="sell-btn">
+
+          فروش طلا
+
+        </button>
+
+
+
+      </section>
+
+
+
+
+
+      <section className="convert-box">
+
+
+        <h2>
+          تبدیل طلا و تومان
+        </h2>
+
+
+        <div>
+
+          10,000,000 تومان
 
         </div>
 
+
+        <span>
+          ⇅
+        </span>
+
+
+        <div>
+
+          1.25 گرم طلا
+
+        </div>
+
+
+
       </section>
 
 
 
-      <section className="cards-grid">
 
 
-        <PriceCard
-          title="طلای ۱۸ عیار"
-          value="7,950,000 تومان"
-        />
+
+      <section className="chart-box">
 
 
-        <PriceCard
-          title="اونس جهانی"
-          value="3,350 دلار"
-        />
+        <h2>
+          نمودار قیمت
+        </h2>
 
 
-        <PriceCard
-          title="موجودی طلا"
-          value="12.50 گرم"
-        />
+        <div className="chart-placeholder">
+
+          Chart
+
+        </div>
 
 
       </section>
+
+
+
 
 
 
       <section className="activity-box">
 
+
         <h2>
           آخرین فعالیت‌ها
         </h2>
+
 
 
         <div>
@@ -73,9 +172,11 @@ function Home() {
         </div>
 
 
+
         <div>
           قیمت بازار به‌روزرسانی شد
         </div>
+
 
 
         <div>
@@ -83,7 +184,9 @@ function Home() {
         </div>
 
 
+
       </section>
+
 
 
     </div>
@@ -94,11 +197,21 @@ function Home() {
 
 
 
-function PriceCard({ title, value }) {
+
+
+function PriceCard({
+
+  title,
+
+  value
+
+}) {
+
 
   return (
 
     <div className="price-card">
+
 
       <p>
         {title}
@@ -115,6 +228,7 @@ function PriceCard({ title, value }) {
   );
 
 }
+
 
 
 export default Home;
