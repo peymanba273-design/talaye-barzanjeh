@@ -3,38 +3,40 @@ import "./market.css";
 
 function Market(){
 
-  const marketData = [
+
+  const markets=[
 
     {
-      name:"طلای ۱۸ عیار",
-      price:"۷,۸۵۰,۰۰۰ تومان",
-      change:"+۲.۴٪"
+      title:"طلای ۱۸ عیار",
+      price:"7,950,000 تومان",
+      change:"+1.25%"
     },
 
     {
-      name:"اونس جهانی",
-      price:"۳,۳۵۰ دلار",
-      change:"+۰.۸٪"
+      title:"طلای ۲۴ عیار",
+      price:"10,600,000 تومان",
+      change:"+0.85%"
     },
 
     {
-      name:"دلار",
-      price:"۹۵,۰۰۰ تومان",
-      change:"+۱.۲٪"
+      title:"اونس جهانی",
+      price:"3,350 دلار",
+      change:"+0.40%"
     },
 
     {
-      name:"سکه",
-      price:"۸۶,۰۰۰,۰۰۰ تومان",
-      change:"+۱.۷٪"
+      title:"سکه امامی",
+      price:"85,000,000 تومان",
+      change:"-0.20%"
     }
 
   ];
 
 
-  return (
 
-    <section className="market-page">
+  return(
+
+    <div className="market-page">
 
 
       <h1>
@@ -42,43 +44,94 @@ function Market(){
       </h1>
 
 
-      <div className="market-grid">
+
+      <div className="market-top">
 
 
-        {
-          marketData.map((item,index)=>(
-
-            <div 
-            className="market-card"
-            key={index}
-            >
+        <p>
+          وضعیت لحظه‌ای بازار
+        </p>
 
 
-              <h3>
-                {item.name}
-              </h3>
-
-
-              <strong>
-                {item.price}
-              </strong>
-
-
-              <span>
-                {item.change}
-              </span>
-
-
-            </div>
-
-          ))
-        }
+        <strong>
+          باز
+        </strong>
 
 
       </div>
 
 
-    </section>
+
+      <section className="market-grid">
+
+
+      {
+
+        markets.map((item,index)=>(
+
+
+          <div
+          className="market-card"
+          key={index}
+          >
+
+
+            <h2>
+              {item.title}
+            </h2>
+
+
+            <div className="market-price">
+              {item.price}
+            </div>
+
+
+            <span
+            className={
+              item.change.includes("-")
+              ?
+              "negative"
+              :
+              "positive"
+            }
+            >
+
+              {item.change}
+
+            </span>
+
+
+          </div>
+
+
+        ))
+
+      }
+
+
+      </section>
+
+
+
+
+      <section className="chart-placeholder">
+
+
+        <h2>
+          نمودار قیمت
+        </h2>
+
+
+        <div>
+          نمودار در مرحله بعد به سیستم وصل می‌شود
+        </div>
+
+
+      </section>
+
+
+
+    </div>
 
   );
 
