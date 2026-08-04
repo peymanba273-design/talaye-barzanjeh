@@ -1,43 +1,203 @@
-:root {
-
-  /* رنگ برند */
-  --gold-main:#D4AF37;
-  --gold-light:#F7E7A9;
-  --gold-dark:#8A6B16;
+/* Barzanjeh Gold Main Design */
 
 
-  /* پس زمینه */
-  --bg-main:#080808;
-  --bg-card:#151515;
+.app-container {
+
+  min-height:100vh;
+
+  padding-bottom:90px;
+
+}
 
 
-  /* متن */
-  --text-main:#FFFFFF;
-  --text-soft:#B8B8B8;
+
+/* همه کارت‌های سایت */
+
+.card,
+.price-card,
+.gold-card,
+.wallet-card,
+.market-card,
+.activity-box {
 
 
-  /* وضعیت */
-  --success:#00C853;
-  --danger:#FF1744;
+  background:
+
+  rgba(170,120,75,0.18);
 
 
-  /* شیشه ای */
-  --glass-bg:
-  rgba(255,255,255,0.08);
+  border:
+
+  1px solid rgba(184,134,11,0.35);
 
 
-  --glass-border:
-  rgba(255,255,255,0.15);
+  backdrop-filter:
+
+  blur(22px);
 
 
-  /* سایه */
-  --gold-shadow:
-  0 20px 60px rgba(212,175,55,.25);
+  -webkit-backdrop-filter:
+
+  blur(22px);
 
 
-  /* شکل */
-  --radius-xl:35px;
-  --radius-lg:25px;
-  --radius-md:15px;
+  border-radius:
+
+  22px;
+
+
+  box-shadow:
+
+  0 15px 35px rgba(90,55,20,0.18);
+
+
+  color:#15100a;
+
+}
+
+
+
+/* تیترها */
+
+h1,
+h2,
+h3 {
+
+
+  color:#15100a;
+
+}
+
+
+
+/* قیمت‌ها */
+
+.price,
+.amount,
+.value {
+
+
+  color:#b8860b;
+
+
+  font-weight:800;
+
+}
+
+
+
+/* دکمه طلایی */
+
+.gold-button {
+
+
+  background:
+
+  linear-gradient(
+    135deg,
+    #e5c15a,
+    #b8860b
+  );
+
+
+  color:#15100a;
+
+
+  border-radius:16px;
+
+
+  padding:12px 25px;
+
+
+  font-weight:700;
+
+
+  box-shadow:
+
+  0 8px 20px rgba(184,134,11,.35);
+
+}
+
+
+
+/* دکمه خرید */
+
+.buy-btn {
+
+
+  background:
+
+  linear-gradient(
+    135deg,
+    #d4af37,
+    #a67c00
+  );
+
+
+  color:white;
+
+}
+
+
+
+/* دکمه فروش */
+
+.sell-btn {
+
+
+  background:
+
+  #63452d;
+
+
+  color:white;
+
+}
+
+
+
+/* افکت لمس موبایل */
+
+button:active,
+.card:active {
+
+
+  transform:scale(.97);
+
+}
+
+
+
+/* انیمیشن ورود */
+
+.fade-in {
+
+
+  animation:
+
+  fade .5s ease;
+
+}
+
+
+
+@keyframes fade {
+
+  from {
+
+    opacity:0;
+
+    transform:translateY(15px);
+
+  }
+
+
+  to {
+
+    opacity:1;
+
+    transform:none;
+
+  }
 
 }
