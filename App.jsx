@@ -1,42 +1,28 @@
 import { useState } from "react";
 
-import Home from "./src/Home.jsx";
-import Market from "./src/Market.jsx";
-import WalletPage from "./src/WalletPage.jsx";
-import Settings from "./src/Settings.jsx";
+import Login from "./Login.jsx";
 
+import Home from "./src/Home.jsx";
 import Navbar from "./Navbar.jsx";
+
 
 
 function App(){
 
-  const [page,setPage] = useState("home");
+
+  const [logged,setLogged] = useState(false);
 
 
-  function renderPage(){
 
-    if(page==="market"){
+  if(!logged){
 
-      return <Market />;
+    return (
 
-    }
+      <Login 
+      setLogged={setLogged}
+      />
 
-
-    if(page==="wallet"){
-
-      return <WalletPage />;
-
-    }
-
-
-    if(page==="settings"){
-
-      return <Settings />;
-
-    }
-
-
-    return <Home />;
+    );
 
   }
 
@@ -47,14 +33,10 @@ function App(){
     <div className="app">
 
 
-      {renderPage()}
+      <Home />
 
 
-
-      <Navbar 
-        setPage={setPage}
-        page={page}
-      />
+      <Navbar />
 
 
     </div>
