@@ -351,3 +351,154 @@ flex-direction:column;
 
 
 }
+.professional-chart{
+
+  width:100%;
+
+  padding:20px;
+
+  border-radius:28px;
+
+  background:
+
+  rgba(255,255,255,.35);
+
+  backdrop-filter:blur(25px);
+
+  border:
+
+  1px solid rgba(184,134,11,.25);
+
+  box-shadow:
+
+  0 15px 40px rgba(0,0,0,.12);
+
+}
+
+
+
+
+
+.chart-header{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+  margin-bottom:15px;
+
+}
+
+
+
+
+
+.chart-header h2{
+
+  margin:0;
+
+  color:#63452d;
+
+  font-size:18px;
+
+}
+
+
+
+
+
+.chart-header strong{
+
+  display:block;
+
+  margin-top:8px;
+
+  color:#b8860b;
+
+  font-size:22px;
+
+}
+
+
+
+
+
+.chart-up{
+
+  background:
+
+  rgba(40,150,70,.15);
+
+  color:#16803c;
+
+  padding:8px 14px;
+
+  border-radius:20px;
+
+  font-weight:bold;
+
+}
+
+
+
+
+
+.chart-range{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  gap:8px;
+
+  margin-top:15px;
+
+}
+
+
+
+
+
+.chart-range button{
+
+  flex:1;
+
+  border:none;
+
+  padding:8px 5px;
+
+  border-radius:15px;
+
+  background:
+
+  rgba(184,134,11,.15);
+
+  color:#63452d;
+
+  cursor:pointer;
+
+}
+
+
+
+
+
+.chart-range button:hover{
+
+  background:#b8860b;
+
+  color:white;
+
+}
+
+
+
+
+
+.price-chart{
+
+  width:100%;
+
+}
