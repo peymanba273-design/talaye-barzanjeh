@@ -1,229 +1,163 @@
-.home-page {
+.home-page{
+
+  min-height:100vh;
 
   padding:20px;
 
-  display:flex;
+  background:
 
-  flex-direction:column;
+  linear-gradient(
+    135deg,
+    #f8eddc,
+    #e7c89b
+  );
 
-  gap:18px;
-
-}
-
-
-
-/* آخرین بروزرسانی */
-
-.update-time {
-
-  background:rgba(170,120,75,.18);
-
-  border:1px solid rgba(184,134,11,.35);
-
-  backdrop-filter:blur(20px);
-
-  padding:10px 15px;
-
-  border-radius:18px;
-
-  color:#63452d;
-
-  text-align:center;
-
-  font-size:14px;
-
-}
-
-
-.update-time span {
-
-  color:#b8860b;
-
-  font-weight:bold;
-
-  margin-right:6px;
+  color:#15100a;
 
 }
 
 
 
-/* کارت قیمت ها */
 
-.price-grid {
+
+.prices-grid{
 
   display:grid;
 
-  grid-template-columns:repeat(3,1fr);
+  grid-template-columns:repeat(2,1fr);
 
-  gap:10px;
+  gap:12px;
 
 }
 
 
 
-.price-card {
 
 
-  background:rgba(170,120,75,.20);
+.price-card{
+
+  padding:14px;
+
+  border-radius:20px;
 
 
-  border:1px solid rgba(184,134,11,.35);
+  background:
+
+  rgba(255,255,255,0.35);
 
 
-  backdrop-filter:blur(22px);
+  backdrop-filter:blur(18px);
 
 
-  border-radius:22px;
+  border:
 
-
-  padding:15px 10px;
-
-
-  text-align:center;
+  1px solid rgba(184,134,11,.25);
 
 
   box-shadow:
 
-  0 12px 30px rgba(90,55,20,.15);
+  0 8px 25px rgba(0,0,0,.08);
+
+
+  cursor:pointer;
+
+
+  transition:.3s;
+
 
 }
 
 
 
-.price-card p {
+
+.price-card:hover{
+
+  transform:translateY(-3px);
+
+}
+
+
+
+
+
+.price-card.active{
+
+
+  border:
+
+  2px solid #b8860b;
+
+
+  background:
+
+  rgba(255,215,120,.35);
+
+
+}
+
+
+
+
+
+.price-card p{
+
+
+  margin:0 0 8px;
+
 
   color:#63452d;
 
-  margin-bottom:8px;
 
-}
-
-
-
-.price-card strong {
-
-  color:#b8860b;
-
-  font-size:15px;
-
-}
-
-
-
-
-
-/* دارایی */
-
-.gold-dashboard {
-
-
-  background:rgba(170,120,75,.20);
-
-
-  border:1px solid rgba(184,134,11,.35);
-
-
-  backdrop-filter:blur(25px);
-
-
-  border-radius:25px;
-
-
-  padding:25px;
-
-
-  text-align:center;
+  font-size:14px;
 
 
 }
 
 
 
-.gold-dashboard p {
 
-  color:#63452d;
-
-}
-
-
-
-.gold-dashboard h1 {
+.price-card strong{
 
 
   color:#b8860b;
-
-
-  font-size:28px;
-
-
-}
-
-
-
-
-
-/* خرید و فروش */
-
-.home-actions {
-
-
-  display:grid;
-
-
-  grid-template-columns:1fr 1fr;
-
-
-  gap:12px;
-
-
-}
-
-
-
-.home-actions button {
-
-
-  padding:15px;
-
-
-  border-radius:20px;
 
 
   font-size:16px;
 
 
-  font-weight:bold;
-
-
 }
 
 
 
-.buy-btn {
+
+
+.chart-box{
+
+
+  margin-top:20px;
+
+
+  padding:20px;
+
+
+  height:350px;
+
+
+  border-radius:25px;
 
 
   background:
 
-  linear-gradient(
-  135deg,
-  #e5c15a,
-  #b8860b
-  );
+  rgba(255,255,255,.32);
 
 
-  color:#15100a;
-
-}
+  backdrop-filter:blur(20px);
 
 
+  border:
 
-.sell-btn {
+  1px solid rgba(184,134,11,.25);
 
-
-  background:#63452d;
-
-
-  color:white;
 
 }
 
@@ -231,21 +165,51 @@
 
 
 
-/* تبدیل */
-
-.convert-box {
+.chart-box h2{
 
 
-  background:rgba(170,120,75,.20);
+  text-align:center;
 
 
-  border:1px solid rgba(184,134,11,.35);
+  color:#63452d;
 
 
-  backdrop-filter:blur(22px);
+}
 
 
-  border-radius:25px;
+
+
+.chart-placeholder{
+
+
+  height:250px;
+
+
+  display:flex;
+
+
+  justify-content:center;
+
+
+  align-items:center;
+
+
+  font-size:40px;
+
+
+  color:#b8860b;
+
+
+}
+
+
+
+
+
+.asset-box{
+
+
+  margin-top:20px;
 
 
   padding:20px;
@@ -253,79 +217,63 @@
 
   text-align:center;
 
-}
+
+  border-radius:25px;
 
 
+  background:
 
-.convert-box div {
-
-
-  background:rgba(255,255,255,.25);
+  rgba(255,255,255,.4);
 
 
-  padding:12px;
+  backdrop-filter:blur(20px);
 
-
-  border-radius:15px;
-
-
-  margin:10px;
-
-
-  color:#15100a;
 
 }
 
 
 
-.convert-box span {
+
+
+.asset-box p{
+
+
+  color:#63452d;
+
+
+}
+
+
+
+
+
+.asset-box h1{
+
+
+  margin:10px 0;
 
 
   color:#b8860b;
 
 
-  font-size:25px;
-
 }
 
 
 
 
 
-/* نمودار */
-
-.chart-box {
 
 
-  background:rgba(170,120,75,.20);
-
-
-  border-radius:25px;
-
-
-  padding:20px;
-
-
-}
-
-
-
-.chart-placeholder {
-
-
-  height:180px;
+.convert-box{
 
 
   display:flex;
 
 
-  align-items:center;
+  gap:12px;
 
 
-  justify-content:center;
-
-
-  color:#b8860b;
+  margin-top:20px;
 
 
 }
@@ -334,42 +282,35 @@
 
 
 
-/* فعالیت */
-
-.activity-box {
+.convert-box button{
 
 
-  background:rgba(170,120,75,.20);
+  flex:1;
 
 
-  border:1px solid rgba(184,134,11,.35);
+  padding:15px;
 
 
-  backdrop-filter:blur(22px);
+  border:none;
 
 
-  border-radius:25px;
+  border-radius:20px;
 
 
-  padding:20px;
+  background:#b8860b;
+
+
+  color:white;
+
+
+  font-size:15px;
+
+
+  font-weight:bold;
 
 
 }
 
-
-
-.activity-box div {
-
-
-  padding:12px 0;
-
-
-  border-bottom:1px solid rgba(0,0,0,.08);
-
-
-  color:#63452d;
-
-}
 
 
 
@@ -377,20 +318,33 @@
 @media(max-width:600px){
 
 
-.price-grid {
+.home-page{
 
-
-grid-template-columns:repeat(3,1fr);
-
+padding:12px;
 
 }
 
 
-.price-card strong {
+
+.price-card strong{
+
+font-size:14px;
+
+}
 
 
-font-size:12px;
 
+.chart-box{
+
+height:300px;
+
+}
+
+
+
+.convert-box{
+
+flex-direction:column;
 
 }
 
