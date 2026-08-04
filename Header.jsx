@@ -1,30 +1,94 @@
 import BarzanjehLogo from "./BarzanjehLogo.jsx";
-import "./Header.css";
 
 
 function Header(){
 
   return(
 
-    <header className="top-header">
+    <header
+
+      style={{
+
+        height:"90px",
+
+        padding:"10px 18px",
+
+        display:"flex",
+
+        alignItems:"center",
+
+        justifyContent:"space-between",
+
+        background:"rgba(255,255,255,0.28)",
+
+        backdropFilter:"blur(20px)",
+
+        borderBottom:"1px solid rgba(184,134,11,.25)"
+
+      }}
+
+    >
 
 
-      <div className="brand-area">
+      <div
+
+        style={{
+
+          display:"flex",
+
+          alignItems:"center",
+
+          gap:"12px"
+
+        }}
+
+      >
 
 
         <BarzanjehLogo />
 
 
-        <div className="brand-text">
+        <div>
 
-          <h1>
+
+          <h1
+
+            style={{
+
+              margin:0,
+
+              color:"#b8860b",
+
+              fontSize:"20px",
+
+              fontWeight:"900"
+
+            }}
+
+          >
+
             Barzanjeh Gold
+
           </h1>
 
 
-          <span>
+
+          <span
+
+            style={{
+
+              color:"#63452d",
+
+              fontSize:"12px"
+
+            }}
+
+          >
+
             طلا | سرمایه | اعتماد
+
           </span>
+
 
 
         </div>
@@ -35,11 +99,33 @@ function Header(){
 
 
 
-      <button className="settings-btn">
+
+      <button
+
+        style={{
+
+          width:"36px",
+
+          height:"36px",
+
+          borderRadius:"50%",
+
+          border:"1px solid rgba(184,134,11,.4)",
+
+          background:"rgba(255,255,255,.35)",
+
+          color:"#b8860b",
+
+          fontSize:"18px"
+
+        }}
+
+      >
 
         ⚙
 
       </button>
+
 
 
     </header>
