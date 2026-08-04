@@ -17,19 +17,7 @@ function Layout({
 
     <div
 
-    style={{
-
-      minHeight:"100vh",
-
-      background:"#090909",
-
-      color:"white",
-
-      display:"flex",
-
-      flexDirection:"column"
-
-    }}
+    className="app-layout"
 
     >
 
@@ -40,13 +28,7 @@ function Layout({
 
       <main
 
-      style={{
-
-        flex:"1",
-
-        paddingBottom:"90px"
-
-      }}
+      className="main-content"
 
       >
 
