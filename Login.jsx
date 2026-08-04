@@ -1,11 +1,7 @@
-import { useState } from "react";
 import "./auth.css";
 
 
-function Login({setLogged}){
-
-
-  const [mode,setMode]=useState("login");
+function Login({setLogged, setPage}){
 
 
   return (
@@ -17,114 +13,56 @@ function Login({setLogged}){
 
 
         <div className="auth-logo">
-
           B
-
         </div>
 
 
         <h1>
-          Barzanjeh Gold
+          ورود به Barzanjeh Gold
         </h1>
 
 
         <p>
-          سرمایه‌گذاری هوشمند طلا
+          مدیریت هوشمند سرمایه طلا
         </p>
 
 
 
-
-        {
-          mode==="login"
-          ?
-
-          <>
-
-          <input
-          placeholder="شماره موبایل"
-          />
+        <input
+        placeholder="شماره موبایل"
+        />
 
 
-          <input
-          placeholder="رمز عبور"
-          type="password"
-          />
+
+        <input
+        type="password"
+        placeholder="رمز عبور"
+        />
 
 
-          <button
-          onClick={()=>setLogged(true)}
-          >
+
+        <button
+        onClick={()=>setLogged(true)}
+        >
 
           ورود
 
-          </button>
-
-
-          </>
-
-
-          :
-
-
-          <>
-
-          <input
-          placeholder="نام کامل"
-          />
-
-
-          <input
-          placeholder="شماره موبایل"
-          />
-
-
-          <input
-          placeholder="رمز عبور"
-          type="password"
-          />
-
-
-          <button
-          onClick={()=>setLogged(true)}
-          >
-
-          ثبت نام
-
-          </button>
-
-
-          </>
-
-        }
-
-
+        </button>
 
 
 
         <span
+
         className="switch-auth"
-        onClick={
-          ()=>setMode(
-            mode==="login"
-            ?
-            "register"
-            :
-            "login"
-          )
-        }
+
+        onClick={()=>setPage("register")}
+
         >
 
-        {
-          mode==="login"
-          ?
-          "حساب ندارید؟ ثبت نام"
-          :
-          "قبلاً ثبت نام کرده‌اید؟ ورود"
-        }
-
+          حساب ندارید؟ ثبت نام کنید
 
         </span>
+
 
 
       </div>
