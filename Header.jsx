@@ -1,15 +1,45 @@
-import Logo from "./src/Logo.jsx";
-import "./src/header.css";
+import BarzanjehLogo from "./BarzanjehLogo.jsx";
+import "./Header.css";
 
 
 function Header(){
 
-  return (
+  return(
 
-    <header className="main-header">
+    <header className="top-header">
 
 
-      <Logo />
+      <div className="brand-area">
+
+
+        <BarzanjehLogo />
+
+
+        <div className="brand-text">
+
+          <h1>
+            Barzanjeh Gold
+          </h1>
+
+
+          <span>
+            طلا | سرمایه | اعتماد
+          </span>
+
+
+        </div>
+
+
+      </div>
+
+
+
+
+      <button className="settings-btn">
+
+        ⚙
+
+      </button>
 
 
     </header>
