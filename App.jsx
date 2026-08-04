@@ -1,74 +1,71 @@
 import { useState } from "react";
 
+import Header from "./Header.jsx";
+import Navbar from "./Navbar.jsx";
+
 import Home from "./src/Home.jsx";
 import Market from "./src/Market.jsx";
 import WalletPage from "./src/WalletPage.jsx";
-
-import Header from "./Header.jsx";
-import Navbar from "./Navbar.jsx";
 
 import Profile from "./Profile.jsx";
 import Notifications from "./Notifications.jsx";
 import Transactions from "./Transactions.jsx";
 import News from "./News.jsx";
 
+
 function App() {
 
   const [page, setPage] = useState("home");
 
-  const renderPage = () => {
 
-    switch (page) {
+  const pages = {
 
-      case "home":
-        return <Home />;
+    home: <Home />,
 
-      case "market":
-        return <Market />;
+    market: <Market />,
 
-      case "wallet":
-        return <WalletPage />;
+    wallet: <WalletPage />,
 
-      case "profile":
-        return <Profile />;
+    profile: <Profile />,
 
-      case "notifications":
-        return <Notifications />;
+    notifications: <Notifications />,
 
-      case "transactions":
-        return <Transactions />;
+    transactions: <Transactions />,
 
-      case "news":
-        return <News />;
-
-      default:
-        return <Home />;
-
-    }
+    news: <News />
 
   };
+
 
   return (
 
     <div className="app">
 
+
       <Header />
 
-      <main>
 
-        {renderPage()}
+      <div className="content">
 
-      </main>
+        {pages[page]}
+
+      </div>
+
 
       <Navbar
+
         page={page}
+
         setPage={setPage}
+
       />
+
 
     </div>
 
   );
 
 }
+
 
 export default App;
