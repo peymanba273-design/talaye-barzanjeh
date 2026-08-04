@@ -1,65 +1,33 @@
+import "./home.css";
+
+
 function Home(){
 
-  return(
+  return (
 
-    <div
-      style={{
-        minHeight:"100vh",
-        background:"#090909",
-        color:"white",
-        padding:"25px"
-      }}
-    >
+    <div className="home-page">
 
 
-      <section
-        style={{
-          background:
-          "linear-gradient(135deg,#1a1a1a,#111)",
-          borderRadius:"30px",
-          padding:"35px",
-          border:
-          "1px solid rgba(212,175,55,.35)",
-          boxShadow:
-          "0 0 35px rgba(212,175,55,.15)"
-        }}
-      >
+      <section className="gold-dashboard">
 
-        <p
-          style={{
-            color:"#aaa",
-            marginBottom:"10px"
-          }}
-        >
+        <p>
           ارزش کل دارایی
         </p>
 
-
-        <h1
-          style={{
-            color:"#D4AF37",
-            fontSize:"36px"
-          }}
-        >
+        <h1>
           98,125,000 تومان
         </h1>
 
 
-        <div
-          style={{
-            marginTop:"25px",
-            display:"flex",
-            gap:"15px",
-            flexWrap:"wrap"
-          }}
-        >
+        <div className="home-actions">
 
-          <button className="gold-btn">
+
+          <button className="buy-btn">
             خرید طلا
           </button>
 
 
-          <button className="dark-btn">
+          <button className="sell-btn">
             فروش طلا
           </button>
 
@@ -72,43 +40,28 @@ function Home(){
 
 
 
-      <section
-
-      style={{
-
-        marginTop:"30px",
-
-        display:"grid",
-
-        gridTemplateColumns:
-        "repeat(auto-fit,minmax(180px,1fr))",
-
-        gap:"20px"
-
-      }}
-
-      >
+      <section className="cards-grid">
 
 
-        <Card
+        <PriceCard
 
         title="طلای ۱۸ عیار"
 
-        value="7,950,000"
+        value="7,950,000 تومان"
 
         />
 
 
-        <Card
+        <PriceCard
 
         title="اونس جهانی"
 
-        value="3,350$"
+        value="3,350 دلار"
 
         />
 
 
-        <Card
+        <PriceCard
 
         title="موجودی طلا"
 
@@ -121,38 +74,28 @@ function Home(){
 
 
 
-      <section
 
-      style={{
+      <section className="activity-box">
 
-        marginTop:"30px",
 
-        background:"#171717",
-
-        borderRadius:"25px",
-
-        padding:"25px"
-
-      }}
-
-      >
-
-        <h2
-        style={{
-          color:"#D4AF37"
-        }}
-        >
+        <h2>
           آخرین فعالیت‌ها
         </h2>
 
 
-        <p>
-          خرید 2 گرم طلا انجام شد
-        </p>
+        <div>
+          خرید ۲ گرم طلا انجام شد
+        </div>
 
-        <p>
-          قیمت طلا به‌روزرسانی شد
-        </p>
+
+        <div>
+          قیمت بازار به‌روزرسانی شد
+        </div>
+
+
+        <div>
+          ورود موفق به حساب
+        </div>
 
 
       </section>
@@ -166,58 +109,27 @@ function Home(){
 
 
 
-function Card({title,value}){
+
+function PriceCard({title,value}){
+
+  return(
+
+    <div className="price-card">
 
 
-return(
-
-<div
-
-style={{
-
-background:"#171717",
-
-borderRadius:"20px",
-
-padding:"20px",
-
-border:
-"1px solid #292929"
-
-}}
-
->
-
-<p
-style={{
-color:"#888"
-}}
->
-{title}
-</p>
+      <p>
+        {title}
+      </p>
 
 
-<strong
-
-style={{
-
-color:"#D4AF37",
-
-fontSize:"22px"
-
-}}
-
->
-
-{value}
-
-</strong>
+      <strong>
+        {value}
+      </strong>
 
 
-</div>
+    </div>
 
-);
-
+  );
 
 }
 
