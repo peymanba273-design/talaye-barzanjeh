@@ -1,5 +1,6 @@
 import Header from "./Header.jsx";
 import Navbar from "./Navbar.jsx";
+import "./layout.css";
 
 
 function Layout({
@@ -10,39 +11,29 @@ function Layout({
 
   setPage
 
-}){
+}) {
 
 
-  return(
+  return (
 
-    <div
-
-    className="app-layout"
-
-    >
+    <div className="app-layout">
 
 
       <Header />
 
 
-
-      <main
-
-      className="main-content"
-
-      >
+      <main className="main-content">
 
         {children}
 
       </main>
 
 
-
       <Navbar
 
-      page={page}
+        page={page}
 
-      setPage={setPage}
+        setPage={setPage}
 
       />
 
