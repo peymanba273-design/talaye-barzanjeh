@@ -1,24 +1,142 @@
 :root {
 
-  --black:
-  #121212;
+  --bg-main: #080808;
 
-  --gold:
-  #d4af37;
+  --bg-card: rgba(255,255,255,0.06);
 
-  --gold-dark:
-  #8a6b16;
+  --bg-card-hover: rgba(255,215,0,0.12);
 
-  --white:
-  #ffffff;
 
-  --glass:
-  rgba(255,255,255,0.08);
+  --gold-main: #D4AF37;
 
-  --green:
-  #00c853;
+  --gold-light: #FFD700;
 
-  --red:
-  #ff1744;
+  --gold-dark: #9c7a12;
+
+
+  --text-main: #ffffff;
+
+  --text-soft: #b8b8b8;
+
+
+  --green: #22c55e;
+
+  --red: #ef4444;
+
+
+  --border:
+    rgba(212,175,55,0.25);
+
+
+  --radius-lg: 22px;
+
+  --radius-md: 16px;
+
+
+  --shadow-gold:
+    0 0 25px rgba(212,175,55,0.18);
+
+
+  --shadow-card:
+    0 10px 30px rgba(0,0,0,0.35);
+
+}
+
+
+
+* {
+
+  box-sizing: border-box;
+
+}
+
+
+
+body {
+
+  margin:0;
+
+  padding:0;
+
+  direction:rtl;
+
+  font-family:
+    "Vazirmatn",
+    "Tahoma",
+    sans-serif;
+
+
+  background:
+    radial-gradient(
+      circle at top,
+      #1c1605 0%,
+      var(--bg-main) 45%
+    );
+
+
+  color:var(--text-main);
+
+  min-height:100vh;
+
+}
+
+
+
+button {
+
+  font-family:inherit;
+
+}
+
+
+
+.card {
+
+  background:
+    var(--bg-card);
+
+
+  border:
+
+    1px solid var(--border);
+
+
+  border-radius:
+    var(--radius-md);
+
+
+  box-shadow:
+    var(--shadow-card);
+
+
+  backdrop-filter:
+    blur(15px);
+
+}
+
+
+
+.gold-text {
+
+  color:
+    var(--gold-light);
+
+}
+
+
+
+.green-text {
+
+  color:
+    var(--green);
+
+}
+
+
+
+.red-text {
+
+  color:
+    var(--red);
 
 }
