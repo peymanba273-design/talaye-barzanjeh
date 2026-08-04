@@ -1,8 +1,11 @@
 import { useState } from "react";
+
 import "./home.css";
 
 import PriceCard from "../PriceCard.jsx";
 import PriceChart from "../PriceChart.jsx";
+import ConvertBox from "../ConvertBox.jsx";
+
 
 
 function Home(){
@@ -14,13 +17,11 @@ function Home(){
 
   const prices = [
 
-
     {
       title:"طلای ۱۸ عیار",
       value:"7,950,000 تومان",
       change:1.8
     },
-
 
     {
       title:"آبشده",
@@ -28,13 +29,11 @@ function Home(){
       change:1.2
     },
 
-
     {
       title:"اونس جهانی",
       value:"3,350 دلار",
       change:-0.4
     },
-
 
     {
       title:"تتر",
@@ -42,37 +41,19 @@ function Home(){
       change:0.6
     },
 
-
     {
       title:"سکه امامی",
       value:"85,000,000 تومان",
       change:2.1
     },
 
-
     {
       title:"نیم سکه",
       value:"45,000,000 تومان",
       change:0.9
-    },
-
-
-    {
-      title:"ربع سکه",
-      value:"25,000,000 تومان",
-      change:-0.2
-    },
-
-
-    {
-      title:"سکه گرمی",
-      value:"14,000,000 تومان",
-      change:0.3
     }
 
-
   ];
-
 
 
 
@@ -80,6 +61,7 @@ function Home(){
   return (
 
     <div className="home-page">
+
 
 
       <section className="prices-grid">
@@ -92,17 +74,24 @@ function Home(){
 
             <PriceCard
 
+
               key={index}
+
 
               title={item.title}
 
+
               value={item.value}
+
 
               change={item.change}
 
+
               active={selected === item.title}
 
+
               onClick={()=>setSelected(item.title)}
+
 
             />
 
@@ -139,12 +128,17 @@ function Home(){
 
 
         <p>
+
           ارزش کل دارایی
+
         </p>
 
 
+
         <h1>
+
           98,125,000 تومان
+
         </h1>
 
 
@@ -154,22 +148,9 @@ function Home(){
 
 
 
-
-      <section className="convert-box">
-
-
-        <button>
-          تبدیل پول به طلا
-        </button>
+      <ConvertBox />
 
 
-
-        <button>
-          تبدیل طلا به پول
-        </button>
-
-
-      </section>
 
 
 
