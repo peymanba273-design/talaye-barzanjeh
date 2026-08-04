@@ -3,26 +3,10 @@ import "./wallet.css";
 
 function WalletPage(){
 
-  const transactions = [
 
-    {
-      title:"خرید طلا",
-      amount:"+۲ گرم",
-      date:"امروز"
-    },
+  return(
 
-    {
-      title:"فروش طلا",
-      amount:"-۰.۵ گرم",
-      date:"دیروز"
-    }
-
-  ];
-
-
-  return (
-
-    <section className="wallet-page">
+    <div className="wallet-page">
 
 
       <h1>
@@ -31,61 +15,105 @@ function WalletPage(){
 
 
 
-      <div className="wallet-summary">
+      <section className="wallet-main">
 
 
-        <div>
-
-          <span>
-            موجودی طلا
-          </span>
-
-          <strong>
-            ۱۲.۵ گرم
-          </strong>
-
-        </div>
+        <p>
+          موجودی طلای شما
+        </p>
 
 
-
-        <div>
-
-          <span>
-            ارزش دارایی
-          </span>
-
-          <strong>
-            ۹۸,۱۲۵,۰۰۰ تومان
-          </strong>
-
-        </div>
+        <h2>
+          12.50 گرم
+        </h2>
 
 
-      </div>
+        <span>
+          ارزش تقریبی:
+          <b>
+            98,125,000 تومان
+          </b>
+        </span>
+
+
+      </section>
 
 
 
 
-      <div className="wallet-actions">
+
+      <section className="wallet-actions">
 
 
-        <button>
+        <button className="wallet-buy">
           خرید طلا
         </button>
 
 
-        <button>
+        <button className="wallet-sell">
           فروش طلا
         </button>
 
 
-      </div>
+      </section>
 
 
 
 
 
-      <div className="transactions">
+      <section className="wallet-info">
+
+
+        <div className="wallet-card">
+
+          <p>
+            آخرین خرید
+          </p>
+
+          <strong>
+            2 گرم
+          </strong>
+
+        </div>
+
+
+
+
+        <div className="wallet-card">
+
+          <p>
+            سود امروز
+          </p>
+
+          <strong>
+            +1,250,000 تومان
+          </strong>
+
+        </div>
+
+
+
+
+        <div className="wallet-card">
+
+          <p>
+            تعداد معاملات
+          </p>
+
+          <strong>
+            24
+          </strong>
+
+        </div>
+
+
+      </section>
+
+
+
+
+
+      <section className="wallet-history">
 
 
         <h2>
@@ -93,45 +121,32 @@ function WalletPage(){
         </h2>
 
 
-
-        {
-          transactions.map((item,index)=>(
-
-            <div 
-            className="transaction"
-            key={index}
-            >
+        <div>
+          خرید ۲ گرم طلا
+          <span>
+            امروز
+          </span>
+        </div>
 
 
-              <span>
-                {item.title}
-              </span>
+        <div>
+          فروش ۱ گرم طلا
+          <span>
+            دیروز
+          </span>
+        </div>
 
 
-              <strong>
-                {item.amount}
-              </strong>
+      </section>
 
 
-              <small>
-                {item.date}
-              </small>
 
-
-            </div>
-
-          ))
-        }
-
-
-      </div>
-
-
-    </section>
+    </div>
 
   );
 
 }
+
 
 
 export default WalletPage;
