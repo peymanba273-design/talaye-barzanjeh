@@ -1,36 +1,53 @@
-import Logo from "./Logo";
-import "./styles/header.css";
+import BarzanjehLogo from "./BarzanjehLogo.jsx";
+
+import "./Header.css";
+
 
 
 function Header(){
 
-  return (
 
-    <header className="hero-header">
+  return(
 
-
-      <div className="hero-content">
+    <header className="top-header">
 
 
-        <Logo />
+
+      <button className="settings-btn">
+
+        ⚙
+
+      </button>
+
+
+
+
+      <div className="logo-center">
+
+
+        <BarzanjehLogo />
+
 
 
         <h1>
+
           Barzanjeh Gold
+
         </h1>
 
 
-        <p>
-          سرمایه‌گذاری هوشمند روی طلا
-        </p>
 
+        <span>
 
-        <button className="gold-button">
-          شروع سرمایه‌گذاری
-        </button>
+          طلا | سرمایه | اعتماد
+
+        </span>
+
 
 
       </div>
+
+
 
 
     </header>
@@ -38,6 +55,7 @@ function Header(){
   );
 
 }
+
 
 
 export default Header;
