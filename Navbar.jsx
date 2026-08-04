@@ -1,6 +1,3 @@
-import "./navbar.css";
-
-
 function Navbar({page,setPage}){
 
 
@@ -12,11 +9,13 @@ function Navbar({page,setPage}){
       icon:"⌂"
     },
 
+
     {
       id:"market",
       title:"بازار",
       icon:"◈"
     },
+
 
     {
       id:"wallet",
@@ -24,10 +23,32 @@ function Navbar({page,setPage}){
       icon:"▣"
     },
 
+
     {
       id:"profile",
       title:"پروفایل",
       icon:"●"
+    },
+
+
+    {
+      id:"notifications",
+      title:"اعلان",
+      icon:"🔔"
+    },
+
+
+    {
+      id:"transactions",
+      title:"تراکنش",
+      icon:"↔"
+    },
+
+
+    {
+      id:"news",
+      title:"اخبار",
+      icon:"◉"
     }
 
   ];
@@ -36,55 +57,103 @@ function Navbar({page,setPage}){
 
   return(
 
-    <nav className="navbar">
+    <nav
+
+    style={{
+
+      position:"fixed",
+
+      bottom:0,
+
+      left:0,
+
+      width:"100%",
+
+      height:"75px",
+
+      background:"#111",
+
+      display:"flex",
+
+      justifyContent:"space-around",
+
+      alignItems:"center",
+
+      borderTop:
+      "1px solid rgba(212,175,55,.3)",
+
+      zIndex:1000,
+
+      overflowX:"auto"
+
+    }}
+
+    >
 
 
       {
 
-        items.map(item=>(
+      items.map(item=>(
+
+
+        <div
+
+        key={item.id}
+
+        onClick={()=>setPage(item.id)}
+
+        style={{
+
+          minWidth:"70px",
+
+          textAlign:"center",
+
+          cursor:"pointer",
+
+          color:
+
+          page===item.id
+
+          ?
+
+          "#D4AF37"
+
+          :
+
+          "#888"
+
+
+        }}
+
+        >
+
 
           <div
 
-          key={item.id}
+          style={{
 
-          className={
+            fontSize:"22px"
 
-            page===item.id
-
-            ?
-
-            "nav-item active"
-
-            :
-
-            "nav-item"
-
-          }
-
-
-          onClick={()=>setPage(item.id)}
+          }}
 
           >
 
-
-            <span className="nav-icon">
-
-              {item.icon}
-
-            </span>
-
-
-            <span className="nav-title">
-
-              {item.title}
-
-            </span>
-
+            {item.icon}
 
           </div>
 
 
-        ))
+          <small>
+
+            {item.title}
+
+          </small>
+
+
+        </div>
+
+
+      ))
 
       }
 
