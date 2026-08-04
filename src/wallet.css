@@ -1,30 +1,16 @@
-.wallet-box{
+.wallet-page{
 
-margin:30px 20px;
-
-padding:35px;
-
-background:var(--glass-bg);
-
-border:1px solid var(--glass-border);
-
-border-radius:var(--radius-xl);
-
-backdrop-filter:blur(25px);
-
-box-shadow:var(--gold-shadow);
+padding:30px 20px;
 
 }
 
 
 
-.wallet-title{
+.wallet-page h1{
 
-display:flex;
+text-align:center;
 
-justify-content:space-between;
-
-align-items:center;
+color:var(--gold-main);
 
 margin-bottom:30px;
 
@@ -32,28 +18,13 @@ margin-bottom:30px;
 
 
 
-.wallet-title h2{
-
-color:var(--gold-main);
-
-}
-
-
-
-.wallet-title span{
-
-color:var(--text-soft);
-
-}
-
-
-
-.wallet-content{
+.wallet-summary{
 
 display:grid;
 
 grid-template-columns:
-repeat(auto-fit,minmax(180px,1fr));
+
+repeat(auto-fit,minmax(220px,1fr));
 
 gap:20px;
 
@@ -61,33 +32,40 @@ gap:20px;
 
 
 
-.wallet-item{
+.wallet-summary div{
 
-padding:20px;
-
-border-radius:20px;
-
-background:rgba(212,175,55,.08);
+padding:30px;
 
 text-align:center;
 
+
+background:var(--glass-bg);
+
+border:1px solid var(--glass-border);
+
+border-radius:var(--radius-xl);
+
+box-shadow:var(--gold-shadow);
+
 }
 
 
 
-.wallet-item p{
+.wallet-summary span{
+
+display:block;
 
 color:var(--text-soft);
 
-margin-bottom:12px;
+margin-bottom:15px;
 
 }
 
 
 
-.wallet-item strong{
+.wallet-summary strong{
 
-font-size:22px;
+font-size:25px;
 
 color:var(--gold-light);
 
@@ -95,25 +73,29 @@ color:var(--gold-light);
 
 
 
-.profit strong{
 
-color:#00c853;
+.wallet-actions{
+
+display:flex;
+
+gap:20px;
+
+margin:30px 0;
 
 }
 
 
 
-.wallet-button{
+.wallet-actions button{
 
-margin-top:30px;
-
-width:100%;
+flex:1;
 
 padding:16px;
 
 border:none;
 
 border-radius:50px;
+
 
 background:
 
@@ -123,10 +105,56 @@ linear-gradient(
 #d4af37
 );
 
-font-size:17px;
 
 font-weight:bold;
 
 cursor:pointer;
+
+}
+
+
+
+
+.transactions{
+
+padding:25px;
+
+background:var(--glass-bg);
+
+border-radius:var(--radius-xl);
+
+border:1px solid var(--glass-border);
+
+}
+
+
+
+.transactions h2{
+
+color:var(--gold-main);
+
+margin-bottom:20px;
+
+}
+
+
+
+.transaction{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:15px 0;
+
+border-bottom:1px solid rgba(255,255,255,.1);
+
+}
+
+
+
+.transaction strong{
+
+color:#00c853;
 
 }
