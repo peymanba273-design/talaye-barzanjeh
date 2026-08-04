@@ -1,4 +1,4 @@
-name: Deploy Barzanjeh Gold
+name: Deploy React Vite
 
 on:
   push:
@@ -21,18 +21,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 24
 
-      - name: Install packages
+
+      - name: Install dependencies
         run: npm install
 
-      - name: Build project
+
+      - name: Build
         run: npm run build
 
-      - name: Upload dist
+
+      - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
@@ -44,7 +48,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    environment:
+      name: github-pages
+
     steps:
 
-      - name: Deploy Pages
+      - name: Deploy
         uses: actions/deploy-pages@v4
