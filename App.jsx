@@ -1,79 +1,55 @@
 import { useState } from "react";
 
-import Layout from "./Layout.jsx";
-
-import Login from "./Login.jsx";
-import Register from "./Register.jsx";
-
-import Home from "./src/Home.jsx";
-import Market from "./src/Market.jsx";
-import WalletPage from "./src/WalletPage.jsx";
+import Home from "./Home.jsx";
+import Market from "./Market.jsx";
+import WalletPage from "./WalletPage.jsx";
 import Profile from "./Profile.jsx";
+import Notifications from "./Notifications.jsx";
+import Transactions from "./Transactions.jsx";
+import News from "./News.jsx";
+
+import Navbar from "./Navbar.jsx";
+import Header from "./Header.jsx";
+
 
 function App(){
 
-  const [logged,setLogged]=useState(false);
-
-  const [authPage,setAuthPage]=useState("login");
 
   const [page,setPage]=useState("home");
 
 
 
-  if(!logged){
-
-    if(authPage==="register"){
-
-      return(
-
-        <Register
-
-          setLogged={setLogged}
-
-          setAuthPage={setAuthPage}
-
-        />
-
-      );
-
-    }
-
-
-
-    return(
-
-      <Login
-
-        setLogged={setLogged}
-
-        setAuthPage={setAuthPage}
-
-      />
-
-    );
-
-  }
-
-
-
   function renderPage(){
+
 
     switch(page){
 
-      case "market":
 
+      case "market":
         return <Market />;
 
-      case "wallet":
 
+      case "wallet":
         return <WalletPage />;
 
-      case "profile":
 
+      case "profile":
         return <Profile />;
 
-      default:
 
+      case "notifications":
+        return <Notifications />;
+
+
+      case "transactions":
+        return <Transactions />;
+
+
+      case "news":
+        return <News />;
+
+
+      default:
         return <Home />;
 
     }
@@ -84,20 +60,30 @@ function App(){
 
   return(
 
-    <Layout
+    <div>
+
+
+      <Header />
+
+
+      {renderPage()}
+
+
+      <Navbar
 
       page={page}
 
       setPage={setPage}
 
-    >
+      />
 
-      {renderPage()}
 
-    </Layout>
+    </div>
 
   );
 
 }
+
+
 
 export default App;
