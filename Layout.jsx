@@ -1,55 +1,75 @@
+import Header from "./Header.jsx";
 import Navbar from "./Navbar.jsx";
+
 
 function Layout({
 
-page,
+  page,
 
-children,
+  children,
 
-setPage
+  setPage
 
 }){
 
-return(
 
-<div
-style={{
+  return(
 
-minHeight:"100vh",
+    <div
 
-background:"#090909",
+    style={{
 
-display:"flex",
+      minHeight:"100vh",
 
-flexDirection:"column"
+      background:"#090909",
 
-}}
->
+      color:"white",
 
-<div
-style={{
+      display:"flex",
 
-flex:1
+      flexDirection:"column"
 
-}}
->
+    }}
 
-{children}
+    >
 
-</div>
 
-<Navbar
+      <Header />
 
-page={page}
 
-setPage={setPage}
 
-/>
+      <main
 
-</div>
+      style={{
 
-);
+        flex:"1",
+
+        paddingBottom:"90px"
+
+      }}
+
+      >
+
+        {children}
+
+      </main>
+
+
+
+      <Navbar
+
+      page={page}
+
+      setPage={setPage}
+
+      />
+
+
+    </div>
+
+  );
 
 }
+
 
 export default Layout;
