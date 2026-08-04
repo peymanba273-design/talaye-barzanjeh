@@ -1,11 +1,26 @@
-import "./styles/settings.css";
+import "./settings.css";
 
 
 function Settings(){
 
+  const options = [
+
+    "اطلاعات حساب",
+
+    "امنیت و رمز عبور",
+
+    "اعلان‌ها",
+
+    "حالت نمایش",
+
+    "خروج از حساب"
+
+  ];
+
+
   return (
 
-    <section className="settings">
+    <section className="settings-page">
 
 
       <h1>
@@ -13,28 +28,60 @@ function Settings(){
       </h1>
 
 
-      <div className="setting-card">
+
+      <div className="profile-card">
+
+
+        <div className="profile-logo">
+
+          B
+
+        </div>
+
+
+        <h2>
+          کاربر Barzanjeh
+        </h2>
+
 
         <p>
-          حالت نمایش
+          حساب سرمایه‌گذاری طلا
         </p>
 
-        <button>
-          Dark Mode
-        </button>
 
       </div>
 
 
-      <div className="setting-card">
 
-        <p>
-          امنیت حساب
-        </p>
 
-        <button>
-          مدیریت حساب
-        </button>
+
+      <div className="settings-list">
+
+
+        {
+          options.map((item,index)=>(
+
+            <div 
+            className="settings-item"
+            key={index}
+            >
+
+
+              <span>
+                {item}
+              </span>
+
+
+              <b>
+                ›
+              </b>
+
+
+            </div>
+
+          ))
+        }
+
 
       </div>
 
