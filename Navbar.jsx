@@ -1,14 +1,10 @@
+import "./Navbar.css";
+
+
 function Navbar({page,setPage}){
 
 
   const items=[
-
-    {
-      id:"home",
-      title:"خانه",
-      icon:"⌂"
-    },
-
 
     {
       id:"market",
@@ -25,6 +21,14 @@ function Navbar({page,setPage}){
 
 
     {
+      id:"home",
+      title:"خانه",
+      icon:"⌂",
+      home:true
+    },
+
+
+    {
       id:"profile",
       title:"پروفایل",
       icon:"●"
@@ -35,21 +39,8 @@ function Navbar({page,setPage}){
       id:"notifications",
       title:"اعلان",
       icon:"🔔"
-    },
-
-
-    {
-      id:"transactions",
-      title:"تراکنش",
-      icon:"↔"
-    },
-
-
-    {
-      id:"news",
-      title:"اخبار",
-      icon:"◉"
     }
+
 
   ];
 
@@ -57,103 +48,59 @@ function Navbar({page,setPage}){
 
   return(
 
-    <nav
-
-    style={{
-
-      position:"fixed",
-
-      bottom:0,
-
-      left:0,
-
-      width:"100%",
-
-      height:"75px",
-
-      background:"#111",
-
-      display:"flex",
-
-      justifyContent:"space-around",
-
-      alignItems:"center",
-
-      borderTop:
-      "1px solid rgba(212,175,55,.3)",
-
-      zIndex:1000,
-
-      overflowX:"auto"
-
-    }}
-
-    >
+    <nav className="bottom-nav">
 
 
       {
 
-      items.map(item=>(
-
-
-        <div
-
-        key={item.id}
-
-        onClick={()=>setPage(item.id)}
-
-        style={{
-
-          minWidth:"70px",
-
-          textAlign:"center",
-
-          cursor:"pointer",
-
-          color:
-
-          page===item.id
-
-          ?
-
-          "#D4AF37"
-
-          :
-
-          "#888"
-
-
-        }}
-
-        >
+        items.map(item=>(
 
 
           <div
 
-          style={{
+          key={item.id}
 
-            fontSize:"22px"
+          onClick={()=>setPage(item.id)}
 
-          }}
+          className={
+
+            item.home
+
+            ?
+
+            `nav-item home-item ${page===item.id ? "active":""}`
+
+            :
+
+            `nav-item ${page===item.id ? "active":""}`
+
+          }
+
 
           >
 
-            {item.icon}
+
+
+            <div className="nav-icon">
+
+              {item.icon}
+
+            </div>
+
+
+
+            <small>
+
+              {item.title}
+
+            </small>
+
+
 
           </div>
 
 
-          <small>
-
-            {item.title}
-
-          </small>
-
-
-        </div>
-
-
-      ))
+        ))
 
       }
 
