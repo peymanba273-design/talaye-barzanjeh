@@ -1,69 +1,97 @@
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  CartesianGrid
-} from "recharts";
-
-
 function PriceChart({title}){
 
 
-  const data = [
-
-    {
-      time:"10:00",
-      price:7950000
-    },
-
-    {
-      time:"12:00",
-      price:7985000
-    },
-
-    {
-      time:"14:00",
-      price:7960000
-    },
-
-    {
-      time:"16:00",
-      price:8035000
-    },
-
-    {
-      time:"18:00",
-      price:8100000
-    }
-
+  const points = [
+    7950000,
+    7985000,
+    7960000,
+    8035000,
+    8100000,
+    8080000,
+    8150000
   ];
 
 
 
-  const currentPrice =
-    data[data.length - 1].price;
+  const max = Math.max(...points);
+
+  const min = Math.min(...points);
+
+
+
+  const chartPoints = points.map((price,index)=>{
+
+
+    const x =
+
+      20 +
+
+      index *
+
+      60;
+
+
+
+    const y =
+
+      220 -
+
+      (
+
+        (price-min)
+
+        /
+
+        (max-min)
+
+        *
+
+        180
+
+      );
+
+
+
+    return `${x},${y}`;
+
+
+  }).join(" ");
+
+
+
+
+  const current = points[points.length-1];
 
 
 
   const change =
+
+  (
+
     (
-      (
-        currentPrice - data[0].price
-      )
-      /
-      data[0].price
-      *
-      100
-    ).toFixed(2);
+
+      current - points[0]
+
+    )
+
+    /
+
+    points[0]
+
+    *
+
+    100
+
+  ).toFixed(2);
+
 
 
 
   return (
 
+
     <div className="professional-chart">
+
 
 
       <div className="chart-header">
@@ -71,14 +99,17 @@ function PriceChart({title}){
 
         <div>
 
+
           <h2>
+
             {title}
+
           </h2>
 
 
           <strong>
 
-            {currentPrice.toLocaleString()}
+            {current.toLocaleString()}
 
             تومان
 
@@ -96,98 +127,159 @@ function PriceChart({title}){
         </span>
 
 
+
       </div>
 
 
 
 
 
-      <ResponsiveContainer
+      <svg
 
         width="100%"
 
-        height={280}
+        height="260"
+
+        viewBox="0 0 450 260"
 
       >
 
 
-        <LineChart data={data}>
+
+        <defs>
 
 
-          <CartesianGrid
+          <linearGradient
 
-            strokeDasharray="4 4"
+            id="goldLine"
 
-            opacity={0.2}
+            x1="0"
 
-          />
+            y1="0"
 
+            x2="1"
 
+            y2="1"
 
-          <XAxis
+          >
 
-            dataKey="time"
+            <stop
 
-            tick={{fontSize:12}}
+              offset="0%"
 
-          />
+              stopColor="#f5d77a"
 
-
-
-          <YAxis
-
-            hide
-
-          />
+            />
 
 
+            <stop
 
-          <Tooltip
+              offset="100%"
 
-            formatter={(value)=>
+              stopColor="#b8860b"
 
-              [
+            />
 
-              value.toLocaleString()+" تومان",
 
-              "قیمت"
+          </linearGradient>
 
-              ]
 
-            }
-
-          />
+        </defs>
 
 
 
 
-          <Line
 
-            type="monotone"
-
-            dataKey="price"
-
-            stroke="#b8860b"
-
-            strokeWidth={4}
-
-            dot={false}
-
-            activeDot={{
-
-              r:6
-
-            }}
-
-          />
+        <polyline
 
 
+          points={chartPoints}
 
-        </LineChart>
+
+          fill="none"
 
 
-      </ResponsiveContainer>
+          stroke="url(#goldLine)"
 
+
+          strokeWidth="5"
+
+
+          strokeLinecap="round"
+
+
+          strokeLinejoin="round"
+
+
+        />
+
+
+
+
+        {
+
+          points.map((price,index)=>{
+
+
+            const x =
+
+            20 +
+
+            index *
+
+            60;
+
+
+
+            const y =
+
+            220 -
+
+            (
+
+              (price-min)
+
+              /
+
+              (max-min)
+
+              *
+
+              180
+
+            );
+
+
+
+            return (
+
+
+              <circle
+
+                key={index}
+
+                cx={x}
+
+                cy={y}
+
+                r="5"
+
+                fill="#b8860b"
+
+              />
+
+
+            );
+
+
+          })
+
+
+        }
+
+
+
+      </svg>
 
 
 
@@ -225,8 +317,8 @@ function PriceChart({title}){
 
 
 
-
     </div>
+
 
   );
 
