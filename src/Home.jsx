@@ -1,5 +1,6 @@
 import "./home.css";
 
+
 function Home() {
 
   return (
@@ -60,7 +61,6 @@ function Home() {
 
 
 
-
       <section className="activity-box">
 
         <h2>
@@ -94,7 +94,7 @@ function Home() {
 
 
 
-function PriceCard({title,value}) {
+function PriceCard({ title, value }) {
 
   return (
 
@@ -115,7 +115,6 @@ function PriceCard({title,value}) {
   );
 
 }
-
 
 
 export default Home;
