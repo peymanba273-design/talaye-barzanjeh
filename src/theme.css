@@ -1,44 +1,34 @@
 :root {
 
-  --bg-main: #080808;
+  --cream-bg: #f5ead7;
 
-  --bg-card: rgba(255,255,255,0.06);
+  --coffee-card: rgba(181, 132, 88, 0.18);
 
-  --bg-card-hover: rgba(255,215,0,0.12);
+  --coffee-dark: #6b4630;
 
+  --gold: #c99b2e;
 
-  --gold-main: #D4AF37;
+  --gold-light: #e8c766;
 
-  --gold-light: #FFD700;
+  --black: #17120d;
 
-  --gold-dark: #9c7a12;
-
-
-  --text-main: #ffffff;
-
-  --text-soft: #b8b8b8;
+  --text-soft: #5b4635;
 
 
-  --green: #22c55e;
-
-  --red: #ef4444;
-
-
-  --border:
-    rgba(212,175,55,0.25);
+  --glass-border:
+    rgba(201,155,46,0.35);
 
 
-  --radius-lg: 22px;
-
-  --radius-md: 16px;
-
-
-  --shadow-gold:
-    0 0 25px rgba(212,175,55,0.18);
+  --glass-shadow:
+    0 10px 35px rgba(92,55,20,0.18);
 
 
-  --shadow-card:
-    0 10px 30px rgba(0,0,0,0.35);
+  --blur:
+    blur(18px);
+
+
+  --radius:
+    22px;
 
 }
 
@@ -46,12 +36,13 @@
 
 * {
 
-  box-sizing: border-box;
+  box-sizing:border-box;
 
 }
 
 
 
+html,
 body {
 
   margin:0;
@@ -60,21 +51,25 @@ body {
 
   direction:rtl;
 
-  font-family:
-    "Vazirmatn",
-    "Tahoma",
-    sans-serif;
-
 
   background:
+
     radial-gradient(
       circle at top,
-      #1c1605 0%,
-      var(--bg-main) 45%
+      #fff3df,
+      var(--cream-bg)
     );
 
 
-  color:var(--text-main);
+  color:var(--black);
+
+
+  font-family:
+
+    "Vazirmatn",
+    Tahoma,
+    sans-serif;
+
 
   min-height:100vh;
 
@@ -90,53 +85,60 @@ button {
 
 
 
-.card {
+.glass-card {
+
 
   background:
-    var(--bg-card);
+
+    var(--coffee-card);
 
 
   border:
 
-    1px solid var(--border);
-
-
-  border-radius:
-    var(--radius-md);
-
-
-  box-shadow:
-    var(--shadow-card);
+    1px solid var(--glass-border);
 
 
   backdrop-filter:
-    blur(15px);
+
+    var(--blur);
+
+
+  -webkit-backdrop-filter:
+
+    var(--blur);
+
+
+  box-shadow:
+
+    var(--glass-shadow);
+
+
+  border-radius:
+
+    var(--radius);
 
 }
 
 
 
-.gold-text {
+.gold {
 
-  color:
-    var(--gold-light);
-
-}
-
-
-
-.green-text {
-
-  color:
-    var(--green);
+  color:var(--gold);
 
 }
 
 
 
-.red-text {
+.dark-text {
 
-  color:
-    var(--red);
+  color:var(--black);
+
+}
+
+
+
+.soft-text {
+
+  color:var(--text-soft);
 
 }
