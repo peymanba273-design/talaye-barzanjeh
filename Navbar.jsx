@@ -1,73 +1,83 @@
 import "./navbar.css";
 
 
-function Navbar({setPage,page}){
+function Navbar({page,setPage}){
 
 
   const items=[
 
     {
-      name:"home",
+      id:"home",
       title:"خانه",
-      icon:"/assets/home.svg"
+      icon:"⌂"
     },
 
     {
-      name:"market",
+      id:"market",
       title:"بازار",
-      icon:"/assets/market.svg"
+      icon:"◈"
     },
 
     {
-      name:"wallet",
+      id:"wallet",
       title:"کیف پول",
-      icon:"/assets/wallet.svg"
+      icon:"▣"
     },
 
     {
-      name:"settings",
-      title:"تنظیمات",
-      icon:"/assets/settings.svg"
+      id:"profile",
+      title:"پروفایل",
+      icon:"●"
     }
 
   ];
 
 
 
-  return (
+  return(
 
-    <nav className="bottom-navbar">
+    <nav className="navbar">
 
 
       {
-        items.map((item)=>(
 
+        items.map(item=>(
 
           <div
 
-          key={item.name}
-
-          onClick={()=>setPage(item.name)}
+          key={item.id}
 
           className={
-            page===item.name
+
+            page===item.id
+
             ?
+
             "nav-item active"
+
             :
+
             "nav-item"
+
           }
 
+
+          onClick={()=>setPage(item.id)}
 
           >
 
 
-            <img 
-            src={item.icon}
-            />
+            <span className="nav-icon">
+
+              {item.icon}
+
+            </span>
 
 
-            <span>
+            <span className="nav-title">
+
               {item.title}
+
             </span>
 
 
@@ -75,6 +85,7 @@ function Navbar({setPage,page}){
 
 
         ))
+
       }
 
 
