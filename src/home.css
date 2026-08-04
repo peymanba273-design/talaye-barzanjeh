@@ -545,6 +545,25 @@
 
 @media(max-width:600px){
 
+  .home-page{
+
+    padding:12px;
+
+    width:100%;
+
+    box-sizing:border-box;
+
+    overflow-x:hidden;
+
+  }
+
+
+  .prices-grid{
+
+    grid-template-columns:repeat(2,1fr);
+
+  }
+
 
   .professional-chart{
 
@@ -555,6 +574,14 @@
   }
 
 
+  .professional-chart svg{
+
+    width:100%;
+
+    height:auto;
+
+  }
+
 
   .chart-header strong{
 
@@ -563,16 +590,10 @@
   }
 
 
-}
-  }
-
-
-
   .convert-container{
 
     grid-template-columns:1fr;
 
   }
-
 
 }
