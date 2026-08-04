@@ -1,20 +1,16 @@
-.settings{
+.settings-page{
 
-min-height:100vh;
-
-padding:40px;
-
-background:var(--black);
+padding:30px 20px;
 
 }
 
 
 
-.settings h1{
+.settings-page h1{
 
 text-align:center;
 
-color:var(--gold);
+color:var(--gold-main);
 
 margin-bottom:30px;
 
@@ -22,44 +18,120 @@ margin-bottom:30px;
 
 
 
-.setting-card{
 
-margin:20px auto;
+.profile-card{
 
-max-width:400px;
-
-padding:25px;
-
-border-radius:25px;
-
-background:var(--glass);
-
-backdrop-filter:blur(20px);
+padding:35px;
 
 text-align:center;
 
+
+background:var(--glass-bg);
+
+border:1px solid var(--glass-border);
+
+border-radius:var(--radius-xl);
+
+box-shadow:var(--gold-shadow);
+
+margin-bottom:30px;
+
 }
 
 
 
-.setting-card p{
+.profile-logo{
+
+width:90px;
+
+height:90px;
+
+margin:auto;
+
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+
+border-radius:50%;
+
+
+font-size:60px;
+
+font-weight:bold;
+
+
+color:var(--gold-main);
+
+
+background:rgba(212,175,55,.12);
+
+}
+
+
+
+.profile-card h2{
+
+margin-top:20px;
 
 color:white;
 
-margin-bottom:15px;
+}
+
+
+
+.profile-card p{
+
+color:var(--text-soft);
+
+margin-top:10px;
 
 }
 
 
 
-.setting-card button{
 
-padding:12px 25px;
+.settings-list{
 
-border:none;
+background:var(--glass-bg);
 
-border-radius:20px;
+border-radius:var(--radius-xl);
 
-background:var(--gold);
+border:1px solid var(--glass-border);
+
+overflow:hidden;
+
+}
+
+
+
+
+.settings-item{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:22px;
+
+border-bottom:
+
+1px solid rgba(255,255,255,.1);
+
+
+color:white;
+
+}
+
+
+
+.settings-item b{
+
+color:var(--gold-main);
+
+font-size:25px;
 
 }
