@@ -13,6 +13,14 @@
 
   color:#15100a;
 
+}.home-page{
+
+  width:100%;
+
+  box-sizing:border-box;
+
+  overflow-x:hidden;
+
 }
 
 
@@ -238,9 +246,13 @@
 
   width:100%;
 
-  padding:22px;
+  max-width:100%;
 
-  border-radius:30px;
+  box-sizing:border-box;
+
+  padding:16px;
+
+  border-radius:25px;
 
   background:
 
@@ -254,16 +266,22 @@
 
   1px solid rgba(184,134,11,.4);
 
-
   box-shadow:
 
-  0 20px 50px rgba(0,0,0,.25);
+  0 15px 35px rgba(0,0,0,.25);
 
-
-  color:white;
+  overflow:hidden;
 
 }
+.professional-chart svg{
 
+  width:100%;
+
+  height:auto;
+
+  max-width:100%;
+
+}
 
 
 
@@ -528,18 +546,24 @@
 @media(max-width:600px){
 
 
-  .home-page{
+  .professional-chart{
 
     padding:12px;
+
+    border-radius:22px;
 
   }
 
 
 
-  .prices-grid{
+  .chart-header strong{
 
-    grid-template-columns:repeat(2,1fr);
+    font-size:20px;
 
+  }
+
+
+}
   }
 
 
