@@ -1,7 +1,7 @@
 import "./auth.css";
 
 
-function Register({setLogged}){
+function Register({setLogged, setPage}){
 
 
   return (
@@ -17,9 +17,11 @@ function Register({setLogged}){
         </div>
 
 
+
         <h1>
-          ساخت حساب
+          ساخت حساب جدید
         </h1>
+
 
 
         <p>
@@ -28,32 +30,68 @@ function Register({setLogged}){
 
 
 
+
         <input
+
         placeholder="نام کامل"
+
         />
 
 
 
         <input
+
         placeholder="شماره موبایل"
+
         />
 
 
 
         <input
-        placeholder="رمز عبور"
+
         type="password"
+
+        placeholder="رمز عبور"
+
         />
+
+
+
+        <input
+
+        type="password"
+
+        placeholder="تکرار رمز عبور"
+
+        />
+
 
 
 
         <button
+
         onClick={()=>setLogged(true)}
+
         >
 
           ثبت نام
 
         </button>
+
+
+
+
+        <span
+
+        className="switch-auth"
+
+        onClick={()=>setPage("login")}
+
+        >
+
+          قبلاً حساب دارید؟ ورود
+
+        </span>
 
 
 
