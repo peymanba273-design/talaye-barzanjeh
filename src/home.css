@@ -407,3 +407,100 @@
 
 
 }
+.card-top{
+
+  display:flex;
+
+  align-items:center;
+
+  gap:8px;
+
+  margin-bottom:10px;
+
+}
+
+
+
+.gold-icon{
+
+  width:28px;
+
+  height:28px;
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  border-radius:50%;
+
+  background:
+
+  rgba(184,134,11,.18);
+
+  color:#b8860b;
+
+  font-size:18px;
+
+}
+
+
+
+.price-card small{
+
+  display:inline-block;
+
+  margin-top:10px;
+
+  padding:5px 10px;
+
+  border-radius:15px;
+
+  font-size:12px;
+
+  font-weight:bold;
+
+}
+
+
+
+.positive{
+
+  color:#08752f;
+
+  background:
+
+  rgba(0,140,60,.12);
+
+}
+
+
+
+.negative{
+
+  color:#b3261e;
+
+  background:
+
+  rgba(180,30,30,.12);
+
+}
+
+
+
+.price-card.active .gold-icon{
+
+  background:#b8860b;
+
+  color:white;
+
+}
+
+
+
+.price-card.active strong{
+
+  font-size:18px;
+
+}
