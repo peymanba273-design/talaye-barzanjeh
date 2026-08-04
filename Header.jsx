@@ -3,7 +3,7 @@ import BarzanjehLogo from "./BarzanjehLogo.jsx";
 
 function Header(){
 
-  return(
+  return (
 
     <header
 
@@ -45,27 +45,53 @@ function Header(){
       >
 
 
-        <BarzanjehLogo />
+        <div
 
-<div
-  style={{
-    width:"55px",
-    height:"55px",
-    overflow:"hidden",
-    display:"flex",
-    alignItems:"center",
-    justifyContent:"center"
-  }}
->
+          style={{
 
-  <BarzanjehLogo />
+            width:"55px",
 
-</div>
+            height:"55px",
+
+            overflow:"hidden",
+
+            display:"flex",
+
+            alignItems:"center",
+
+            justifyContent:"center"
+
+          }}
+
+        >
+
+          <BarzanjehLogo />
+
+        </div>
+
+
+
+        <div>
+
+          <h1
+
+            style={{
+
+              margin:0,
+
+              color:"#b8860b",
+
+              fontSize:"20px",
+
+              fontWeight:"900"
+
+            }}
+
+          >
 
             Barzanjeh Gold
 
           </h1>
-
 
 
           <span
@@ -85,12 +111,10 @@ function Header(){
           </span>
 
 
-
         </div>
 
 
       </div>
-
 
 
 
@@ -120,7 +144,6 @@ function Header(){
         ⚙
 
       </button>
-
 
 
     </header>
