@@ -4,32 +4,117 @@ import "./market.css";
 
 function Market(){
 
-  const [selected,setSelected]=useState("طلای ۱۸ عیار");
 
-  const [range,setRange]=useState("1D");
+  const defaultData = {
 
-  const [prices,setPrices]=useState(null);
+    gold18:7950000,
+    gold24:10600000,
+    mesghal:34500000,
+    coin:85000000,
+    halfCoin:45000000,
+    quarterCoin:25000000,
+    dollar:160000,
+    ounce:3350
+
+  };
+
+
+
+  const [prices,setPrices]=useState(defaultData);
+
+
+  const [lastUpdate,setLastUpdate]=useState(
+    new Date().toLocaleTimeString("fa-IR")
+  );
+
+
+  const [selected,setSelected]=useState(
+    "طلای ۱۸ عیار"
+  );
+
+
+
+
+  async function getPrices(){
+
+
+    try{
+
+
+      /*
+      بعداً آدرس API واقعی اینجا قرار می‌گیرد
+
+      مثال:
+
+      const response =
+      await fetch("https://api-address.com/prices");
+
+      const data =
+      await response.json();
+
+      */
+
+
+      // فعلاً تست خودکار
+      setPrices(prev=>({
+
+        ...prev,
+
+        gold18:
+        prev.gold18 + Math.floor(Math.random()*2000-1000),
+
+        gold24:
+        prev.gold24 + Math.floor(Math.random()*3000-1500),
+
+        coin:
+        prev.coin + Math.floor(Math.random()*50000-25000),
+
+        dollar:
+        prev.dollar + Math.floor(Math.random()*100-50)
+
+      }));
+
+
+
+      setLastUpdate(
+        new Date().toLocaleTimeString("fa-IR")
+      );
+
+
+
+    }
+
+    catch(error){
+
+      console.log(error);
+
+    }
+
+
+  }
+
+
+
+
 
 
 
   useEffect(()=>{
 
 
-    fetch("http://localhost:5000/api/prices")
+    getPrices();
 
-    .then(res=>res.json())
 
-    .then(data=>{
+    const timer=setInterval(()=>{
 
-      setPrices(data);
+      getPrices();
 
-    })
+    },300000); // هر ۵ دقیقه
 
-    .catch(error=>{
 
-      console.log(error);
 
-    });
+    return ()=>clearInterval(timer);
+
 
 
   },[]);
@@ -38,65 +123,64 @@ function Market(){
 
 
 
+
+
   const markets=[
+
 
     {
       title:"طلای ۱۸ عیار",
-      price: prices
-      ?
-      prices.gold18.toLocaleString()+" تومان"
-      :
-      "در حال دریافت..."
+      value:prices.gold18,
+      unit:"تومان"
     },
 
 
     {
       title:"طلای ۲۴ عیار",
-      price: prices
-      ?
-      prices.gold24.toLocaleString()+" تومان"
-      :
-      "در حال دریافت..."
+      value:prices.gold24,
+      unit:"تومان"
     },
 
 
     {
       title:"مثقال طلا",
-      price: prices
-      ?
-      prices.gold18.toLocaleString()+" تومان"
-      :
-      "در حال دریافت..."
+      value:prices.mesghal,
+      unit:"تومان"
     },
 
 
     {
       title:"سکه امامی",
-      price: prices
-      ?
-      prices.coin.toLocaleString()+" تومان"
-      :
-      "در حال دریافت..."
+      value:prices.coin,
+      unit:"تومان"
     },
 
 
     {
-      title:"دلار",
-      price: prices
-      ?
-      prices.dollar.toLocaleString()+" تومان"
-      :
-      "در حال دریافت..."
+      title:"نیم سکه",
+      value:prices.halfCoin,
+      unit:"تومان"
+    },
+
+
+    {
+      title:"ربع سکه",
+      value:prices.quarterCoin,
+      unit:"تومان"
+    },
+
+
+    {
+      title:"دلار آزاد",
+      value:prices.dollar,
+      unit:"تومان"
     },
 
 
     {
       title:"اونس جهانی",
-      price: prices
-      ?
-      prices.ounce.toLocaleString()+" دلار"
-      :
-      "در حال دریافت..."
+      value:prices.ounce,
+      unit:"دلار"
     }
 
 
@@ -106,38 +190,28 @@ function Market(){
 
 
 
-  const chartData=[
+
+
+  const chart=[
 
     7800,
+    7950,
     7900,
-    7850,
-    8100,
-    8250,
-    8150,
-    8400,
+    8200,
+    8350,
+    8300,
     8500
 
   ];
 
 
 
+  const points=chart.map((v,i)=>{
 
 
-  const max=Math.max(...chartData);
+    const x=i*50;
 
-  const min=Math.min(...chartData);
-
-
-
-  const points=chartData.map((item,index)=>{
-
-
-    const x=index*(320/(chartData.length-1));
-
-
-    const y=
-    170-
-    ((item-min)/(max-min))*130;
+    const y=150-(v-7800)/10;
 
 
     return `${x},${y}`;
@@ -151,257 +225,143 @@ function Market(){
 
 
 
-  return(
+return(
 
+<div className="market-page">
 
-    <div className="market-page">
 
+<h1>
+بازار طلا
+</h1>
 
 
-      <h1>
-        بازار طلا
-      </h1>
 
+<div className="update-time">
 
+آخرین بروزرسانی:
+{lastUpdate}
 
+</div>
 
-      <section className="market-grid">
 
 
-      {
 
-        markets.map((item,index)=>(
 
+<div className="market-grid">
 
-          <div
 
-          key={index}
+{
 
-          onClick={()=>setSelected(item.title)}
+markets.map((item,index)=>(
 
-          className={
 
-          selected===item.title
+<div
 
-          ?
+key={index}
 
-          "market-card active"
+onClick={()=>setSelected(item.title)}
 
-          :
+className={
 
-          "market-card"
+selected===item.title
 
-          }
+?
 
+"market-card active"
 
-          >
+:
 
+"market-card"
 
-            <h2>
-              {item.title}
-            </h2>
+}
 
 
-            <div className="market-price">
+>
 
-              {item.price}
 
-            </div>
+<h2>
+{item.title}
+</h2>
 
 
-          </div>
 
+<strong>
 
-        ))
+{item.value.toLocaleString("fa-IR")}
 
-      }
+</strong>
 
 
-      </section>
 
+<span>
 
+{item.unit}
 
+</span>
 
 
 
-      <section className="market-chart">
+</div>
 
 
-
-        <div className="chart-title">
-
-
-          <h2>
-            {selected}
-          </h2>
-
-
-          <strong>
-
-          {
-
-          prices
-
-          ?
-
-          "قیمت لحظه‌ای"
-
-          :
-
-          "اتصال به سرور..."
-
-          }
-
-          </strong>
-
-
-        </div>
-
-
-
-
-
-        <div className="range-buttons">
-
-
-        {
-
-          ["1D","1W","1M","1Y"].map(item=>(
-
-
-            <button
-
-            key={item}
-
-            className={
-
-            range===item
-
-            ?
-
-            "active-range"
-
-            :
-
-            ""
-
-            }
-
-            onClick={()=>setRange(item)}
-
-            >
-
-              {item}
-
-            </button>
-
-
-          ))
-
-        }
-
-
-        </div>
-
-
-
-
-
-
-        <div className="svg-chart">
-
-
-          <svg viewBox="0 0 320 190">
-
-
-
-          <polyline
-
-          points={points}
-
-          fill="none"
-
-          stroke="#b8860b"
-
-          strokeWidth="3"
-
-          strokeLinecap="round"
-
-          />
-
-
-
-
-          <polygon
-
-          points={`0,170 ${points} 320,170`}
-
-          fill="rgba(184,134,11,.18)"
-
-          />
-
-
-
-
-
-          {
-
-          chartData.map((item,index)=>{
-
-
-            const x=index*(320/(chartData.length-1));
-
-
-            const y=
-            170-
-            ((item-min)/(max-min))*130;
-
-
-
-            return(
-
-              <circle
-
-              key={index}
-
-              cx={x}
-
-              cy={y}
-
-              r="4"
-
-              fill="#d4af37"
-
-              />
-
-            )
-
-
-          })
-
-          }
-
-
-
-          </svg>
-
-
-        </div>
-
-
-
-      </section>
-
-
-
-    </div>
-
-
-  );
+))
 
 
 }
 
+</div>
+
+
+
+
+
+
+
+<div className="market-chart">
+
+
+<h2>
+
+نمودار {selected}
+
+</h2>
+
+
+
+
+<svg viewBox="0 0 320 180">
+
+
+<polyline
+
+points={points}
+
+fill="none"
+
+stroke="#b8860b"
+
+strokeWidth="4"
+
+strokeLinecap="round"
+
+/>
+
+
+</svg>
+
+
+
+</div>
+
+
+
+</div>
+
+
+);
+
+
+}
 
 
 export default Market;
