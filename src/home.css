@@ -2,7 +2,15 @@
 
   min-height:100vh;
 
+  width:100%;
+
+  box-sizing:border-box;
+
+  overflow-x:hidden;
+
   padding:20px;
+
+  padding-bottom:150px;
 
   background:
   linear-gradient(
@@ -13,16 +21,7 @@
 
   color:#15100a;
 
-}.home-page{
-
-  width:100%;
-
-  box-sizing:border-box;
-
-  overflow-x:hidden;
-
 }
-
 
 
 
@@ -42,8 +41,6 @@
 
 
 
-
-
 .price-card{
 
   min-height:120px;
@@ -58,36 +55,27 @@
 
   justify-content:space-between;
 
-
   background:
 
   rgba(255,255,255,.35);
 
-
   backdrop-filter:blur(18px);
 
-
   -webkit-backdrop-filter:blur(18px);
-
 
   border:
 
   1px solid rgba(184,134,11,.25);
 
-
   box-shadow:
 
   0 8px 25px rgba(0,0,0,.08);
 
-
   cursor:pointer;
-
 
   transition:.3s;
 
 }
-
-
 
 
 
@@ -99,22 +87,17 @@
 
 
 
-
-
 .price-card.active{
 
   border:
 
   2px solid #b8860b;
 
-
   background:
 
   rgba(255,215,120,.35);
 
 }
-
-
 
 
 
@@ -127,8 +110,6 @@
   gap:8px;
 
 }
-
-
 
 
 
@@ -156,8 +137,6 @@
 
 
 
-
-
 .price-card p{
 
   margin:0;
@@ -170,8 +149,6 @@
 
 
 
-
-
 .price-card strong{
 
   color:#b8860b;
@@ -179,8 +156,6 @@
   font-size:16px;
 
 }
-
-
 
 
 
@@ -200,8 +175,6 @@
 
 
 
-
-
 .positive{
 
   color:#08752f;
@@ -211,8 +184,6 @@
   rgba(0,140,60,.12);
 
 }
-
-
 
 
 
@@ -228,8 +199,6 @@
 
 
 
-
-
 /* چارت */
 
 .chart-box{
@@ -237,8 +206,6 @@
   margin-top:20px;
 
 }
-
-
 
 
 
@@ -273,16 +240,16 @@
   overflow:hidden;
 
 }
+
+
+
 .professional-chart svg{
 
   width:100%;
 
   height:auto;
 
-  max-width:100%;
-
 }
-
 
 
 
@@ -298,8 +265,6 @@
 
 
 
-
-
 .chart-header h2{
 
   margin:0;
@@ -309,8 +274,6 @@
   font-size:20px;
 
 }
-
-
 
 
 
@@ -328,8 +291,6 @@
 
 
 
-
-
 .chart-up{
 
   padding:10px 16px;
@@ -340,15 +301,11 @@
 
   rgba(0,180,80,.18);
 
-
   color:#43e07a;
-
 
   font-weight:bold;
 
 }
-
-
 
 
 
@@ -361,8 +318,6 @@
   margin-top:15px;
 
 }
-
-
 
 
 
@@ -386,8 +341,6 @@
 
 
 
-
-
 .chart-range button:first-child{
 
   background:#b8860b;
@@ -398,13 +351,13 @@
 
 
 
-
-
 /* دارایی */
 
 .asset-box{
 
   margin-top:20px;
+
+  margin-bottom:40px;
 
   padding:20px;
 
@@ -412,17 +365,13 @@
 
   border-radius:25px;
 
-
   background:
 
   rgba(255,255,255,.4);
 
-
   backdrop-filter:blur(20px);
 
 }
-
-
 
 
 
@@ -434,15 +383,11 @@
 
 
 
-
-
 .asset-box h1{
 
   color:#b8860b;
 
 }
-
-
 
 
 
@@ -458,9 +403,9 @@
 
   margin-top:20px;
 
+  margin-bottom:60px;
+
 }
-
-
 
 
 
@@ -474,9 +419,7 @@
 
   rgba(255,255,255,.4);
 
-
   backdrop-filter:blur(20px);
-
 
   border:
 
@@ -486,15 +429,11 @@
 
 
 
-
-
 .convert-card h3{
 
   color:#63452d;
 
 }
-
-
 
 
 
@@ -514,8 +453,6 @@
 
 
 
-
-
 .convert-result{
 
   margin-top:15px;
@@ -523,8 +460,6 @@
   color:#63452d;
 
 }
-
-
 
 
 
@@ -540,7 +475,6 @@
 
 
 
-
 /* موبایل */
 
 @media(max-width:600px){
@@ -549,11 +483,7 @@
 
     padding:12px;
 
-    width:100%;
-
-    box-sizing:border-box;
-
-    overflow-x:hidden;
+    padding-bottom:170px;
 
   }
 
@@ -593,6 +523,8 @@
   .convert-container{
 
     grid-template-columns:1fr;
+
+    margin-bottom:70px;
 
   }
 
