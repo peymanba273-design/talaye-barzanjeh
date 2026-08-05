@@ -1,7 +1,24 @@
+import { useState } from "react";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  Area,
+  AreaChart
+} from "recharts";
+
 import "./market.css";
 
 
 function Market(){
+
+
+  const [selected, setSelected] = useState("طلای ۱۸ عیار");
+
+  const [range, setRange] = useState("1D");
 
 
   const markets=[
@@ -37,22 +54,28 @@ function Market(){
     },
 
     {
-      title:"نیم سکه",
-      price:"45,500,000 تومان",
-      change:"+0.15%"
-    },
-
-    {
-      title:"ربع سکه",
-      price:"26,800,000 تومان",
-      change:"-0.10%"
-    },
-
-    {
       title:"دلار",
       price:"160,000 تومان",
       change:"+0.35%"
     }
+
+  ];
+
+
+
+  const chartData=[
+
+    {time:"10",price:7800},
+
+    {time:"12",price:7900},
+
+    {time:"14",price:7850},
+
+    {time:"16",price:8100},
+
+    {time:"18",price:7950},
+
+    {time:"20",price:8300},
 
   ];
 
@@ -69,23 +92,7 @@ function Market(){
 
 
 
-      <div className="market-top">
-
-        <p>
-          وضعیت لحظه‌ای بازار
-        </p>
-
-
-        <strong>
-          باز
-        </strong>
-
-
-      </div>
-
-
-
-      <section className="market-grid">
+      <div className="market-grid">
 
 
       {
@@ -94,8 +101,19 @@ function Market(){
 
 
           <div
-          className="market-card"
+
           key={index}
+
+          onClick={()=>setSelected(item.title)}
+
+          className={
+            selected===item.title
+            ?
+            "market-card active"
+            :
+            "market-card"
+          }
+
           >
 
 
@@ -136,28 +154,134 @@ function Market(){
       }
 
 
-      </section>
+      </div>
 
 
 
 
-      <section className="chart-placeholder">
+      <section className="market-chart">
 
 
-        <h2>
-          نمودار قیمت
-        </h2>
+        <div className="chart-title">
 
 
-        <div>
+          <h2>
+            {selected}
+          </h2>
 
-          نمودار قیمت در مرحله بعد به بازار لحظه‌ای وصل می‌شود
+
+          <strong>
+            7,950,000 تومان
+          </strong>
+
 
         </div>
 
 
-      </section>
 
+
+        <div className="range-buttons">
+
+
+        {
+          ["1D","1W","1M","1Y"].map(item=>(
+
+            <button
+
+            key={item}
+
+            className={
+              range===item
+              ?
+              "active-range"
+              :
+              ""
+            }
+
+            onClick={()=>setRange(item)}
+
+            >
+
+              {item}
+
+            </button>
+
+          ))
+        }
+
+
+        </div>
+
+
+
+
+        <ResponsiveContainer width="100%" height={280}>
+
+
+          <AreaChart data={chartData}>
+
+
+            <defs>
+
+              <linearGradient
+              id="gold"
+              x1="0"
+              y1="0"
+              x2="0"
+              y2="1"
+              >
+
+                <stop
+                offset="5%"
+                stopColor="#d4af37"
+                stopOpacity={0.4}
+                />
+
+                <stop
+                offset="95%"
+                stopColor="#d4af37"
+                stopOpacity={0}
+                />
+
+              </linearGradient>
+
+
+            </defs>
+
+
+
+            <XAxis dataKey="time"/>
+
+
+            <YAxis/>
+
+
+            <Tooltip/>
+
+
+
+            <Area
+
+            type="monotone"
+
+            dataKey="price"
+
+            stroke="#b8860b"
+
+            fill="url(#gold)"
+
+            strokeWidth={3}
+
+            />
+
+
+          </AreaChart>
+
+
+        </ResponsiveContainer>
+
+
+      </section>
 
 
     </div>
