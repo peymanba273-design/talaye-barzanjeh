@@ -1,4 +1,6 @@
-const API_URL = "";
+const API_URL =
+"https://talaye-barzanjeh.peymanba273.workers.dev/api/prices";
+
 
 
 export async function getPrices(){
@@ -7,45 +9,26 @@ export async function getPrices(){
   try{
 
 
-    // وقتی API واقعی پیدا شد این قسمت فعال می‌شود
-
-    if(API_URL){
+    const response = await fetch(API_URL);
 
 
-      const response = await fetch(API_URL);
 
+    if(!response.ok){
 
-      const data = await response.json();
-
-
-      return data;
-
+      throw new Error(
+        "Price API failed"
+      );
 
     }
 
 
 
-    // داده موقت برای تست اتصال
+    const data = await response.json();
 
-    return {
 
-      gold18:7950000,
 
-      gold24:10600000,
+    return data;
 
-      mesghal:34500000,
-
-      coin:85000000,
-
-      halfCoin:45000000,
-
-      quarterCoin:25000000,
-
-      dollar:160000,
-
-      ounce:3350
-
-    };
 
 
   }
@@ -58,6 +41,7 @@ export async function getPrices(){
       "Price API Error:",
       error
     );
+
 
 
     return null;
