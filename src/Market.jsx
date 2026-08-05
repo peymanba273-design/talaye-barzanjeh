@@ -19,6 +19,12 @@ function Market(){
     },
 
     {
+      title:"مثقال طلا",
+      price:"34,450,000 تومان",
+      change:"+0.60%"
+    },
+
+    {
       title:"اونس جهانی",
       price:"3,350 دلار",
       change:"+0.40%"
@@ -28,6 +34,24 @@ function Market(){
       title:"سکه امامی",
       price:"85,000,000 تومان",
       change:"-0.20%"
+    },
+
+    {
+      title:"نیم سکه",
+      price:"45,500,000 تومان",
+      change:"+0.15%"
+    },
+
+    {
+      title:"ربع سکه",
+      price:"26,800,000 تومان",
+      change:"-0.10%"
+    },
+
+    {
+      title:"دلار",
+      price:"160,000 تومان",
+      change:"+0.35%"
     }
 
   ];
@@ -46,7 +70,6 @@ function Market(){
 
 
       <div className="market-top">
-
 
         <p>
           وضعیت لحظه‌ای بازار
@@ -82,11 +105,14 @@ function Market(){
 
 
             <div className="market-price">
+
               {item.price}
+
             </div>
 
 
             <span
+
             className={
               item.change.includes("-")
               ?
@@ -94,6 +120,7 @@ function Market(){
               :
               "positive"
             }
+
             >
 
               {item.change}
@@ -123,7 +150,9 @@ function Market(){
 
 
         <div>
-          نمودار در مرحله بعد به سیستم وصل می‌شود
+
+          نمودار قیمت در مرحله بعد به بازار لحظه‌ای وصل می‌شود
+
         </div>
 
 
