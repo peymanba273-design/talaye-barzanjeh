@@ -2,7 +2,7 @@ import Header from "./src/Header.jsx";
 import Navbar from "./Navbar.jsx";
 
 
-function Layout({children}){
+function Layout({children,page,setPage}){
 
 
   return(
@@ -19,7 +19,10 @@ function Layout({children}){
       </main>
 
 
-      <Navbar />
+      <Navbar
+        page={page}
+        setPage={setPage}
+      />
 
 
     </>
