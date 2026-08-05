@@ -1,6 +1,9 @@
+
 import { useEffect, useState } from "react";
 import "./market.css";
+
 import { getPrices } from "../api/priceApi.js";
+
 
 function Market(){
 
@@ -28,7 +31,6 @@ function Market(){
   );
 
 
-
   const [selected,setSelected]=useState(
     "طلای ۱۸ عیار"
   );
@@ -40,40 +42,25 @@ function Market(){
   async function loadPrices(){
 
 
-    try{
+    const data = await getPrices();
 
 
-      // بعداً API واقعی اینجا قرار می‌گیرد
 
-      /*
-      const response = await fetch(
-        "API_ADDRESS"
-      );
-
-      const data = await response.json();
+    if(data){
 
       setPrices(data);
-      */
-
-
-      setLastUpdate(
-        new Date().toLocaleTimeString("fa-IR")
-      );
-
 
     }
 
-    catch(error){
 
-      console.log(
-        "خطا در دریافت قیمت",
-        error
-      );
 
-    }
+    setLastUpdate(
+      new Date().toLocaleTimeString("fa-IR")
+    );
 
 
   }
+
 
 
 
@@ -83,6 +70,7 @@ function Market(){
 
 
     loadPrices();
+
 
 
     const timer=setInterval(()=>{
@@ -114,11 +102,13 @@ function Market(){
       unit:"تومان"
     },
 
+
     {
       title:"طلای ۲۴ عیار",
       value:prices.gold24,
       unit:"تومان"
     },
+
 
     {
       title:"مثقال طلا",
@@ -126,11 +116,13 @@ function Market(){
       unit:"تومان"
     },
 
+
     {
       title:"سکه امامی",
       value:prices.coin,
       unit:"تومان"
     },
+
 
     {
       title:"نیم سکه",
@@ -138,17 +130,20 @@ function Market(){
       unit:"تومان"
     },
 
+
     {
       title:"ربع سکه",
       value:prices.quarterCoin,
       unit:"تومان"
     },
 
+
     {
       title:"دلار آزاد",
       value:prices.dollar,
       unit:"تومان"
     },
+
 
     {
       title:"اونس جهانی",
@@ -162,15 +157,8 @@ function Market(){
 
 
 
-  const chartPoints =
-  "0,130 50,110 100,120 150,80 200,90 250,60 300,70";
-
-
-
-
-
-
   return(
+
 
     <div className="market-page">
 
@@ -180,9 +168,11 @@ function Market(){
       </h1>
 
 
+
       <div className="update-time">
 
         آخرین بروزرسانی:
+        {" "}
         {lastUpdate}
 
       </div>
@@ -190,60 +180,62 @@ function Market(){
 
 
 
+
       <div className="market-grid">
 
 
-        {
+      {
 
-        markets.map((item,index)=>(
-
-
-          <div
-
-          key={index}
-
-          onClick={()=>setSelected(item.title)}
-
-          className={
-            selected===item.title
-            ?
-            "market-card active"
-            :
-            "market-card"
-          }
-
-          >
+      markets.map((item,index)=>(
 
 
-            <h2>
-              {item.title}
-            </h2>
+        <div
 
+        key={index}
 
-            <strong>
+        onClick={()=>setSelected(item.title)}
 
-              {item.value.toLocaleString("fa-IR")}
-
-            </strong>
-
-
-            <span>
-
-              {item.unit}
-
-            </span>
-
-
-          </div>
-
-
-        ))
-
+        className={
+          selected===item.title
+          ?
+          "market-card active"
+          :
+          "market-card"
         }
+
+        >
+
+
+          <h2>
+            {item.title}
+          </h2>
+
+
+
+          <strong>
+
+          {item.value.toLocaleString("fa-IR")}
+
+          </strong>
+
+
+
+          <span>
+
+          {item.unit}
+
+          </span>
+
+
+        </div>
+
+
+      ))
+
+      }
 
 
       </div>
-
 
 
 
@@ -262,7 +254,7 @@ function Market(){
 
           <polyline
 
-          points={chartPoints}
+          points="0,130 50,110 100,120 150,80 200,90 250,60 300,70"
 
           fill="none"
 
@@ -278,13 +270,16 @@ function Market(){
         </svg>
 
 
+
       </div>
 
 
 
     </div>
 
+
   );
+
 
 }
 
