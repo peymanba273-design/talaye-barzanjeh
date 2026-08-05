@@ -1,1 +1,93 @@
+export default {
 
+  async fetch(request) {
+
+    const url = new URL(request.url);
+
+    // اجازه دسترسی از React
+    const headers = {
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Headers": "*",
+      "Access-Control-Allow-Methods": "GET, OPTIONS",
+      "Content-Type": "application/json; charset=utf-8"
+    };
+
+    // پاسخ به درخواست‌های CORS
+    if (request.method === "OPTIONS") {
+      return new Response(null, {
+        headers
+      });
+    }
+
+    // تست API
+    if (url.pathname === "/") {
+
+      return new Response(
+
+        JSON.stringify({
+
+          name: "Barzanjeh Gold API",
+
+          status: "online",
+
+          version: "1.0.0"
+
+        }),
+
+        {
+          headers
+        }
+
+      );
+
+    }
+
+    // قیمت‌ها (فعلاً آزمایشی)
+    if (url.pathname === "/api/prices") {
+
+      const data = {
+
+        gold18: 7950000,
+
+        gold24: 10600000,
+
+        coin: 85000000,
+
+        dollar: 160000,
+
+        ounce: 3350,
+
+        updated: new Date().toISOString()
+
+      };
+
+      return new Response(
+
+        JSON.stringify(data),
+
+        {
+          headers
+        }
+
+      );
+
+    }
+
+    return new Response(
+
+      JSON.stringify({
+
+        error: "Not Found"
+
+      }),
+
+      {
+        status: 404,
+        headers
+      }
+
+    );
+
+  }
+
+};
