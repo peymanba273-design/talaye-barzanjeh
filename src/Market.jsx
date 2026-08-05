@@ -1,24 +1,14 @@
 import { useState } from "react";
-import {
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  Tooltip,
-  ResponsiveContainer,
-  Area,
-  AreaChart
-} from "recharts";
-
 import "./market.css";
 
 
 function Market(){
 
 
-  const [selected, setSelected] = useState("طلای ۱۸ عیار");
+  const [selected,setSelected]=useState("طلای ۱۸ عیار");
 
-  const [range, setRange] = useState("1D");
+  const [range,setRange]=useState("1D");
+
 
 
   const markets=[
@@ -63,27 +53,44 @@ function Market(){
 
 
 
-  const chartData=[
+  const data=[
 
-    {time:"10",price:7800},
-
-    {time:"12",price:7900},
-
-    {time:"14",price:7850},
-
-    {time:"16",price:8100},
-
-    {time:"18",price:7950},
-
-    {time:"20",price:8300},
+    7800,
+    7920,
+    7880,
+    8050,
+    7980,
+    8200,
+    8350,
+    8300
 
   ];
 
 
 
+  const points=data.map((item,index)=>{
+
+    const x=index*(320/(data.length-1));
+
+    const max=Math.max(...data);
+
+    const min=Math.min(...data);
+
+
+    const y=170-((item-min)/(max-min))*130;
+
+
+    return `${x},${y}`;
+
+  }).join(" ");
+
+
+
   return(
 
+
     <div className="market-page">
+
 
 
       <h1>
@@ -92,7 +99,8 @@ function Market(){
 
 
 
-      <div className="market-grid">
+
+      <section className="market-grid">
 
 
       {
@@ -107,19 +115,27 @@ function Market(){
           onClick={()=>setSelected(item.title)}
 
           className={
+
             selected===item.title
+
             ?
+
             "market-card active"
+
             :
+
             "market-card"
+
           }
 
           >
 
 
+
             <h2>
               {item.title}
             </h2>
+
 
 
             <div className="market-price">
@@ -129,14 +145,21 @@ function Market(){
             </div>
 
 
+
             <span
 
             className={
+
               item.change.includes("-")
+
               ?
+
               "negative"
+
               :
+
               "positive"
+
             }
 
             >
@@ -144,6 +167,7 @@ function Market(){
               {item.change}
 
             </span>
+
 
 
           </div>
@@ -154,7 +178,8 @@ function Market(){
       }
 
 
-      </div>
+      </section>
+
 
 
 
@@ -162,16 +187,21 @@ function Market(){
       <section className="market-chart">
 
 
+
         <div className="chart-title">
 
 
           <h2>
+
             {selected}
+
           </h2>
 
 
           <strong>
+
             7,950,000 تومان
+
           </strong>
 
 
@@ -180,25 +210,34 @@ function Market(){
 
 
 
+
         <div className="range-buttons">
 
 
         {
+
           ["1D","1W","1M","1Y"].map(item=>(
+
 
             <button
 
             key={item}
 
-            className={
-              range===item
-              ?
-              "active-range"
-              :
-              ""
-            }
-
             onClick={()=>setRange(item)}
+
+            className={
+
+              range===item
+
+              ?
+
+              "active-range"
+
+              :
+
+              ""
+
+            }
 
             >
 
@@ -206,7 +245,9 @@ function Market(){
 
             </button>
 
+
           ))
+
         }
 
 
@@ -215,33 +256,59 @@ function Market(){
 
 
 
-        <ResponsiveContainer width="100%" height={280}>
 
 
-          <AreaChart data={chartData}>
+        <div className="svg-chart">
+
+
+          <svg
+
+          viewBox="0 0 320 190"
+
+          preserveAspectRatio="none"
+
+          >
+
 
 
             <defs>
 
+
               <linearGradient
-              id="gold"
+
+              id="area"
+
               x1="0"
+
               y1="0"
+
               x2="0"
+
               y2="1"
+
               >
 
                 <stop
-                offset="5%"
+
+                offset="0%"
+
                 stopColor="#d4af37"
-                stopOpacity={0.4}
+
+                stopOpacity=".45"
+
                 />
 
+
                 <stop
-                offset="95%"
+
+                offset="100%"
+
                 stopColor="#d4af37"
-                stopOpacity={0}
+
+                stopOpacity="0"
+
                 />
+
 
               </linearGradient>
 
@@ -250,45 +317,104 @@ function Market(){
 
 
 
-            <XAxis dataKey="time"/>
 
 
-            <YAxis/>
+            <polyline
 
+            points={points}
 
-            <Tooltip/>
-
-
-
-            <Area
-
-            type="monotone"
-
-            dataKey="price"
+            fill="none"
 
             stroke="#b8860b"
 
-            fill="url(#gold)"
+            strokeWidth="3"
 
-            strokeWidth={3}
+            strokeLinecap="round"
+
+            strokeLinejoin="round"
 
             />
 
 
-          </AreaChart>
 
 
-        </ResponsiveContainer>
+
+            <polygon
+
+            points={`0,170 ${points} 320,170`}
+
+            fill="url(#area)"
+
+            />
+
+
+
+
+
+
+            {
+
+              data.map((item,index)=>{
+
+
+                const x=index*(320/(data.length-1));
+
+                const max=Math.max(...data);
+
+                const min=Math.min(...data);
+
+                const y=170-((item-min)/(max-min))*130;
+
+
+
+                return(
+
+                  <circle
+
+                  key={index}
+
+                  cx={x}
+
+                  cy={y}
+
+                  r="4"
+
+                  fill="#d4af37"
+
+                  />
+
+
+                );
+
+
+              })
+
+            }
+
+
+
+          </svg>
+
+
+
+        </div>
+
+
 
 
       </section>
 
 
+
+
+
     </div>
+
 
   );
 
 }
+
 
 
 export default Market;
