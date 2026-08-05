@@ -1,82 +1,34 @@
-import "./Navbar.css";
+import Header from "./src/Header.jsx";
+import Navbar from "./Navbar.jsx";
 
-function Navbar({ page, setPage }) {
-
-  const items = [
-
-    {
-      id: "market",
-      title: "بازار",
-      icon: "📈"
-    },
-
-    {
-      id: "wallet",
-      title: "کیف پول",
-      icon: "💼"
-    },
-
-    {
-      id: "home",
-      title: "خانه",
-      icon: "⌂",
-      home: true
-    },
-
-    {
-      id: "transactions",
-      title: "تراکنش",
-      icon: "💳"
-    },
-
-    {
-      id: "news",
-      title: "اخبار",
-      icon: "📰"
-    }
-
-  ];
+function Layout({ children, page, setPage }) {
 
   return (
 
-    <nav className="bottom-nav">
+    <>
 
-      {
+      <Header />
 
-        items.map(item => (
+      <main
+        style={{
+          paddingTop: "95px",
+          paddingBottom: "110px"
+        }}
+      >
 
-          <div
+        {children}
 
-            key={item.id}
+      </main>
 
-            onClick={() => setPage(item.id)}
+      <Navbar
+        page={page}
+        setPage={setPage}
+      />
 
-            className={
-              item.home
-                ? `nav-item home-item ${page === item.id ? "active" : ""}`
-                : `nav-item ${page === item.id ? "active" : ""}`
-            }
-
-          >
-
-            <div className="nav-icon">
-              {item.icon}
-            </div>
-
-            <small>
-              {item.title}
-            </small>
-
-          </div>
-
-        ))
-
-      }
-
-    </nav>
+    </>
 
   );
 
 }
 
-export default Navbar;
+export default Layout;
