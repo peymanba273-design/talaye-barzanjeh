@@ -1,70 +1,82 @@
-import { useState } from "react";
+import "./Navbar.css";
 
-import Home from "./src/Home.jsx";
-import Market from "./src/Market.jsx";
-import WalletPage from "./src/WalletPage.jsx";
-import Profile from "./Profile.jsx";
-import Transactions from "./Transactions.jsx";
-import News from "./News.jsx";
+function Navbar({ page, setPage }) {
 
-import Layout from "./Layout.jsx";
+  const items = [
 
+    {
+      id: "market",
+      title: "بازار",
+      icon: "📈"
+    },
 
-function App(){
+    {
+      id: "wallet",
+      title: "کیف پول",
+      icon: "💼"
+    },
 
-  const [page,setPage]=useState("home");
+    {
+      id: "home",
+      title: "خانه",
+      icon: "⌂",
+      home: true
+    },
 
+    {
+      id: "transactions",
+      title: "تراکنش",
+      icon: "💳"
+    },
 
-  function renderPage(){
-
-    switch(page){
-
-      case "market":
-        return <Market />;
-
-
-      case "wallet":
-        return <WalletPage />;
-
-
-      case "profile":
-        return <Profile />;
-
-
-      case "transactions":
-        return <Transactions />;
-
-
-      case "news":
-        return <News />;
-
-
-      default:
-        return <Home />;
-
+    {
+      id: "news",
+      title: "اخبار",
+      icon: "📰"
     }
 
-  }
+  ];
 
+  return (
 
-  return(
+    <nav className="bottom-nav">
 
-    <Layout
+      {
 
-      page={page}
+        items.map(item => (
 
-      setPage={setPage}
+          <div
 
-    >
+            key={item.id}
 
-      {renderPage()}
+            onClick={() => setPage(item.id)}
 
+            className={
+              item.home
+                ? `nav-item home-item ${page === item.id ? "active" : ""}`
+                : `nav-item ${page === item.id ? "active" : ""}`
+            }
 
-    </Layout>
+          >
+
+            <div className="nav-icon">
+              {item.icon}
+            </div>
+
+            <small>
+              {item.title}
+            </small>
+
+          </div>
+
+        ))
+
+      }
+
+    </nav>
 
   );
 
 }
 
-
-export default App;
+export default Navbar;
