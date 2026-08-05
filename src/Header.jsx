@@ -6,39 +6,19 @@ function Header(){
 
   return(
 
-    <header className="top-header">
+    <header className="gold-header">
 
 
-      <div className="brand-area">
+      <button className="header-action">
+        ⚙
+      </button>
 
+
+      <div className="header-logo">
 
         <Logo />
 
-
-        <div className="brand-text">
-
-          <h1>
-            Barzanjeh Gold
-          </h1>
-
-
-          <span>
-            طلا | سرمایه | اعتماد
-          </span>
-
-
-        </div>
-
-
       </div>
-
-
-
-      <button className="settings-btn">
-
-        ⚙
-
-      </button>
 
 
     </header>
