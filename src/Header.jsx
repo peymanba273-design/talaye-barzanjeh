@@ -4,10 +4,34 @@ import "./header.css";
 
 function Header(){
 
-
   return(
 
     <header className="top-header">
+
+
+      <div className="brand-area">
+
+
+        <Logo />
+
+
+        <div className="brand-text">
+
+          <h1>
+            Barzanjeh Gold
+          </h1>
+
+
+          <span>
+            طلا | سرمایه | اعتماد
+          </span>
+
+
+        </div>
+
+
+      </div>
+
 
 
       <button className="settings-btn">
@@ -15,30 +39,6 @@ function Header(){
         ⚙
 
       </button>
-
-
-
-      <div className="logo-center">
-
-
-        <Logo />
-
-
-        <h1>
-
-          Barzanjeh Gold
-
-        </h1>
-
-
-        <span>
-
-          طلا | سرمایه | اعتماد
-
-        </span>
-
-
-      </div>
 
 
     </header>
