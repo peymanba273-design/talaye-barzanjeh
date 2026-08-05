@@ -1,100 +1,69 @@
-
 import { useEffect, useState } from "react";
 import "./market.css";
 
 import { getPrices } from "../api/priceApi.js";
 
 
-function Market(){
+function Market() {
+
+  const [prices, setPrices] = useState({
+    gold18: 0,
+    gold24: 0,
+    mesghal: 0,
+    coin: 0,
+    halfCoin: 0,
+    quarterCoin: 0,
+    dollar: 0,
+    ounce: 0
+  });
 
 
-  const defaultPrices = {
-
-    gold18:7950000,
-    gold24:10600000,
-    mesghal:34500000,
-    coin:85000000,
-    halfCoin:45000000,
-    quarterCoin:25000000,
-    dollar:160000,
-    ounce:3350
-
-  };
-
-
-
-  const [prices,setPrices]=useState(defaultPrices);
-
-
-  const [lastUpdate,setLastUpdate]=useState(
+  const [lastUpdate, setLastUpdate] = useState(
     new Date().toLocaleTimeString("fa-IR")
   );
 
 
-  const [selected,setSelected]=useState(
+  const [selected, setSelected] = useState(
     "طلای ۱۸ عیار"
   );
 
 
-
-
-
-  async function loadPrices(){
-
+  async function loadPrices() {
 
     const data = await getPrices();
 
-
-
-    if(data){
-
+    if (data) {
       setPrices(data);
-
     }
-
-
 
     setLastUpdate(
       new Date().toLocaleTimeString("fa-IR")
     );
 
-
   }
 
 
 
-
-
-
-  useEffect(()=>{
-
+  useEffect(() => {
 
     loadPrices();
 
 
-
-    const timer=setInterval(()=>{
-
+    const timer = setInterval(() => {
 
       loadPrices();
 
-
-    },300000);
-
+    }, 300000);
 
 
-    return ()=>clearInterval(timer);
+    return () => clearInterval(timer);
 
 
-  },[]);
+  }, []);
 
 
 
-
-
-
-
-  const markets=[
+  const markets = [
 
     {
       title:"طلای ۱۸ عیار",
@@ -102,13 +71,11 @@ function Market(){
       unit:"تومان"
     },
 
-
     {
       title:"طلای ۲۴ عیار",
       value:prices.gold24,
       unit:"تومان"
     },
-
 
     {
       title:"مثقال طلا",
@@ -116,13 +83,11 @@ function Market(){
       unit:"تومان"
     },
 
-
     {
       title:"سکه امامی",
       value:prices.coin,
       unit:"تومان"
     },
-
 
     {
       title:"نیم سکه",
@@ -130,20 +95,17 @@ function Market(){
       unit:"تومان"
     },
 
-
     {
       title:"ربع سکه",
       value:prices.quarterCoin,
       unit:"تومان"
     },
 
-
     {
       title:"دلار آزاد",
       value:prices.dollar,
       unit:"تومان"
     },
-
 
     {
       title:"اونس جهانی",
@@ -155,18 +117,13 @@ function Market(){
 
 
 
-
-
-  return(
-
+  return (
 
     <div className="market-page">
-
 
       <h1>
         بازار طلا
       </h1>
-
 
 
       <div className="update-time">
@@ -179,78 +136,67 @@ function Market(){
 
 
 
-
-
       <div className="market-grid">
 
-
       {
+        markets.map((item,index)=>(
 
-      markets.map((item,index)=>(
+          <div
 
+          key={index}
 
-        <div
+          onClick={()=>setSelected(item.title)}
 
-        key={index}
+          className={
+            selected===item.title
+            ?
+            "market-card active"
+            :
+            "market-card"
+          }
 
-        onClick={()=>setSelected(item.title)}
+          >
 
-        className={
-          selected===item.title
-          ?
-          "market-card active"
-          :
-          "market-card"
-        }
-
-        >
-
-
-          <h2>
-            {item.title}
-          </h2>
+            <h2>
+              {item.title}
+            </h2>
 
 
+            <strong>
 
-          <strong>
+            {
+              item.value
+              ?
+              item.value.toLocaleString("fa-IR")
+              :
+              "در حال دریافت..."
+            }
 
-          {item.value.toLocaleString("fa-IR")}
-
-          </strong>
-
-
-
-          <span>
-
-          {item.unit}
-
-          </span>
+            </strong>
 
 
-        </div>
+            <span>
+              {item.unit}
+            </span>
 
 
-      ))
+          </div>
 
+        ))
       }
-
 
       </div>
 
 
 
-
       <div className="market-chart">
-
 
         <h2>
           نمودار {selected}
         </h2>
 
 
-
         <svg viewBox="0 0 320 180">
-
 
           <polyline
 
@@ -266,20 +212,14 @@ function Market(){
 
           />
 
-
         </svg>
-
-
 
       </div>
 
 
-
     </div>
 
-
   );
-
 
 }
 
