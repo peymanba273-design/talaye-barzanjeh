@@ -1,9 +1,8 @@
 import Header from "./src/Header.jsx";
-import Navbar from "./src/Navbar.jsx";
+import Navbar from "./src/components/Navbar.jsx";
 
 
 function Layout({children}){
-
 
   return(
 
@@ -11,16 +10,11 @@ function Layout({children}){
 
       <Header />
 
-
       <main>
-
         {children}
-
       </main>
 
-
       <Navbar />
-
 
     </>
 
