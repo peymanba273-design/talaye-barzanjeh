@@ -1,44 +1,24 @@
-import Header from "./Header.jsx";
-import Navbar from "./Navbar.jsx";
-import "./layout.css";
+import Header from "./src/Header.jsx";
 
 
-function Layout({
-
-  page,
-
-  children,
-
-  setPage
-
-}) {
+function Layout({children}){
 
 
-  return (
+  return(
 
-    <div className="app-layout">
-
+    <>
 
       <Header />
 
 
-      <main className="main-content">
+      <main>
 
         {children}
 
       </main>
 
 
-      <Navbar
-
-        page={page}
-
-        setPage={setPage}
-
-      />
-
-
-    </div>
+    </>
 
   );
 
