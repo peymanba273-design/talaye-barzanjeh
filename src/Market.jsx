@@ -53,7 +53,7 @@ function Market() {
 
       loadPrices();
 
-    }, 300000);
+    }, 30000);
 
 
     return () => clearInterval(timer);
