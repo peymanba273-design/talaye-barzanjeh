@@ -1,7 +1,6 @@
-import Header from "./src/Header.jsx";
-import Navbar from "./Navbar.jsx";
-
-function Layout({ children, page, setPage }) {
+import Home from "./Home.jsx";
+import Market from "./Market.jsx";
+import WalletPage from "./WalletPage.jsx";}) {
 
   return (
 
