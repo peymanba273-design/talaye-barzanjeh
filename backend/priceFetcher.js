@@ -1,106 +1,222 @@
-
+import axios from "axios";
 import fs from "fs";
-import path from "path";
 
 
-const cachePath = path.join(
-  process.cwd(),
-  "cache.json"
-);
+const CACHE_FILE = "./cache.json";
 
-
-
-function readCache(){
-
-  try{
-
-    const data = fs.readFileSync(
-      cachePath,
-      "utf-8"
-    );
-
-    return JSON.parse(data);
-
-  }
-
-  catch(error){
-
-    return {
-
-      gold18:0,
-      gold24:0,
-      coin:0,
-      dollar:0,
-      ounce:0,
-      updated:""
-
-    };
-
-  }
-
-}
 
 
 
 
 function saveCache(data){
 
+
   fs.writeFileSync(
 
-    cachePath,
+    CACHE_FILE,
 
-    JSON.stringify(
-      data,
-      null,
-      2
-    )
+    JSON.stringify(data,null,2)
 
   );
 
+
 }
 
 
 
 
-async function fetchPrices(){
+
+function loadCache(){
 
 
-  /*
-    اینجا بعداً API واقعی قرار می‌گیرد
-
-    مثال:
-
-    API طلا
-    یا سایت ایرانی
-    یا ربات تلگرام
-
-  */
+  try{
 
 
-  const oldData = readCache();
+    const data = fs.readFileSync(
+
+      CACHE_FILE,
+
+      "utf8"
+
+    );
 
 
-
-  const newData={
-
-    ...oldData,
-
-    updated:
-    new Date().toISOString()
-
-  };
+    return JSON.parse(data);
 
 
-
-  saveCache(newData);
-
+  }
 
 
-  return newData;
+  catch{
+
+
+    return null;
+
+  }
 
 
 }
 
 
 
-export default fetchPrices;
+
+
+
+// منبع اصلی - بعداً endpoint واقعی قرار می‌گیرد
+
+async function getTGJU(){
+
+
+  try{
+
+
+    /*
+      اینجا API واقعی TGJU قرار می‌گیرد
+
+      const res = await axios.get(
+        "TGJU_API_URL"
+      );
+
+      return res.data;
+
+    */
+
+
+    throw new Error("TGJU not connected yet");
+
+
+  }
+
+
+  catch(error){
+
+
+    return null;
+
+
+  }
+
+
+}
+
+
+
+
+
+
+// منبع دوم
+
+async function getBackupSource(){
+
+
+  try{
+
+
+    /*
+      منبع پشتیبان
+
+      مثل Gold API یا منبع دیگر
+
+    */
+
+
+    throw new Error("Backup not connected yet");
+
+
+  }
+
+
+  catch{
+
+
+    return null;
+
+
+  }
+
+
+}
+
+
+
+
+
+
+export async function fetchPrices(){
+
+
+  let prices;
+
+
+
+  // اول TGJU
+
+  prices = await getTGJU();
+
+
+
+  // اگر نبود منبع دوم
+
+  if(!prices){
+
+
+    prices = await getBackupSource();
+
+
+  }
+
+
+
+
+
+  // اگر یکی جواب داد ذخیره کن
+
+  if(prices){
+
+
+    saveCache(prices);
+
+
+    return {
+
+      ...prices,
+
+      source:"online"
+
+    };
+
+
+  }
+
+
+
+
+
+  // اگر همه قطع بودند
+
+  const cache = loadCache();
+
+
+
+  if(cache){
+
+
+    return {
+
+      ...cache,
+
+      source:"cache"
+
+    };
+
+
+  }
+
+
+
+
+
+  return null;
+
+
+}
