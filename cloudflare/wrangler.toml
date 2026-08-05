@@ -1,5 +1,7 @@
-name = "barzanjeh-gold-api"
+name = "talaye-barzanjeh"
 
 main = "worker.js"
 
 compatibility_date = "2026-08-06"
+
+workers_dev = true
