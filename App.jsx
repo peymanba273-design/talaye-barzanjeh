@@ -1,33 +1,55 @@
+import { useState } from "react";
+
 import Home from "./Home.jsx";
 import Market from "./Market.jsx";
-import WalletPage from "./WalletPage.jsx";}) {
+import WalletPage from "./WalletPage.jsx";
 
-  return (
+import Layout from "../Layout.jsx";
 
-    <>
 
-      <Header />
+function App(){
 
-      <main
-        style={{
-          paddingTop: "95px",
-          paddingBottom: "110px"
-        }}
-      >
+  const [page,setPage] = useState("home");
 
-        {children}
 
-      </main>
+  function renderPage(){
 
-      <Navbar
-        page={page}
-        setPage={setPage}
-      />
+    switch(page){
 
-    </>
+      case "market":
+        return <Market />;
+
+
+      case "wallet":
+        return <WalletPage />;
+
+
+      default:
+        return <Home />;
+
+    }
+
+  }
+
+
+  return(
+
+    <Layout
+
+      page={page}
+
+      setPage={setPage}
+
+    >
+
+      {renderPage()}
+
+
+    </Layout>
 
   );
 
 }
 
-export default Layout;
+
+export default App;
