@@ -5,7 +5,7 @@ import "./market.css";
 function Market(){
 
 
-  const defaultData = {
+  const defaultPrices = {
 
     gold18:7950000,
     gold24:10600000,
@@ -20,12 +20,13 @@ function Market(){
 
 
 
-  const [prices,setPrices]=useState(defaultData);
+  const [prices,setPrices]=useState(defaultPrices);
 
 
   const [lastUpdate,setLastUpdate]=useState(
     new Date().toLocaleTimeString("fa-IR")
   );
+
 
 
   const [selected,setSelected]=useState(
@@ -35,45 +36,24 @@ function Market(){
 
 
 
-  async function getPrices(){
+
+  async function loadPrices(){
 
 
     try{
 
 
+      // بعداً API واقعی اینجا قرار می‌گیرد
+
       /*
-      بعداً آدرس API واقعی اینجا قرار می‌گیرد
+      const response = await fetch(
+        "API_ADDRESS"
+      );
 
-      مثال:
+      const data = await response.json();
 
-      const response =
-      await fetch("https://api-address.com/prices");
-
-      const data =
-      await response.json();
-
+      setPrices(data);
       */
-
-
-      // فعلاً تست خودکار
-      setPrices(prev=>({
-
-        ...prev,
-
-        gold18:
-        prev.gold18 + Math.floor(Math.random()*2000-1000),
-
-        gold24:
-        prev.gold24 + Math.floor(Math.random()*3000-1500),
-
-        coin:
-        prev.coin + Math.floor(Math.random()*50000-25000),
-
-        dollar:
-        prev.dollar + Math.floor(Math.random()*100-50)
-
-      }));
-
 
 
       setLastUpdate(
@@ -81,12 +61,14 @@ function Market(){
       );
 
 
-
     }
 
     catch(error){
 
-      console.log(error);
+      console.log(
+        "خطا در دریافت قیمت",
+        error
+      );
 
     }
 
@@ -97,24 +79,23 @@ function Market(){
 
 
 
-
-
   useEffect(()=>{
 
 
-    getPrices();
+    loadPrices();
 
 
     const timer=setInterval(()=>{
 
-      getPrices();
 
-    },300000); // هر ۵ دقیقه
+      loadPrices();
+
+
+    },300000);
 
 
 
     return ()=>clearInterval(timer);
-
 
 
   },[]);
@@ -127,13 +108,11 @@ function Market(){
 
   const markets=[
 
-
     {
       title:"طلای ۱۸ عیار",
       value:prices.gold18,
       unit:"تومان"
     },
-
 
     {
       title:"طلای ۲۴ عیار",
@@ -141,13 +120,11 @@ function Market(){
       unit:"تومان"
     },
 
-
     {
       title:"مثقال طلا",
       value:prices.mesghal,
       unit:"تومان"
     },
-
 
     {
       title:"سکه امامی",
@@ -155,13 +132,11 @@ function Market(){
       unit:"تومان"
     },
 
-
     {
       title:"نیم سکه",
       value:prices.halfCoin,
       unit:"تومان"
     },
-
 
     {
       title:"ربع سکه",
@@ -169,13 +144,11 @@ function Market(){
       unit:"تومان"
     },
 
-
     {
       title:"دلار آزاد",
       value:prices.dollar,
       unit:"تومان"
     },
-
 
     {
       title:"اونس جهانی",
@@ -183,183 +156,135 @@ function Market(){
       unit:"دلار"
     }
 
-
   ];
 
 
 
 
 
+  const chartPoints =
+  "0,130 50,110 100,120 150,80 200,90 250,60 300,70";
 
 
-  const chart=[
 
-    7800,
-    7950,
-    7900,
-    8200,
-    8350,
-    8300,
-    8500
 
-  ];
 
 
+  return(
 
-  const points=chart.map((v,i)=>{
+    <div className="market-page">
 
 
-    const x=i*50;
+      <h1>
+        بازار طلا
+      </h1>
 
-    const y=150-(v-7800)/10;
 
+      <div className="update-time">
 
-    return `${x},${y}`;
+        آخرین بروزرسانی:
+        {lastUpdate}
 
+      </div>
 
-  }).join(" ");
 
 
 
+      <div className="market-grid">
 
 
+        {
 
+        markets.map((item,index)=>(
 
-return(
 
-<div className="market-page">
+          <div
 
+          key={index}
 
-<h1>
-بازار طلا
-</h1>
+          onClick={()=>setSelected(item.title)}
 
+          className={
+            selected===item.title
+            ?
+            "market-card active"
+            :
+            "market-card"
+          }
 
+          >
 
-<div className="update-time">
 
-آخرین بروزرسانی:
-{lastUpdate}
+            <h2>
+              {item.title}
+            </h2>
 
-</div>
 
+            <strong>
 
+              {item.value.toLocaleString("fa-IR")}
 
+            </strong>
 
 
-<div className="market-grid">
+            <span>
 
+              {item.unit}
 
-{
+            </span>
 
-markets.map((item,index)=>(
 
+          </div>
 
-<div
 
-key={index}
+        ))
 
-onClick={()=>setSelected(item.title)}
+        }
 
-className={
 
-selected===item.title
+      </div>
 
-?
 
-"market-card active"
 
-:
 
-"market-card"
 
-}
+      <div className="market-chart">
 
 
->
+        <h2>
+          نمودار {selected}
+        </h2>
 
 
-<h2>
-{item.title}
-</h2>
 
+        <svg viewBox="0 0 320 180">
 
 
-<strong>
+          <polyline
 
-{item.value.toLocaleString("fa-IR")}
+          points={chartPoints}
 
-</strong>
+          fill="none"
 
+          stroke="#d4af37"
 
+          strokeWidth="4"
 
-<span>
+          strokeLinecap="round"
 
-{item.unit}
+          />
 
-</span>
 
+        </svg>
 
 
-</div>
+      </div>
 
 
-))
 
+    </div>
 
-}
-
-</div>
-
-
-
-
-
-
-
-<div className="market-chart">
-
-
-<h2>
-
-نمودار {selected}
-
-</h2>
-
-
-
-
-<svg viewBox="0 0 320 180">
-
-
-<polyline
-
-points={points}
-
-fill="none"
-
-stroke="#b8860b"
-
-strokeWidth="4"
-
-strokeLinecap="round"
-
-/>
-
-
-</svg>
-
-
-
-</div>
-
-
-
-</div>
-
-
-);
-
+  );
 
 }
 
