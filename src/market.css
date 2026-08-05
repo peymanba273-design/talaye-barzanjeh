@@ -6,8 +6,9 @@
 
   padding-bottom:110px;
 
-  background:
+  box-sizing:border-box;
 
+  background:
   linear-gradient(
     135deg,
     #f8eddc,
@@ -16,11 +17,11 @@
 
   color:#15100a;
 
-  box-sizing:border-box;
-
 }
 
 
+
+/* عنوان */
 
 .market-page h1{
 
@@ -30,73 +31,7 @@
 
   font-size:30px;
 
-  margin-bottom:20px;
-
-}
-
-
-
-/* وضعیت بازار */
-
-.market-top{
-
-  display:flex;
-
-  justify-content:space-between;
-
-  align-items:center;
-
-  padding:15px 20px;
-
-  border-radius:25px;
-
-
-  background:
-
-  rgba(255,255,255,.35);
-
-
-  backdrop-filter:blur(18px);
-
-  -webkit-backdrop-filter:blur(18px);
-
-
-  border:
-
-  1px solid rgba(184,134,11,.25);
-
-
-  box-shadow:
-
-  0 10px 30px rgba(0,0,0,.08);
-
-  margin-bottom:20px;
-
-}
-
-
-
-.market-top p{
-
-  margin:0;
-
-  color:#63452d;
-
-}
-
-
-
-.market-top strong{
-
-  padding:8px 18px;
-
-  border-radius:20px;
-
-  background:
-
-  rgba(0,140,60,.15);
-
-  color:#08752f;
+  margin:10px 0 25px;
 
 }
 
@@ -108,7 +43,7 @@
 
   display:grid;
 
-  grid-template-columns:repeat(4,1fr);
+  grid-template-columns:repeat(3,1fr);
 
   gap:15px;
 
@@ -118,10 +53,9 @@
 
 .market-card{
 
-
   padding:18px;
 
-  min-height:140px;
+  min-height:130px;
 
   border-radius:25px;
 
@@ -148,6 +82,7 @@
 
   transition:.3s;
 
+  cursor:pointer;
 
 }
 
@@ -156,6 +91,21 @@
 .market-card:hover{
 
   transform:translateY(-5px);
+
+}
+
+
+
+.market-card.active{
+
+  border:
+
+  2px solid #b8860b;
+
+
+  background:
+
+  rgba(255,215,120,.35);
 
 }
 
@@ -189,7 +139,6 @@
 
 .market-card span{
 
-
   display:inline-block;
 
   margin-top:15px;
@@ -201,7 +150,6 @@
   font-size:13px;
 
   font-weight:bold;
-
 
 }
 
@@ -231,18 +179,14 @@
 
 
 
-
-
 /* نمودار */
 
-.chart-placeholder{
+.market-chart{
 
 
   margin-top:25px;
 
-  padding:25px;
-
-  text-align:center;
+  padding:20px;
 
   border-radius:30px;
 
@@ -252,7 +196,9 @@
   rgba(255,255,255,.35);
 
 
-  backdrop-filter:blur(20px);
+  backdrop-filter:blur(22px);
+
+  -webkit-backdrop-filter:blur(22px);
 
 
   border:
@@ -260,19 +206,133 @@
   1px solid rgba(184,134,11,.25);
 
 
-  color:#63452d;
+  box-shadow:
+
+  0 15px 35px rgba(0,0,0,.12);
 
 
 }
 
 
 
-.chart-placeholder h2{
+.chart-title{
+
+  display:flex;
+
+  justify-content:space-between;
+
+  align-items:center;
+
+}
+
+
+
+.chart-title h2{
+
+  margin:0;
+
+  color:#63452d;
+
+  font-size:20px;
+
+}
+
+
+
+.chart-title strong{
 
   color:#b8860b;
 
+  font-size:22px;
+
 }
 
+
+
+/* بازه زمانی */
+
+.range-buttons{
+
+  display:flex;
+
+  gap:10px;
+
+  margin:20px 0;
+
+}
+
+
+
+.range-buttons button{
+
+
+  flex:1;
+
+  padding:9px;
+
+  border:none;
+
+  border-radius:18px;
+
+
+  background:
+
+  rgba(184,134,11,.12);
+
+
+  color:#63452d;
+
+  cursor:pointer;
+
+}
+
+
+
+.range-buttons button.active-range{
+
+
+  background:#b8860b;
+
+  color:white;
+
+}
+
+
+
+
+
+/* نمودار SVG */
+
+.svg-chart{
+
+
+  width:100%;
+
+  height:260px;
+
+  border-radius:25px;
+
+
+  background:
+
+  rgba(255,255,255,.25);
+
+
+  padding:10px;
+
+  box-sizing:border-box;
+
+}
+
+
+
+.svg-chart svg{
+
+  width:100%;
+
+  height:100%;
+
+}
 
 
 
@@ -304,8 +364,6 @@
 
   .market-grid{
 
-    grid-template-columns:repeat(2,1fr);
-
     gap:12px;
 
   }
@@ -315,7 +373,7 @@
 
     padding:14px;
 
-    min-height:125px;
+    min-height:120px;
 
   }
 
@@ -327,9 +385,27 @@
   }
 
 
-  .market-page h1{
+  .chart-title{
 
-    font-size:25px;
+    flex-direction:column;
+
+    gap:10px;
+
+    align-items:flex-start;
+
+  }
+
+
+  .range-buttons button{
+
+    font-size:12px;
+
+  }
+
+
+  .svg-chart{
+
+    height:220px;
 
   }
 
