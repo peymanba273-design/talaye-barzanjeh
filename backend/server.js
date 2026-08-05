@@ -1,7 +1,7 @@
-
 import express from "express";
 import cors from "cors";
-import fetchPrices from "./priceFetcher.js";
+
+import { fetchPrices } from "./priceFetcher.js";
 
 
 const app = express();
@@ -13,12 +13,14 @@ app.use(express.json());
 
 
 
-app.get("/", (req,res)=>{
+
+
+app.get("/",(req,res)=>{
 
 
   res.json({
 
-    status:"Barzanjeh Gold API is running"
+    status:"Barzanjeh Gold Backend Running"
 
   });
 
@@ -29,7 +31,8 @@ app.get("/", (req,res)=>{
 
 
 
-app.get("/api/prices", async (req,res)=>{
+
+app.get("/api/prices",async(req,res)=>{
 
 
   try{
@@ -38,24 +41,40 @@ app.get("/api/prices", async (req,res)=>{
     const prices = await fetchPrices();
 
 
+
+    if(!prices){
+
+
+      return res.status(503).json({
+
+        error:"Price source unavailable"
+
+      });
+
+
+    }
+
+
+
+
     res.json(prices);
 
 
 
   }
 
+
   catch(error){
 
 
     res.status(500).json({
 
-      error:"Price service error"
+      error:error.message
 
     });
 
 
   }
-
 
 
 });
@@ -64,7 +83,9 @@ app.get("/api/prices", async (req,res)=>{
 
 
 
-const PORT = 5000;
+
+
+const PORT = process.env.PORT || 5000;
 
 
 
@@ -73,7 +94,7 @@ app.listen(PORT,()=>{
 
   console.log(
 
-    `Backend running on port ${PORT}`
+    `Barzanjeh Backend running on ${PORT}`
 
   );
 
