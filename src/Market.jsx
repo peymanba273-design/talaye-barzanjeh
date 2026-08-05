@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import "./market.css";
-
+import { getPrices } from "../api/priceApi.js";
 
 function Market(){
 
