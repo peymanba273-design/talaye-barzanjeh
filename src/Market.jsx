@@ -1,13 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./market.css";
 
 
 function Market(){
 
-
   const [selected,setSelected]=useState("طلای ۱۸ عیار");
 
   const [range,setRange]=useState("1D");
+
+  const [prices,setPrices]=useState(null);
+
+
+
+  useEffect(()=>{
+
+
+    fetch("http://localhost:5000/api/prices")
+
+    .then(res=>res.json())
+
+    .then(data=>{
+
+      setPrices(data);
+
+    })
+
+    .catch(error=>{
+
+      console.log(error);
+
+    });
+
+
+  },[]);
+
+
 
 
 
@@ -15,74 +42,112 @@ function Market(){
 
     {
       title:"طلای ۱۸ عیار",
-      price:"7,950,000 تومان",
-      change:"+1.25%"
+      price: prices
+      ?
+      prices.gold18.toLocaleString()+" تومان"
+      :
+      "در حال دریافت..."
     },
+
 
     {
       title:"طلای ۲۴ عیار",
-      price:"10,600,000 تومان",
-      change:"+0.85%"
+      price: prices
+      ?
+      prices.gold24.toLocaleString()+" تومان"
+      :
+      "در حال دریافت..."
     },
+
 
     {
       title:"مثقال طلا",
-      price:"34,450,000 تومان",
-      change:"+0.60%"
+      price: prices
+      ?
+      prices.gold18.toLocaleString()+" تومان"
+      :
+      "در حال دریافت..."
     },
 
-    {
-      title:"اونس جهانی",
-      price:"3,350 دلار",
-      change:"+0.40%"
-    },
 
     {
       title:"سکه امامی",
-      price:"85,000,000 تومان",
-      change:"-0.20%"
+      price: prices
+      ?
+      prices.coin.toLocaleString()+" تومان"
+      :
+      "در حال دریافت..."
     },
+
 
     {
       title:"دلار",
-      price:"160,000 تومان",
-      change:"+0.35%"
+      price: prices
+      ?
+      prices.dollar.toLocaleString()+" تومان"
+      :
+      "در حال دریافت..."
+    },
+
+
+    {
+      title:"اونس جهانی",
+      price: prices
+      ?
+      prices.ounce.toLocaleString()+" دلار"
+      :
+      "در حال دریافت..."
     }
 
+
   ];
 
 
 
-  const data=[
+
+
+  const chartData=[
 
     7800,
-    7920,
-    7880,
-    8050,
-    7980,
-    8200,
-    8350,
-    8300
+    7900,
+    7850,
+    8100,
+    8250,
+    8150,
+    8400,
+    8500
 
   ];
 
 
 
-  const points=data.map((item,index)=>{
-
-    const x=index*(320/(data.length-1));
-
-    const max=Math.max(...data);
-
-    const min=Math.min(...data);
 
 
-    const y=170-((item-min)/(max-min))*130;
+  const max=Math.max(...chartData);
+
+  const min=Math.min(...chartData);
+
+
+
+  const points=chartData.map((item,index)=>{
+
+
+    const x=index*(320/(chartData.length-1));
+
+
+    const y=
+    170-
+    ((item-min)/(max-min))*130;
 
 
     return `${x},${y}`;
 
+
   }).join(" ");
+
+
+
+
 
 
 
@@ -116,20 +181,20 @@ function Market(){
 
           className={
 
-            selected===item.title
+          selected===item.title
 
-            ?
+          ?
 
-            "market-card active"
+          "market-card active"
 
-            :
+          :
 
-            "market-card"
+          "market-card"
 
           }
 
-          >
 
+          >
 
 
             <h2>
@@ -137,37 +202,11 @@ function Market(){
             </h2>
 
 
-
             <div className="market-price">
 
               {item.price}
 
             </div>
-
-
-
-            <span
-
-            className={
-
-              item.change.includes("-")
-
-              ?
-
-              "negative"
-
-              :
-
-              "positive"
-
-            }
-
-            >
-
-              {item.change}
-
-            </span>
-
 
 
           </div>
@@ -184,6 +223,7 @@ function Market(){
 
 
 
+
       <section className="market-chart">
 
 
@@ -192,15 +232,25 @@ function Market(){
 
 
           <h2>
-
             {selected}
-
           </h2>
 
 
           <strong>
 
-            7,950,000 تومان
+          {
+
+          prices
+
+          ?
+
+          "قیمت لحظه‌ای"
+
+          :
+
+          "اتصال به سرور..."
+
+          }
 
           </strong>
 
@@ -223,21 +273,21 @@ function Market(){
 
             key={item}
 
-            onClick={()=>setRange(item)}
-
             className={
 
-              range===item
+            range===item
 
-              ?
+            ?
 
-              "active-range"
+            "active-range"
 
-              :
+            :
 
-              ""
+            ""
 
             }
+
+            onClick={()=>setRange(item)}
 
             >
 
@@ -261,144 +311,82 @@ function Market(){
         <div className="svg-chart">
 
 
-          <svg
+          <svg viewBox="0 0 320 190">
 
-          viewBox="0 0 320 190"
 
-          preserveAspectRatio="none"
 
-          >
+          <polyline
 
+          points={points}
 
+          fill="none"
 
-            <defs>
+          stroke="#b8860b"
 
+          strokeWidth="3"
 
-              <linearGradient
+          strokeLinecap="round"
 
-              id="area"
+          />
 
-              x1="0"
 
-              y1="0"
 
-              x2="0"
 
-              y2="1"
+          <polygon
 
-              >
+          points={`0,170 ${points} 320,170`}
 
-                <stop
+          fill="rgba(184,134,11,.18)"
 
-                offset="0%"
+          />
 
-                stopColor="#d4af37"
 
-                stopOpacity=".45"
 
-                />
 
 
-                <stop
+          {
 
-                offset="100%"
+          chartData.map((item,index)=>{
 
-                stopColor="#d4af37"
 
-                stopOpacity="0"
+            const x=index*(320/(chartData.length-1));
 
-                />
 
+            const y=
+            170-
+            ((item-min)/(max-min))*130;
 
-              </linearGradient>
 
 
-            </defs>
+            return(
 
+              <circle
 
+              key={index}
 
+              cx={x}
 
+              cy={y}
 
-            <polyline
+              r="4"
 
-            points={points}
+              fill="#d4af37"
 
-            fill="none"
+              />
 
-            stroke="#b8860b"
+            )
 
-            strokeWidth="3"
 
-            strokeLinecap="round"
+          })
 
-            strokeLinejoin="round"
-
-            />
-
-
-
-
-
-            <polygon
-
-            points={`0,170 ${points} 320,170`}
-
-            fill="url(#area)"
-
-            />
-
-
-
-
-
-
-            {
-
-              data.map((item,index)=>{
-
-
-                const x=index*(320/(data.length-1));
-
-                const max=Math.max(...data);
-
-                const min=Math.min(...data);
-
-                const y=170-((item-min)/(max-min))*130;
-
-
-
-                return(
-
-                  <circle
-
-                  key={index}
-
-                  cx={x}
-
-                  cy={y}
-
-                  r="4"
-
-                  fill="#d4af37"
-
-                  />
-
-
-                );
-
-
-              })
-
-            }
+          }
 
 
 
           </svg>
 
 
-
         </div>
-
 
 
 
@@ -406,12 +394,11 @@ function Market(){
 
 
 
-
-
     </div>
 
 
   );
+
 
 }
 
