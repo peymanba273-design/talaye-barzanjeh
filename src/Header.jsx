@@ -1,7 +1,5 @@
-import BarzanjehLogo from "./BarzanjehLogo.jsx";
-
-import "./Header.css";
-
+import Logo from "./Logo.jsx";
+import "./header.css";
 
 
 function Header(){
@@ -12,7 +10,6 @@ function Header(){
     <header className="top-header">
 
 
-
       <button className="settings-btn">
 
         ⚙
@@ -21,12 +18,10 @@ function Header(){
 
 
 
-
       <div className="logo-center">
 
 
-        <BarzanjehLogo />
-
+        <Logo />
 
 
         <h1>
@@ -36,7 +31,6 @@ function Header(){
         </h1>
 
 
-
         <span>
 
           طلا | سرمایه | اعتماد
@@ -44,10 +38,7 @@ function Header(){
         </span>
 
 
-
       </div>
-
-
 
 
     </header>
@@ -55,7 +46,6 @@ function Header(){
   );
 
 }
-
 
 
 export default Header;
