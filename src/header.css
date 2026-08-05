@@ -1,6 +1,6 @@
 .top-header{
 
-  height:55px;
+  height:60px;
 
   width:100%;
 
@@ -16,72 +16,146 @@
   background:
 
   linear-gradient(
-    180deg,
-    #fff8e8,
-    #f1dfb8
+    135deg,
+    rgba(248,237,220,.75),
+    rgba(231,200,155,.55)
   );
+
+
+  backdrop-filter:blur(18px);
+
+  -webkit-backdrop-filter:blur(18px);
 
 
   border-bottom:
 
-  1px solid rgba(184,134,11,.35);
+  1px solid rgba(184,134,11,.25);
+
+
+  box-shadow:
+
+  0 8px 25px rgba(0,0,0,.08);
+
+
+  z-index:100;
 
 }
 
 
 
-.logo-place{
+/* اسم برند */
+
+.header-title{
+
+  margin:0;
+
+  font-size:22px;
+
+  font-weight:900;
+
+  letter-spacing:.5px;
+
+
+  background:
+
+  linear-gradient(
+    135deg,
+    #fff8df,
+    #d4af37,
+    #8b6508
+  );
+
+
+  -webkit-background-clip:text;
+
+  background-clip:text;
+
+
+  color:transparent;
+
+
+  text-shadow:
+
+  0 3px 8px rgba(99,69,45,.25);
+
+
+  filter:
+
+  drop-shadow(
+    0 6px 8px rgba(0,0,0,.15)
+  );
+
+}
+
+
+
+/* ساعت و تاریخ */
+
+.header-time{
+
+  position:absolute;
+
+  left:15px;
+
+  top:9px;
+
 
   display:flex;
 
-  align-items:center;
+  flex-direction:column;
 
-  justify-content:center;
 
-  height:45px;
+  padding:5px 10px;
 
-  overflow:hidden;
+
+  border-radius:12px;
+
+
+  background:
+
+  rgba(255,255,255,.25);
+
+
+  backdrop-filter:blur(10px);
+
+  -webkit-backdrop-filter:blur(10px);
+
+
+  border:
+
+  1px solid rgba(184,134,11,.2);
+
+
+  color:#63452d;
+
+
+  font-size:11px;
+
+
+  line-height:16px;
+
+
+  font-weight:700;
 
 }
 
 
 
-.logo-place svg{
-
-  width:35px !important;
-
-  height:35px !important;
-
-  max-width:35px;
-
-  max-height:35px;
-
-}
-
-
-
-.logo-place img{
-
-  width:35px !important;
-
-  height:35px !important;
-
-  object-fit:contain;
-
-}
-
-
+/* آیکون تنظیمات */
 
 .settings-btn{
 
   position:absolute;
 
+
   right:15px;
 
-  top:10px;
+
+  top:14px;
 
 
   width:32px;
+
 
   height:32px;
 
@@ -91,22 +165,27 @@
 
   border:
 
-  1px solid #b8860b;
+  1px solid rgba(184,134,11,.35);
 
 
-  background:#fff;
+  background:
+
+  rgba(255,255,255,.35);
 
 
-  color:#b8860b;
+  backdrop-filter:blur(10px);
+
+  -webkit-backdrop-filter:blur(10px);
 
 
-  font-size:15px;
+  color:#63452d;
 
 
-  display:flex;
+  font-size:16px;
 
-  align-items:center;
 
-  justify-content:center;
+  box-shadow:
+
+  0 5px 15px rgba(0,0,0,.1);
 
 }
